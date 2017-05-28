@@ -41,7 +41,9 @@ class SignInViewController: UIViewController {
 	@IBAction func signInButtonHit(_ sender: UIButton) {
 		if let account = viewModel.authenticateCredentials() {
 			let viewModel = DashboardViewModel(account: account)
-			parent?.fadeToChildViewController(DashboardTabBarViewController(viewModel: viewModel))
+			let navController = UINavigationController(rootViewController: DashboardTabBarViewController(viewModel: viewModel))
+			
+			parent?.fadeToChildViewController(navController)
 		} else {
 			DLog("Error, Could not sign in")
 		}

@@ -34,12 +34,14 @@ class DashboardTabBarViewController: UITabBarController {
 		let messagesViewController = MessagesViewController()
 		let profileViewController = ProfileViewController(viewModel: profileViewModel)
 		
-		feedViewController.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "Feed"), tag: 0)
-		messagesViewController.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "Message"), tag: 1)
-		profileViewController.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "Profile"), tag: 2)
+		feedViewController.tabBarItem = UITabBarItem(title: "Feed", image: UIImage(named: "Feed"), tag: 0)
+		messagesViewController.tabBarItem = UITabBarItem(title: "Messages", image: UIImage(named: "Message"), tag: 1)
+		profileViewController.tabBarItem = UITabBarItem(title: "\(viewModel.activeAccount.name)", image: UIImage(named: "Profile"), tag: 2)
 		
 		self.viewControllers = [feedViewController, messagesViewController, profileViewController]
 		self.setViewControllers(viewControllers, animated: true)
+		
+		self.title = feedViewController.tabBarItem.title
 		
     }
 
@@ -49,6 +51,9 @@ class DashboardTabBarViewController: UITabBarController {
     }
 	
 	// MARK: Control Handlers
+	override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+		title = item.title
+	}
 	
 	// MARK: Private
 	

@@ -11,9 +11,8 @@ import UIKit
 // MARK: Class
 class ProfileViewController: UIViewController {
 	// MARK: Properties
-	@IBOutlet private weak var navigationBar: UINavigationBar!
 	@IBOutlet private weak var profileImage: UIImageView!
-	@IBOutlet private weak var profileLabel: UILabel!
+	@IBOutlet weak var informationStackView: UIStackView!
 	@IBOutlet private weak var yearsPlayedLabel: UILabel!
 	@IBOutlet private weak var zipcodeLabel: UILabel!
 	@IBOutlet private weak var biographyTextView: UITextView!
@@ -41,12 +40,14 @@ class ProfileViewController: UIViewController {
 		profileImage.layer.borderColor = UIColor.black.cgColor
 		profileImage.layer.cornerRadius = profileImage.frame.size.width/2
 		profileImage.clipsToBounds = true
-		profileLabel.text = "\(viewModel.account.name)"
 		yearsPlayedLabel.text = "\(viewModel.account.yearsPlayed) years"
 		zipcodeLabel.text = "\(viewModel.account.zipcode)"
 		
-		let navItem = UINavigationItem(title: "\(viewModel.account.name)");
-		navigationBar.setItems([navItem], animated: false);
+		navigationItem.title = "\(viewModel.account.name)"
+		
+		profileImage.topAnchor.constraint(equalTo: self.topLayoutGuide.bottomAnchor, constant: 5).isActive = true
+		informationStackView.topAnchor.constraint(equalTo: self.topLayoutGuide.bottomAnchor, constant: 5).isActive = true
+		
     }
 
     override func didReceiveMemoryWarning() {
