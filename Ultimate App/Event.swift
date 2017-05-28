@@ -8,53 +8,52 @@
 
 import Foundation
 import UIKit
-import RealmSwift
 
 // MARK: Struct
-class Event: Object {
+struct Event {
 	// MARK: Properties
 	//var time
-	fileprivate(set) var date: NSDate? = nil
-	fileprivate(set) var desc: String = ""
-	fileprivate(set) var maxPlayerCount: Int = 0
-	fileprivate(set) var currentPlayerCount: Int = 0
-	fileprivate(set) var image: UIImage? = nil
-	fileprivate(set) var location: String = ""
+	fileprivate(set) var date: NSDate
+	fileprivate(set) var description: String
+	fileprivate(set) var maxPlayerCount: Int
+	fileprivate(set) var currentPlayerCount: Int
+	fileprivate(set) var image: UIImage
+	fileprivate(set) var location: String
 	
 	// MARK: Life Cycle
-//	init (date: NSDate, description: String, maxPlayerCount: Int, currentPlayerCount: Int, image: UIImage, location: String) {
-//		self.date = date
-//		self.desc = description
-//		self.maxPlayerCount = maxPlayerCount
-//		self.currentPlayerCount = currentPlayerCount
-//		self.image = image
-//		self.location = location
-//	}
+	init (date: NSDate, description: String, maxPlayerCount: Int, currentPlayerCount: Int, image: UIImage, location: String) {
+		self.date = date
+		self.description = description
+		self.maxPlayerCount = maxPlayerCount
+		self.currentPlayerCount = currentPlayerCount
+		self.image = image
+		self.location = location
+	}
 	
 	// MARK: Private
 	
 	// MARK: Public
-	func updateDate(date: NSDate) {
+	mutating func updateDate(date: NSDate) {
 		self.date = date
 	}
 	
-	func updateDescription(description: String) {
-		self.desc = description
+	mutating func updateDescription(description: String) {
+		self.description = description
 	}
 	
-	func updateMaxPlayerCount(maxPlayerCount: Int) {
+	mutating func updateMaxPlayerCount(maxPlayerCount: Int) {
 		self.maxPlayerCount = maxPlayerCount
 	}
 	
-	func updateCurrentPlayerCount(currentPlayerCount: Int) {
+	mutating func updateCurrentPlayerCount(currentPlayerCount: Int) {
 		self.currentPlayerCount = currentPlayerCount
 	}
 	
-	func updateImage(image: UIImage) {
+	mutating func updateImage(image: UIImage) {
 		self.image = image
 	}
 	
-	func updateLocation(location: String) {
+	mutating func updateLocation(location: String) {
 		self.location = location
 	}
 }

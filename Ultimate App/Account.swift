@@ -13,25 +13,24 @@ import RealmSwift
 var dataStore: DataStoreModel = DataStoreModel()
 
 // MARK: Struct
-class Account: Object {
+class Account {
 	// MARK: Properties
-	fileprivate(set) dynamic var name: String = ""
-	fileprivate(set) dynamic var email: String = ""
-	fileprivate(set) dynamic var password: String = ""
-	fileprivate(set) dynamic var zipcode: String = ""
-	fileprivate(set) dynamic var yearsPlayed: String = ""
-	fileprivate(set) dynamic var biography: String? = nil
-	fileprivate(set) var favoriteEvents = List<Event>()
-	
+	fileprivate(set) dynamic var name: String
+	fileprivate(set) dynamic var email: String
+	fileprivate(set) dynamic var password: String
+	fileprivate(set) dynamic var zipcode: String
+	fileprivate(set) dynamic var yearsPlayed: String
+	fileprivate(set) dynamic var biography: String?
+	fileprivate(set) var favoriteEvents: [Event]?
 	
 	// MARK: Life Cycle
-//	init (name: String, email: String, password: String, zipcode: String, yearsPlayed: String) {
-//		self.name = name
-//		self.email = email
-//		self.password = password
-//		self.zipcode = zipcode
-//		self.yearsPlayed = yearsPlayed
-//	}
+	init (name: String, email: String, password: String, zipcode: String, yearsPlayed: String) {
+		self.name = name
+		self.email = email
+		self.password = password
+		self.zipcode = zipcode
+		self.yearsPlayed = yearsPlayed
+	}
 	
 	// MARK: Public
 	func updateName(name: String) {

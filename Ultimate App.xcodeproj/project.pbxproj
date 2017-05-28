@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1F6F4D2A1EDA8332003EEB11 /* RealmObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6F4D291EDA8332003EEB11 /* RealmObject.swift */; };
 		1F8751C41ED167C7006F5733 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8751C31ED167C7006F5733 /* AppDelegate.swift */; };
 		1F8751CB1ED167C7006F5733 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F8751CA1ED167C7006F5733 /* Assets.xcassets */; };
 		1F8751CE1ED167C7006F5733 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F8751CC1ED167C7006F5733 /* LaunchScreen.storyboard */; };
@@ -56,7 +55,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1F6F4D291EDA8332003EEB11 /* RealmObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmObject.swift; sourceTree = "<group>"; };
 		1F8751C01ED167C7006F5733 /* Ultimate App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ultimate App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F8751C31ED167C7006F5733 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F8751CA1ED167C7006F5733 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -205,7 +203,6 @@
 				1F87520D1ED175D3006F5733 /* DataStore.swift */,
 				1FF632F61ED25C94007AED58 /* Event.swift */,
 				1FF632F41ED25B93007AED58 /* Message.swift */,
-				1F6F4D291EDA8332003EEB11 /* RealmObject.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -463,7 +460,6 @@
 			files = (
 				1F8751FC1ED16893006F5733 /* CreateAccountViewController.swift in Sources */,
 				1F8752021ED16B70006F5733 /* CreateAccountViewModel.swift in Sources */,
-				1F6F4D2A1EDA8332003EEB11 /* RealmObject.swift in Sources */,
 				1F8752041ED1709B006F5733 /* SignInViewModel.swift in Sources */,
 				1FEE0E601ED21F710043EEAB /* Utils.swift in Sources */,
 				1F87520E1ED175D3006F5733 /* DataStore.swift in Sources */,
