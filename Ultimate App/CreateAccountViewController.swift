@@ -17,7 +17,6 @@ class CreateAccountViewController: UIViewController {
 	@IBOutlet private weak var passwordTextField: UITextField!
 	@IBOutlet private weak var zipcodeTextField: UITextField!
 	
-	// fuck me hard
 	private var viewModel: AccountCreatable = CreateAccountViewModel()
 	
 	// MARK: Life Cycle
