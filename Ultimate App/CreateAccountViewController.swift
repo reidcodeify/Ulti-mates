@@ -16,7 +16,7 @@ class CreateAccountViewController: UIViewController {
 	@IBOutlet private weak var emailTextField: UITextField!
 	@IBOutlet private weak var passwordTextField: UITextField!
 	@IBOutlet private weak var zipcodeTextField: UITextField!
-	
+
 	private var viewModel: AccountCreatable = CreateAccountViewModel()
 	
 	// MARK: Life Cycle
