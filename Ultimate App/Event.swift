@@ -8,52 +8,53 @@
 
 import Foundation
 import UIKit
+import RealmSwift
 
 // MARK: Struct
-struct Event {
+class Event: Object {
 	// MARK: Properties
-	//var time
-	fileprivate(set) var date: NSDate
-	fileprivate(set) var description: String
-	fileprivate(set) var maxPlayerCount: Int
-	fileprivate(set) var currentPlayerCount: Int
-	fileprivate(set) var image: UIImage
-	fileprivate(set) var location: String
+	dynamic var date: NSDate = NSDate()
+	dynamic var desc: String = ""
+	dynamic var maxPlayerCount: Int = 0
+	dynamic var currentPlayerCount: Int = 0
+	//dynamic var image: UIImage
+	dynamic var location: String = ""
 	
 	// MARK: Life Cycle
-	init (date: NSDate, description: String, maxPlayerCount: Int, currentPlayerCount: Int, image: UIImage, location: String) {
+	convenience init (date: NSDate, description: String, maxPlayerCount: Int, currentPlayerCount: Int, image: UIImage, location: String) {
+		self.init()
 		self.date = date
-		self.description = description
+		self.desc = description
 		self.maxPlayerCount = maxPlayerCount
 		self.currentPlayerCount = currentPlayerCount
-		self.image = image
+		//self.image = image
 		self.location = location
 	}
 	
 	// MARK: Private
 	
 	// MARK: Public
-	mutating func updateDate(date: NSDate) {
+	func updateDate(date: NSDate) {
 		self.date = date
 	}
 	
-	mutating func updateDescription(description: String) {
-		self.description = description
+	func updateDescription(description: String) {
+		self.desc = description
 	}
 	
-	mutating func updateMaxPlayerCount(maxPlayerCount: Int) {
+	func updateMaxPlayerCount(maxPlayerCount: Int) {
 		self.maxPlayerCount = maxPlayerCount
 	}
 	
-	mutating func updateCurrentPlayerCount(currentPlayerCount: Int) {
+	func updateCurrentPlayerCount(currentPlayerCount: Int) {
 		self.currentPlayerCount = currentPlayerCount
 	}
 	
-	mutating func updateImage(image: UIImage) {
-		self.image = image
-	}
+//	func updateImage(image: UIImage) {
+//		self.image = image
+//	}
 	
-	mutating func updateLocation(location: String) {
+	func updateLocation(location: String) {
 		self.location = location
 	}
 }

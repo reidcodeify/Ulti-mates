@@ -11,6 +11,7 @@ import UIKit
 // MARK: Class
 class ProfileViewController: UIViewController {
 	// MARK: Properties
+	@IBOutlet private weak var navigationBar: UINavigationBar!
 	@IBOutlet private weak var profileImage: UIImageView!
 	@IBOutlet private weak var profileLabel: UILabel!
 	@IBOutlet private weak var yearsPlayedLabel: UILabel!
@@ -36,15 +37,16 @@ class ProfileViewController: UIViewController {
         // Do any additional setup after loading the view.
 		self.hideKeyboardWhenScreenTapped()
 		
-		profileImage.layer.borderWidth = 1.0
+		profileImage.layer.borderWidth = 0.5
 		profileImage.layer.borderColor = UIColor.black.cgColor
 		profileImage.layer.cornerRadius = profileImage.frame.size.width/2
 		profileImage.clipsToBounds = true
 		profileLabel.text = "\(viewModel.account.name)"
 		yearsPlayedLabel.text = "\(viewModel.account.yearsPlayed) years"
 		zipcodeLabel.text = "\(viewModel.account.zipcode)"
-		biographyTextView.layer.borderWidth = 1.0
-		biographyTextView.layer.borderColor = UIColor.black.cgColor
+		
+		let navItem = UINavigationItem(title: "\(viewModel.account.name)");
+		navigationBar.setItems([navItem], animated: false);
     }
 
     override func didReceiveMemoryWarning() {

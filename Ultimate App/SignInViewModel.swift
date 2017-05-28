@@ -40,7 +40,7 @@ class SignInViewModel: SignInable {
 	
 	func authenticateCredentials() -> Account? { // This is a good unit test
 		// If this account exists within the Realm storage, then proceed, otherwise deny access
-		for account in dataStore.data! {
+		for account in ultimateRealm.objects(Account.self) {
 			if (account.email == email && account.password == password) {
 				return account
 			}

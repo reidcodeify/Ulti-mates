@@ -7,6 +7,10 @@
 //
 
 import UIKit
+import Realm
+import RealmSwift
+
+let ultimateRealm = try! Realm()
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,8 +22,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		self.window = UIWindow(frame: UIScreen.main.bounds)
 		
 		let rootVC = UIViewController()
-		rootVC.setInitialViewController(CreateAccountViewController())
-		
+		if UserDefaults.standard.isFirstLaunch() {
+			rootVC.setInitialViewController(CreateAccountViewController())
+		} else {
+			rootVC.setInitialViewController(SignInViewController())
+		}
+
 		window?.rootViewController = rootVC
 		window?.makeKeyAndVisible()
 		

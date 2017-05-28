@@ -8,23 +8,25 @@
 
 import Foundation
 import RealmSwift
+import Realm
 
 // Global DataStore of Accounts
 var dataStore: DataStoreModel = DataStoreModel()
 
 // MARK: Struct
-class Account {
+class Account: Object {
 	// MARK: Properties
-	fileprivate(set) dynamic var name: String
-	fileprivate(set) dynamic var email: String
-	fileprivate(set) dynamic var password: String
-	fileprivate(set) dynamic var zipcode: String
-	fileprivate(set) dynamic var yearsPlayed: String
-	fileprivate(set) dynamic var biography: String?
-	fileprivate(set) var favoriteEvents: [Event]?
+	dynamic var name: String = ""
+	dynamic var email: String = ""
+	dynamic var password: String = ""
+	dynamic var zipcode: String = ""
+	dynamic var yearsPlayed: String = ""
+	dynamic var biography: String? = nil
+	var favoriteEvents = List<Event>()
 	
 	// MARK: Life Cycle
-	init (name: String, email: String, password: String, zipcode: String, yearsPlayed: String) {
+	convenience init (name: String, email: String, password: String, zipcode: String, yearsPlayed: String) {
+		self.init()
 		self.name = name
 		self.email = email
 		self.password = password

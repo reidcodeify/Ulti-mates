@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F1072C61EDB5DE400882053 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1072C51EDB5DE400882053 /* Line.swift */; };
 		1F8751C41ED167C7006F5733 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8751C31ED167C7006F5733 /* AppDelegate.swift */; };
 		1F8751CB1ED167C7006F5733 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F8751CA1ED167C7006F5733 /* Assets.xcassets */; };
 		1F8751CE1ED167C7006F5733 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F8751CC1ED167C7006F5733 /* LaunchScreen.storyboard */; };
@@ -55,6 +56,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F1072C51EDB5DE400882053 /* Line.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 		1F8751C01ED167C7006F5733 /* Ultimate App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ultimate App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F8751C31ED167C7006F5733 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F8751CA1ED167C7006F5733 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 				1F8751C31ED167C7006F5733 /* AppDelegate.swift */,
 				1F8751F11ED1682F006F5733 /* Extensions.swift */,
 				1FEE0E5F1ED21F710043EEAB /* Utils.swift */,
+				1F1072C51EDB5DE400882053 /* Line.swift */,
 				1F8751CA1ED167C7006F5733 /* Assets.xcassets */,
 				1F8751CC1ED167C7006F5733 /* LaunchScreen.storyboard */,
 				1F8751F41ED16841006F5733 /* Models */,
@@ -473,6 +476,7 @@
 				1F8751F21ED1682F006F5733 /* Extensions.swift in Sources */,
 				1F8751F81ED16885006F5733 /* SignInViewController.swift in Sources */,
 				1FF632F51ED25B93007AED58 /* Message.swift in Sources */,
+				1F1072C61EDB5DE400882053 /* Line.swift in Sources */,
 				1FEE0E5D1ED219CD0043EEAB /* FeedViewController.swift in Sources */,
 				1F87520A1ED17434006F5733 /* DashboardViewModel.swift in Sources */,
 			);

@@ -34,7 +34,17 @@ class CreateAccountViewController: UIViewController {
 	// MARK: Control Handlers
 	@IBAction func createButtonHit(_ sender: UIButton) {
 		// Create an account and add it to the local storage
-		dataStore.data?.append(Account(name: viewModel.name, email: viewModel.email, password: viewModel.password, zipcode: viewModel.zipcode, yearsPlayed: viewModel.yearsPlayed))
+		let account = Account(name: viewModel.name, email: viewModel.email, password: viewModel.password, zipcode: viewModel.zipcode, yearsPlayed: viewModel.yearsPlayed)
+		
+		do {
+			try ultimateRealm.write {
+				ultimateRealm.add(account)
+			}
+		} catch {
+			// Handle the error that the realm could not be written to
+			DLog("Error. could not write to realm bro")
+		}
+		
 		// Present Sign-in Screen
 		parent?.fadeToChildViewController(SignInViewController())
 	}
