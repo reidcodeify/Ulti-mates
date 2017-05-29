@@ -11,10 +11,10 @@ import UIKit
 // MARK: Class
 class SignInViewController: UIViewController {
 	// MARK: Properties
-	@IBOutlet private weak var emailTextField: UITextField!
-	@IBOutlet private weak var passwordTextField: UITextField!
+	@IBOutlet fileprivate weak var emailTextField: UITextField!
+	@IBOutlet fileprivate weak var passwordTextField: UITextField!
 	
-	private var viewModel: SignInViewModel = SignInViewModel()
+	fileprivate var viewModel: SignInViewModel = SignInViewModel()
 	
     override func viewDidLoad() {
         super.viewDidLoad()
