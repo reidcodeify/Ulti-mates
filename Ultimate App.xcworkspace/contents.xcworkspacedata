@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Ultimate App.xcodeproj">
+      location = "group:/Users/travis/Desktop/Ultimate App/Ulti-mates.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">

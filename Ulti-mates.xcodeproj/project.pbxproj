@@ -65,15 +65,15 @@
 		1F45840A1EDCCC0C0024F49B /* WelcomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
 		1F45840C1EDCCEA80024F49B /* LogInView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
 		1F45840E1EDCCEE50024F49B /* LogInView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LogInView.xib; sourceTree = "<group>"; };
-		1F8751C01ED167C7006F5733 /* Ultimate App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ultimate App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F8751C01ED167C7006F5733 /* Ulti-mates.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ulti-mates.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F8751C31ED167C7006F5733 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F8751CA1ED167C7006F5733 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1F8751CD1ED167C7006F5733 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1F8751CF1ED167C7006F5733 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1F8751D41ED167C8006F5733 /* Ultimate AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Ultimate AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F8751D41ED167C8006F5733 /* Ulti-matesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Ulti-matesTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F8751D81ED167C8006F5733 /* Ultimate_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ultimate_AppTests.swift; sourceTree = "<group>"; };
 		1F8751DA1ED167C8006F5733 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1F8751DF1ED167C8006F5733 /* Ultimate AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Ultimate AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F8751DF1ED167C8006F5733 /* Ulti-matesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Ulti-matesUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F8751E31ED167C8006F5733 /* Ultimate_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ultimate_AppUITests.swift; sourceTree = "<group>"; };
 		1F8751E51ED167C8006F5733 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F8751F11ED1682F006F5733 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -136,9 +136,9 @@
 		1F8751B71ED167C7006F5733 = {
 			isa = PBXGroup;
 			children = (
-				1F8751C21ED167C7006F5733 /* Ultimate App */,
-				1F8751D71ED167C8006F5733 /* Ultimate AppTests */,
-				1F8751E21ED167C8006F5733 /* Ultimate AppUITests */,
+				1F8751C21ED167C7006F5733 /* Ulti-mates */,
+				1F8751D71ED167C8006F5733 /* Ulti-mates Unit Tests */,
+				1F8751E21ED167C8006F5733 /* Ulti-mates UI Tests */,
 				1F8751C11ED167C7006F5733 /* Products */,
 				892C59E85AEE9E5497BCEB3A /* Pods */,
 				1679214D7F90BDB60A24C222 /* Frameworks */,
@@ -148,14 +148,14 @@
 		1F8751C11ED167C7006F5733 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1F8751C01ED167C7006F5733 /* Ultimate App.app */,
-				1F8751D41ED167C8006F5733 /* Ultimate AppTests.xctest */,
-				1F8751DF1ED167C8006F5733 /* Ultimate AppUITests.xctest */,
+				1F8751C01ED167C7006F5733 /* Ulti-mates.app */,
+				1F8751D41ED167C8006F5733 /* Ulti-matesTests.xctest */,
+				1F8751DF1ED167C8006F5733 /* Ulti-matesUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		1F8751C21ED167C7006F5733 /* Ultimate App */ = {
+		1F8751C21ED167C7006F5733 /* Ulti-mates */ = {
 			isa = PBXGroup;
 			children = (
 				1F8751CF1ED167C7006F5733 /* Info.plist */,
@@ -169,24 +169,27 @@
 				1F8751F51ED16847006F5733 /* View Models */,
 				1F8751FE1ED1689A006F5733 /* Views */,
 			);
+			name = "Ulti-mates";
 			path = "Ultimate App";
 			sourceTree = "<group>";
 		};
-		1F8751D71ED167C8006F5733 /* Ultimate AppTests */ = {
+		1F8751D71ED167C8006F5733 /* Ulti-mates Unit Tests */ = {
 			isa = PBXGroup;
 			children = (
 				1F8751D81ED167C8006F5733 /* Ultimate_AppTests.swift */,
 				1F8751DA1ED167C8006F5733 /* Info.plist */,
 			);
+			name = "Ulti-mates Unit Tests";
 			path = "Ultimate AppTests";
 			sourceTree = "<group>";
 		};
-		1F8751E21ED167C8006F5733 /* Ultimate AppUITests */ = {
+		1F8751E21ED167C8006F5733 /* Ulti-mates UI Tests */ = {
 			isa = PBXGroup;
 			children = (
 				1F8751E31ED167C8006F5733 /* Ultimate_AppUITests.swift */,
 				1F8751E51ED167C8006F5733 /* Info.plist */,
 			);
+			name = "Ulti-mates UI Tests";
 			path = "Ultimate AppUITests";
 			sourceTree = "<group>";
 		};
@@ -277,9 +280,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1F8751BF1ED167C7006F5733 /* Ultimate App */ = {
+		1F8751BF1ED167C7006F5733 /* Ulti-mates */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1F8751E81ED167C8006F5733 /* Build configuration list for PBXNativeTarget "Ultimate App" */;
+			buildConfigurationList = 1F8751E81ED167C8006F5733 /* Build configuration list for PBXNativeTarget "Ulti-mates" */;
 			buildPhases = (
 				941D694E735C9E975FCA606E /* [CP] Check Pods Manifest.lock */,
 				1F8751BC1ED167C7006F5733 /* Sources */,
@@ -292,14 +295,14 @@
 			);
 			dependencies = (
 			);
-			name = "Ultimate App";
+			name = "Ulti-mates";
 			productName = "Ultimate App";
-			productReference = 1F8751C01ED167C7006F5733 /* Ultimate App.app */;
+			productReference = 1F8751C01ED167C7006F5733 /* Ulti-mates.app */;
 			productType = "com.apple.product-type.application";
 		};
-		1F8751D31ED167C8006F5733 /* Ultimate AppTests */ = {
+		1F8751D31ED167C8006F5733 /* Ulti-matesTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1F8751EB1ED167C8006F5733 /* Build configuration list for PBXNativeTarget "Ultimate AppTests" */;
+			buildConfigurationList = 1F8751EB1ED167C8006F5733 /* Build configuration list for PBXNativeTarget "Ulti-matesTests" */;
 			buildPhases = (
 				1F8751D01ED167C8006F5733 /* Sources */,
 				1F8751D11ED167C8006F5733 /* Frameworks */,
@@ -310,14 +313,14 @@
 			dependencies = (
 				1F8751D61ED167C8006F5733 /* PBXTargetDependency */,
 			);
-			name = "Ultimate AppTests";
+			name = "Ulti-matesTests";
 			productName = "Ultimate AppTests";
-			productReference = 1F8751D41ED167C8006F5733 /* Ultimate AppTests.xctest */;
+			productReference = 1F8751D41ED167C8006F5733 /* Ulti-matesTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		1F8751DE1ED167C8006F5733 /* Ultimate AppUITests */ = {
+		1F8751DE1ED167C8006F5733 /* Ulti-matesUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1F8751EE1ED167C8006F5733 /* Build configuration list for PBXNativeTarget "Ultimate AppUITests" */;
+			buildConfigurationList = 1F8751EE1ED167C8006F5733 /* Build configuration list for PBXNativeTarget "Ulti-matesUITests" */;
 			buildPhases = (
 				1F8751DB1ED167C8006F5733 /* Sources */,
 				1F8751DC1ED167C8006F5733 /* Frameworks */,
@@ -328,9 +331,9 @@
 			dependencies = (
 				1F8751E11ED167C8006F5733 /* PBXTargetDependency */,
 			);
-			name = "Ultimate AppUITests";
+			name = "Ulti-matesUITests";
 			productName = "Ultimate AppUITests";
-			productReference = 1F8751DF1ED167C8006F5733 /* Ultimate AppUITests.xctest */;
+			productReference = 1F8751DF1ED167C8006F5733 /* Ulti-matesUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -362,7 +365,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 1F8751BB1ED167C7006F5733 /* Build configuration list for PBXProject "Ultimate App" */;
+			buildConfigurationList = 1F8751BB1ED167C7006F5733 /* Build configuration list for PBXProject "Ulti-mates" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -375,9 +378,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1F8751BF1ED167C7006F5733 /* Ultimate App */,
-				1F8751D31ED167C8006F5733 /* Ultimate AppTests */,
-				1F8751DE1ED167C8006F5733 /* Ultimate AppUITests */,
+				1F8751BF1ED167C7006F5733 /* Ulti-mates */,
+				1F8751D31ED167C8006F5733 /* Ulti-matesTests */,
+				1F8751DE1ED167C8006F5733 /* Ulti-matesUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -511,12 +514,12 @@
 /* Begin PBXTargetDependency section */
 		1F8751D61ED167C8006F5733 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 1F8751BF1ED167C7006F5733 /* Ultimate App */;
+			target = 1F8751BF1ED167C7006F5733 /* Ulti-mates */;
 			targetProxy = 1F8751D51ED167C8006F5733 /* PBXContainerItemProxy */;
 		};
 		1F8751E11ED167C8006F5733 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 1F8751BF1ED167C7006F5733 /* Ultimate App */;
+			target = 1F8751BF1ED167C7006F5733 /* Ulti-mates */;
 			targetProxy = 1F8751E01ED167C8006F5733 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -663,7 +666,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.codeify.Ultimate-AppTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Ultimate App.app/Ultimate App";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Ulti-mates.app/Ulti-mates";
 			};
 			name = Debug;
 		};
@@ -678,7 +681,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.codeify.Ultimate-AppTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Ultimate App.app/Ultimate App";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Ulti-mates.app/Ulti-mates";
 			};
 			name = Release;
 		};
@@ -713,7 +716,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1F8751BB1ED167C7006F5733 /* Build configuration list for PBXProject "Ultimate App" */ = {
+		1F8751BB1ED167C7006F5733 /* Build configuration list for PBXProject "Ulti-mates" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1F8751E61ED167C8006F5733 /* Debug */,
@@ -722,7 +725,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1F8751E81ED167C8006F5733 /* Build configuration list for PBXNativeTarget "Ultimate App" */ = {
+		1F8751E81ED167C8006F5733 /* Build configuration list for PBXNativeTarget "Ulti-mates" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1F8751E91ED167C8006F5733 /* Debug */,
@@ -731,7 +734,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1F8751EB1ED167C8006F5733 /* Build configuration list for PBXNativeTarget "Ultimate AppTests" */ = {
+		1F8751EB1ED167C8006F5733 /* Build configuration list for PBXNativeTarget "Ulti-matesTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1F8751EC1ED167C8006F5733 /* Debug */,
@@ -740,7 +743,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1F8751EE1ED167C8006F5733 /* Build configuration list for PBXNativeTarget "Ultimate AppUITests" */ = {
+		1F8751EE1ED167C8006F5733 /* Build configuration list for PBXNativeTarget "Ulti-matesUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1F8751EF1ED167C8006F5733 /* Debug */,

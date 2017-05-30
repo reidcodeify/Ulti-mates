@@ -53,9 +53,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1F8751BF1ED167C7006F5733"
-            BuildableName = "Ultimate App.app"
-            BlueprintName = "Ultimate App"
-            ReferencedContainer = "container:Ultimate App.xcodeproj">
+            BuildableName = "Ulti-mates.app"
+            BlueprintName = "Ulti-mates"
+            ReferencedContainer = "container:Ulti-mates.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -76,9 +76,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1F8751BF1ED167C7006F5733"
-            BuildableName = "Ultimate App.app"
-            BlueprintName = "Ultimate App"
-            ReferencedContainer = "container:Ultimate App.xcodeproj">
+            BuildableName = "Ulti-mates.app"
+            BlueprintName = "Ulti-mates"
+            ReferencedContainer = "container:Ulti-mates.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
