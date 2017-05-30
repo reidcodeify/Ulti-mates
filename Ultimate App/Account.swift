@@ -10,8 +10,11 @@ import Foundation
 import RealmSwift
 import Realm
 
-// Global DataStore of Accounts
-var dataStore: DataStoreModel = DataStoreModel()
+/*
+	create protocol for accounts "AccountIdentifiable" break it up:
+		- activeAccount
+		- otherAccount (for diaplay only)
+*/
 
 // MARK: Struct
 class Account: Object {
@@ -20,7 +23,7 @@ class Account: Object {
 	dynamic var email: String = ""
 	dynamic var password: String = ""
 	dynamic var zipcode: String = ""
-	dynamic var yearsPlayed: String = ""
+	dynamic var yearsPlayed: String = "" // calculate time played from a given date
 	dynamic var biography: String? = nil
 	var favoriteEvents = List<Event>()
 	

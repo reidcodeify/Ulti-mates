@@ -9,18 +9,19 @@
 /* Begin PBXBuildFile section */
 		1F1072C91EDBD0B300882053 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1072C71EDBD0B300882053 /* WelcomeViewController.swift */; };
 		1F1072CA1EDBD0B300882053 /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F1072C81EDBD0B300882053 /* WelcomeViewController.xib */; };
+		1F4584071EDCC9030024F49B /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4584061EDCC9030024F49B /* SignUpView.swift */; };
+		1F4584091EDCC91B0024F49B /* SignUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F4584081EDCC91B0024F49B /* SignUpView.xib */; };
+		1F45840B1EDCCC0C0024F49B /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F45840A1EDCCC0C0024F49B /* WelcomeViewModel.swift */; };
+		1F45840D1EDCCEA80024F49B /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F45840C1EDCCEA80024F49B /* LogInView.swift */; };
+		1F45840F1EDCCEE50024F49B /* LogInView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F45840E1EDCCEE50024F49B /* LogInView.xib */; };
 		1F8751C41ED167C7006F5733 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8751C31ED167C7006F5733 /* AppDelegate.swift */; };
 		1F8751CB1ED167C7006F5733 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F8751CA1ED167C7006F5733 /* Assets.xcassets */; };
 		1F8751CE1ED167C7006F5733 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F8751CC1ED167C7006F5733 /* LaunchScreen.storyboard */; };
 		1F8751D91ED167C8006F5733 /* Ultimate_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8751D81ED167C8006F5733 /* Ultimate_AppTests.swift */; };
 		1F8751E41ED167C8006F5733 /* Ultimate_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8751E31ED167C8006F5733 /* Ultimate_AppUITests.swift */; };
 		1F8751F21ED1682F006F5733 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8751F11ED1682F006F5733 /* Extensions.swift */; };
-		1F8751F81ED16885006F5733 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8751F61ED16885006F5733 /* SignInViewController.swift */; };
-		1F8751F91ED16885006F5733 /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F8751F71ED16885006F5733 /* SignInViewController.xib */; };
-		1F8751FC1ED16893006F5733 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8751FA1ED16893006F5733 /* CreateAccountViewController.swift */; };
-		1F8751FD1ED16893006F5733 /* CreateAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F8751FB1ED16893006F5733 /* CreateAccountViewController.xib */; };
-		1F8752021ED16B70006F5733 /* CreateAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8752011ED16B70006F5733 /* CreateAccountViewModel.swift */; };
-		1F8752041ED1709B006F5733 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8752031ED1709B006F5733 /* SignInViewModel.swift */; };
+		1F8752021ED16B70006F5733 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8752011ED16B70006F5733 /* SignUpViewModel.swift */; };
+		1F8752041ED1709B006F5733 /* LogInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8752031ED1709B006F5733 /* LogInViewModel.swift */; };
 		1F8752071ED173AF006F5733 /* DashboardTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8752051ED173AF006F5733 /* DashboardTabBarViewController.swift */; };
 		1F8752081ED173AF006F5733 /* DashboardTabBarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F8752061ED173AF006F5733 /* DashboardTabBarViewController.xib */; };
 		1F87520A1ED17434006F5733 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8752091ED17434006F5733 /* DashboardViewModel.swift */; };
@@ -59,6 +60,11 @@
 /* Begin PBXFileReference section */
 		1F1072C71EDBD0B300882053 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		1F1072C81EDBD0B300882053 /* WelcomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
+		1F4584061EDCC9030024F49B /* SignUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		1F4584081EDCC91B0024F49B /* SignUpView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignUpView.xib; sourceTree = "<group>"; };
+		1F45840A1EDCCC0C0024F49B /* WelcomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
+		1F45840C1EDCCEA80024F49B /* LogInView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
+		1F45840E1EDCCEE50024F49B /* LogInView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LogInView.xib; sourceTree = "<group>"; };
 		1F8751C01ED167C7006F5733 /* Ultimate App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ultimate App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F8751C31ED167C7006F5733 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F8751CA1ED167C7006F5733 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -71,12 +77,8 @@
 		1F8751E31ED167C8006F5733 /* Ultimate_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ultimate_AppUITests.swift; sourceTree = "<group>"; };
 		1F8751E51ED167C8006F5733 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F8751F11ED1682F006F5733 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		1F8751F61ED16885006F5733 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
-		1F8751F71ED16885006F5733 /* SignInViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
-		1F8751FA1ED16893006F5733 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
-		1F8751FB1ED16893006F5733 /* CreateAccountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateAccountViewController.xib; sourceTree = "<group>"; };
-		1F8752011ED16B70006F5733 /* CreateAccountViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewModel.swift; sourceTree = "<group>"; };
-		1F8752031ED1709B006F5733 /* SignInViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
+		1F8752011ED16B70006F5733 /* SignUpViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		1F8752031ED1709B006F5733 /* LogInViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewModel.swift; sourceTree = "<group>"; };
 		1F8752051ED173AF006F5733 /* DashboardTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardTabBarViewController.swift; sourceTree = "<group>"; };
 		1F8752061ED173AF006F5733 /* DashboardTabBarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DashboardTabBarViewController.xib; sourceTree = "<group>"; };
 		1F8752091ED17434006F5733 /* DashboardViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
@@ -236,8 +238,8 @@
 		1FD6C8CA1ED349A3004D99A3 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				1F8751FA1ED16893006F5733 /* CreateAccountViewController.swift */,
-				1F8751F61ED16885006F5733 /* SignInViewController.swift */,
+				1F45840C1EDCCEA80024F49B /* LogInView.swift */,
+				1F4584061EDCC9030024F49B /* SignUpView.swift */,
 				1F1072C71EDBD0B300882053 /* WelcomeViewController.swift */,
 			);
 			name = Onboarding;
@@ -246,8 +248,8 @@
 		1FD6C8CB1ED349AF004D99A3 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				1F8751FB1ED16893006F5733 /* CreateAccountViewController.xib */,
-				1F8751F71ED16885006F5733 /* SignInViewController.xib */,
+				1F45840E1EDCCEE50024F49B /* LogInView.xib */,
+				1F4584081EDCC91B0024F49B /* SignUpView.xib */,
 				1F1072C81EDBD0B300882053 /* WelcomeViewController.xib */,
 			);
 			name = Onboarding;
@@ -256,8 +258,9 @@
 		1FD6C8CC1ED349C6004D99A3 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				1F8752011ED16B70006F5733 /* CreateAccountViewModel.swift */,
-				1F8752031ED1709B006F5733 /* SignInViewModel.swift */,
+				1F8752031ED1709B006F5733 /* LogInViewModel.swift */,
+				1F8752011ED16B70006F5733 /* SignUpViewModel.swift */,
+				1F45840A1EDCCC0C0024F49B /* WelcomeViewModel.swift */,
 			);
 			name = Onboarding;
 			sourceTree = "<group>";
@@ -384,14 +387,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F45840F1EDCCEE50024F49B /* LogInView.xib in Resources */,
 				1FEE0E561ED20AFE0043EEAB /* ProfileViewController.xib in Resources */,
-				1F8751FD1ED16893006F5733 /* CreateAccountViewController.xib in Resources */,
 				1F1072CA1EDBD0B300882053 /* WelcomeViewController.xib in Resources */,
 				1FEE0E5E1ED219CD0043EEAB /* FeedViewController.xib in Resources */,
 				1F8751CE1ED167C7006F5733 /* LaunchScreen.storyboard in Resources */,
 				1FEE0E5A1ED219AB0043EEAB /* MessagesViewController.xib in Resources */,
-				1F8751F91ED16885006F5733 /* SignInViewController.xib in Resources */,
 				1F8751CB1ED167C7006F5733 /* Assets.xcassets in Resources */,
+				1F4584091EDCC91B0024F49B /* SignUpView.xib in Resources */,
 				1F8752081ED173AF006F5733 /* DashboardTabBarViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -465,11 +468,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F8751FC1ED16893006F5733 /* CreateAccountViewController.swift in Sources */,
-				1F8752021ED16B70006F5733 /* CreateAccountViewModel.swift in Sources */,
-				1F8752041ED1709B006F5733 /* SignInViewModel.swift in Sources */,
+				1F45840B1EDCCC0C0024F49B /* WelcomeViewModel.swift in Sources */,
+				1F8752021ED16B70006F5733 /* SignUpViewModel.swift in Sources */,
+				1F8752041ED1709B006F5733 /* LogInViewModel.swift in Sources */,
 				1FEE0E601ED21F710043EEAB /* Utils.swift in Sources */,
 				1F87520E1ED175D3006F5733 /* DataStore.swift in Sources */,
+				1F4584071EDCC9030024F49B /* SignUpView.swift in Sources */,
 				1F8751C41ED167C7006F5733 /* AppDelegate.swift in Sources */,
 				1F8752071ED173AF006F5733 /* DashboardTabBarViewController.swift in Sources */,
 				1FEE0E591ED219AB0043EEAB /* MessagesViewController.swift in Sources */,
@@ -478,8 +482,8 @@
 				1FEE0E551ED20AFE0043EEAB /* ProfileViewController.swift in Sources */,
 				1FEE0E621ED220F10043EEAB /* ProfileViewModel.swift in Sources */,
 				1F87520C1ED1746E006F5733 /* Account.swift in Sources */,
+				1F45840D1EDCCEA80024F49B /* LogInView.swift in Sources */,
 				1F8751F21ED1682F006F5733 /* Extensions.swift in Sources */,
-				1F8751F81ED16885006F5733 /* SignInViewController.swift in Sources */,
 				1FF632F51ED25B93007AED58 /* Message.swift in Sources */,
 				1FEE0E5D1ED219CD0043EEAB /* FeedViewController.swift in Sources */,
 				1F87520A1ED17434006F5733 /* DashboardViewModel.swift in Sources */,

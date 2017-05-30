@@ -8,18 +8,8 @@
 
 import Foundation
 
-// MARK: Protocol
-protocol SignInable {
-	var email: String { get set }
-	var password: String { get set }
-	
-	func updateEmail(email: String) -> Void
-	func updatePassword(password: String) -> Void
-	func authenticateCredentials() -> Account?
-}
-
 // MARK: Class
-class SignInViewModel: SignInable {
+class LogInViewModel {
 	// MARK: Properties
 	var email: String = ""
 	var password: String = ""

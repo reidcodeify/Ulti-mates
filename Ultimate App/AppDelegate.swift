@@ -22,13 +22,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		self.window = UIWindow(frame: UIScreen.main.bounds)
 		
 		let rootVC = UIViewController()
-		rootVC.setInitialViewController(WelcomeViewController())
-		
-//		if UserDefaults.standard.isFirstLaunch() {
-//			rootVC.setInitialViewController(WelcomeViewController())
-//		} else {
-//			rootVC.setInitialViewController(SignInViewController())
-//		}
+		if UserDefaults.standard.isFirstLaunch() {
+			let viewModel = WelcomeViewModel(viewState: .signUp)
+			rootVC.setInitialViewController(WelcomeViewController(viewModel: viewModel))
+		} else {
+			let viewModel = WelcomeViewModel(viewState: .logIn)
+			rootVC.setInitialViewController(WelcomeViewController(viewModel: viewModel))
+		}
 
 		window?.rootViewController = rootVC
 		window?.makeKeyAndVisible()

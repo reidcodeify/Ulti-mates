@@ -10,8 +10,8 @@ import LocalAuthentication
 
 extension UIView {
 	func roundAndShadow () {
-		self.layer.cornerRadius = 3
-		self.layer.shadowOpacity = 0.3
+		self.layer.cornerRadius = self.bounds.height/2
+		self.layer.shadowOpacity = 0.2
 		self.layer.shadowOffset = CGSize(width: 1, height: 2)
 	}
 	
@@ -23,21 +23,20 @@ extension UIView {
 }
 
 extension UITextField {
-	func convertToLine (placeholder: String?) {
-		let border = CALayer()
-		let width = CGFloat(1.0)
-		border.borderColor = UIColor.white.cgColor // This controls the line's color
-		border.frame = CGRect(x: 0, y: self.frame.size.height - width, width:  self.frame.size.width, height: self.frame.size.height)
-		self.attributedPlaceholder = NSAttributedString(string: placeholder!, attributes: [NSForegroundColorAttributeName : UIColor.white])
-		
-		let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: self.frame.height))
-		self.leftView = paddingView
-		self.leftViewMode = UITextFieldViewMode.always
-		
-		border.borderWidth = width
-		self.layer.addSublayer(border)
-		self.layer.masksToBounds = true
-	}
+		func indentAndUnderline() {
+			let border = CALayer()
+			let width = CGFloat(1)
+			border.borderColor = UIColor(red: 246/255, green: 246/255, blue: 248/255, alpha: 0.75).cgColor
+			border.frame = CGRect(x: 0, y: self.frame.size.height - width, width:  self.frame.size.width, height: self.frame.size.height)
+			
+			border.borderWidth = width
+			self.layer.addSublayer(border)
+			self.layer.masksToBounds = true
+			
+			let spacerView = UIView(frame:CGRect(x: 0, y: 0, width: 20, height: 10))
+			self.leftViewMode = UITextFieldViewMode.always
+			self.leftView = spacerView
+		}
 }
 
 extension UIViewController {

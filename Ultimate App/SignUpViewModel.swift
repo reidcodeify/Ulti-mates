@@ -8,23 +8,8 @@
 
 import Foundation
 
-// MARK: Protocol
-protocol AccountCreatable {
-	var name: String { get }
-	var email: String { get }
-	var password: String { get }
-	var zipcode: String { get }
-	var yearsPlayed: String { get }
-	
-	func updateName(name: String)
-	func updateEmail(email: String)
-	func updatePassword(password: String)
-	func updateZipcode(zipcode: String)
-	func updateYearsPlayed(yearsPlayed: String)
-}
-
 // MARK: Class
-class CreateAccountViewModel: AccountCreatable {
+class SignUpViewModel {
 	// MARK: Properties
 	fileprivate(set) var name: String = ""
 	fileprivate(set) var email: String = ""
