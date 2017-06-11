@@ -16,6 +16,7 @@ class SignUpViewModel {
 	fileprivate(set) var password: String = ""
 	fileprivate(set) var zipcode: String = ""
 	fileprivate(set) var yearsPlayed: String = ""
+	fileprivate(set) var canContinue = UpdatableProperty<Bool>(value: false)
 	
 	// MARK: Life Cycle
 	init () {
@@ -23,11 +24,12 @@ class SignUpViewModel {
 	}
 	
 	// MARK: Public
-	func checkRequirements() -> Bool {
-		if (!name.isEmpty && !email.isEmpty && !password.isEmpty && !zipcode.isEmpty && !yearsPlayed.isEmpty) {
-			return true
+	// canContinue's value becomes true if all of this class' String properties contain at least one character, the email property contains ('@' and '.'), and the password is at least 6 characters
+	func checkRequirements() {
+		if (!name.isEmpty && email.contains("@") && email.contains(".") && password.characters.count >= 6 && !zipcode.isEmpty && !yearsPlayed.isEmpty) {
+			canContinue.value = true
 		} else {
-			return false
+			canContinue.value = false
 		}
 	}
 	

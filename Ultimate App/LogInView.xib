@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LogInView" customModule="Ulti_mates" customModuleProvider="target">
             <connections>
+                <outlet property="credentialSupportLabel" destination="JM3-ZC-Guf" id="N7Y-np-X5l"/>
                 <outlet property="emailTextField" destination="eKZ-dF-Lir" id="5sW-Cf-Bik"/>
                 <outlet property="passwordTextField" destination="sBw-LA-HGc" id="kPY-ng-HwM"/>
             </connections>
@@ -44,6 +45,12 @@
                         <outlet property="delegate" destination="-1" id="lod-ox-veT"/>
                     </connections>
                 </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JM3-ZC-Guf">
+                    <rect key="frame" x="20" y="120" width="0.0" height="0.0"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
@@ -51,9 +58,12 @@
                 <constraint firstItem="sBw-LA-HGc" firstAttribute="leading" secondItem="3QJ-f3-4VU" secondAttribute="leading" id="K8O-82-v3Y"/>
                 <constraint firstAttribute="trailing" secondItem="sBw-LA-HGc" secondAttribute="trailing" id="VB4-YO-AOt"/>
                 <constraint firstItem="eKZ-dF-Lir" firstAttribute="height" secondItem="sBw-LA-HGc" secondAttribute="height" id="WFP-Uc-NGi"/>
+                <constraint firstItem="JM3-ZC-Guf" firstAttribute="leading" secondItem="3QJ-f3-4VU" secondAttribute="leading" constant="20" id="jiB-Jk-snp"/>
                 <constraint firstItem="eKZ-dF-Lir" firstAttribute="leading" secondItem="3QJ-f3-4VU" secondAttribute="leading" id="lZa-5S-iJ4"/>
                 <constraint firstItem="eKZ-dF-Lir" firstAttribute="top" secondItem="3QJ-f3-4VU" secondAttribute="top" id="ojs-90-dvS"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="JM3-ZC-Guf" secondAttribute="trailing" constant="20" id="rNY-Px-tbG"/>
                 <constraint firstAttribute="trailing" secondItem="eKZ-dF-Lir" secondAttribute="trailing" id="x4I-5B-b3Q"/>
+                <constraint firstItem="JM3-ZC-Guf" firstAttribute="top" secondItem="sBw-LA-HGc" secondAttribute="bottom" constant="10" id="zD3-1G-7VF"/>
             </constraints>
         </view>
     </objects>

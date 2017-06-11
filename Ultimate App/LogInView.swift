@@ -13,6 +13,7 @@ class LogInView: UIView {
 	// MARK: Properties
 	@IBOutlet fileprivate weak var emailTextField: UITextField!
 	@IBOutlet fileprivate weak var passwordTextField: UITextField!
+	@IBOutlet fileprivate weak var credentialSupportLabel: UILabel!
 	
 	fileprivate var nibView: UIView! = nil
 	
@@ -47,9 +48,18 @@ class LogInView: UIView {
 		default:
 			break
 		}
+		viewModel.checkRequirements()
 	}
 	
 	// MARK: Private
 	
 	// MARK: Public
+}
+
+extension LogInView: UITextFieldDelegate {
+	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+		self.endEditing(true)
+		
+		return true
+	}
 }

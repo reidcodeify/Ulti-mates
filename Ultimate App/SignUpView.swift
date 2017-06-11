@@ -58,6 +58,8 @@ class SignUpView: UIView {
 		default:
 			break
 		}
+		
+		self.viewModel.checkRequirements()
 	}
 	
 	// MARK: Private 

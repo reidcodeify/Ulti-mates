@@ -166,11 +166,9 @@ extension UserDefaults {
 		if !UserDefaults.standard.bool(forKey: "HasAtLeastLaunchedOnce") {
 			UserDefaults.standard.set(true, forKey: "HasAtLeastLaunchedOnce")
 			UserDefaults.standard.synchronize()
-			print("first launch bro")
 			return true
 		}
 		
-		print("not first launch bro")
 		return false
 	}
 }

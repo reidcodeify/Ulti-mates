@@ -8,11 +8,6 @@
 
 import UIKit
 
-/*
-	Create view-based xibs rather than controller-based xibs
-	Make button for proceed
-*/
-
 // MARK: Class
 class WelcomeViewController: UIViewController {
 	// MARK: Properties
@@ -44,7 +39,6 @@ class WelcomeViewController: UIViewController {
 		}
 		
 		self.hideKeyboardWhenScreenTapped()
-		continueButton.roundAndShadow()
 	
 		let signUpView = SignUpView(frame: scrollView.bounds, viewModel: viewModel.signUpViewModel)
 		let logInView = LogInView(frame: scrollView.bounds, viewModel: viewModel.logInViewModel)
@@ -75,7 +69,15 @@ class WelcomeViewController: UIViewController {
 			
 			index += 1
 		}
-
+		
+		viewModel.signUpViewModel.canContinue.bind { [weak self] canContinue in
+			self?.continueButton.isEnabled = canContinue
+		}
+		
+		viewModel.logInViewModel.canContinue.bind { [weak self] canContinue in
+			self?.continueButton.isEnabled = canContinue
+		}
+		
     }
 
     override func didReceiveMemoryWarning() {
@@ -98,7 +100,7 @@ class WelcomeViewController: UIViewController {
 				let navController = UINavigationController(rootViewController: DashboardTabBarViewController(viewModel: viewModel))
 				parent?.fadeToChildViewController(navController)
 			} catch {
-				DLog("Error. could not write to realm bro")
+				DLog("Error. Could not write to the realm, bro")
 			}
 		} else {
 			// Present Sign-in Screen
@@ -108,7 +110,10 @@ class WelcomeViewController: UIViewController {
 				
 				parent?.fadeToChildViewController(navController)
 			} else {
-				DLog("Error, Could not sign in bro")
+				let alert = UIAlertController(title: "Couldn't Sign In", message: "Incorrect email or password", preferredStyle: UIAlertControllerStyle.alert)
+				alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+				self.present(alert, animated: true, completion: nil)
+				DLog("Error, Could not authenticate these log-in credentials, bro")
 			}
 		}
 	}
@@ -120,12 +125,15 @@ class WelcomeViewController: UIViewController {
 		if (sender.tag == 0) {
 			slidePosition = 0
 			viewModel.viewState = .signUp
+			viewModel.signUpViewModel.checkRequirements()
 			continueButton.setTitle("Create", for: .normal)
 		} else {
 			slidePosition = view.bounds.width
 			viewModel.viewState = .logIn
+			viewModel.logInViewModel.checkRequirements()
 			continueButton.setTitle("Continue", for: .normal)
 		}
+		
 		
 		UIView.animate(withDuration: 0.3, animations: {
 			self.selectionLine.center.x = buttonCenterToMatch
@@ -138,11 +146,4 @@ class WelcomeViewController: UIViewController {
 	
 	// MARK: Public
 	
-}
-
-extension WelcomeViewController: UIScrollViewDelegate {
-	func scrollViewDidScroll(_ scrollView: UIScrollView) {
-		print("\(scrollView.contentOffset.x)") // it's the left edge of current view
-		
-	}
 }

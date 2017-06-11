@@ -11,8 +11,9 @@ import Foundation
 // MARK: Class
 class LogInViewModel {
 	// MARK: Properties
-	var email: String = ""
-	var password: String = ""
+	fileprivate(set) var email: String = ""
+	fileprivate(set) var password: String = ""
+	fileprivate(set) var canContinue = UpdatableProperty<Bool>(value: false)
 	
 	// MARK: Life Cycle
 	init () {
@@ -32,12 +33,25 @@ class LogInViewModel {
 		// If this account exists within the Realm storage, then proceed, otherwise deny access
 		for account in ultimateRealm.objects(Account.self) {
 			if (account.email == email && account.password == password) {
+				canContinue.value = true
 				return account
+			} else {
+				canContinue.value = false
 			}
 		}
 		
 		// Handle inability to log in (Alert View controller?)
-		DLog("Account not found")
 		return nil
+		
+
+	}
+	
+	// The canContinue property becomes true if the email contains ('.' and an '@') and the password has a minimum character amount of 6
+	func checkRequirements() {
+		if (email.contains("@") && email.contains(".") && password.characters.count >= 6) {
+			canContinue.value =  true
+		} else {
+			canContinue.value =  false
+		}
 	}
 }
