@@ -23,6 +23,14 @@ class SignUpViewModel {
 	}
 	
 	// MARK: Public
+	func checkRequirements() -> Bool {
+		if (!name.isEmpty && !email.isEmpty && !password.isEmpty && !zipcode.isEmpty && !yearsPlayed.isEmpty) {
+			return true
+		} else {
+			return false
+		}
+	}
+	
 	func updateName(name: String) {
 		self.name = name
 	}

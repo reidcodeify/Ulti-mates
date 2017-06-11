@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LogInView" customModule="Ultimate_App" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LogInView" customModule="Ulti_mates" customModuleProvider="target">
             <connections>
                 <outlet property="emailTextField" destination="eKZ-dF-Lir" id="5sW-Cf-Bik"/>
                 <outlet property="passwordTextField" destination="sBw-LA-HGc" id="kPY-ng-HwM"/>
@@ -38,9 +38,10 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                    <textInputTraits key="textInputTraits" returnKeyType="continue" secureTextEntry="YES"/>
                     <connections>
                         <action selector="textFieldChanged:" destination="-1" eventType="editingChanged" id="Vy3-fd-yh8"/>
+                        <outlet property="delegate" destination="-1" id="lod-ox-veT"/>
                     </connections>
                 </textField>
             </subviews>

@@ -86,7 +86,7 @@ class WelcomeViewController: UIViewController {
 	// MARK: Control Handlers
 	@IBAction func continueButtonHit(_ sender: UIButton) {
 		if (viewModel.viewState == .signUp) {
-			 //Create an account and add it to the local storage
+			 //Create an account and add it to the local storage (this should be on a server database, not local)
 			let account: Account = Account(name: self.viewModel.signUpViewModel.name, email: self.viewModel.signUpViewModel.email, password: self.viewModel.signUpViewModel.password, zipcode: self.viewModel.signUpViewModel.zipcode, yearsPlayed: self.viewModel.signUpViewModel.yearsPlayed)
 	
 			do {
@@ -132,34 +132,6 @@ class WelcomeViewController: UIViewController {
 			self.scrollView.contentOffset.x = slidePosition
 		})
 	}
-	
-//	@IBAction func createButtonHit(_ sender: UIButton) {
-//		// Create an account and add it to the local storage
-//		let account = Account(name: viewModel.name, email: viewModel.email, password: viewModel.password, zipcode: viewModel.zipcode, yearsPlayed: viewModel.yearsPlayed)
-//		
-//		do {
-//			try ultimateRealm.write {
-//				ultimateRealm.add(account)
-//			}
-//		} catch {
-//			// Handle the error that the realm could not be written to
-//			DLog("Error. could not write to realm bro")
-//		}
-//		
-//		// Present Sign-in Screen
-//		parent?.fadeToChildViewController(SignInViewController())
-//	}
-	
-//	@IBAction func signInButtonHit(_ sender: UIButton) {
-//		if let account = viewModel.authenticateCredentials() {
-//			let viewModel = DashboardViewModel(account: account)
-//			let navController = UINavigationController(rootViewController: DashboardTabBarViewController(viewModel: viewModel))
-//			
-//			parent?.fadeToChildViewController(navController)
-//		} else {
-//			DLog("Error, Could not sign in")
-//		}
-//	}
 	
 	// MARK: Private
 	

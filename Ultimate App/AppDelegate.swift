@@ -18,18 +18,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	var window: UIWindow?
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-		// Override point for customization after application launch.
+		// Override point for customization after application launch. test bro
 		self.window = UIWindow(frame: UIScreen.main.bounds)
 		
 		let rootVC = UIViewController()
+		let viewModel: WelcomeViewModel
 		if UserDefaults.standard.isFirstLaunch() {
-			let viewModel = WelcomeViewModel(viewState: .signUp)
-			rootVC.setInitialViewController(WelcomeViewController(viewModel: viewModel))
+			viewModel = WelcomeViewModel(viewState: .signUp)
 		} else {
-			let viewModel = WelcomeViewModel(viewState: .logIn)
-			rootVC.setInitialViewController(WelcomeViewController(viewModel: viewModel))
+			viewModel = WelcomeViewModel(viewState: .logIn)
 		}
 
+		rootVC.setInitialViewController(WelcomeViewController(viewModel: viewModel))
+		
 		window?.rootViewController = rootVC
 		window?.makeKeyAndVisible()
 		

@@ -13,11 +13,17 @@ import Realm
 /*
 	create protocol for accounts "AccountIdentifiable" break it up:
 		- activeAccount
-		- otherAccount (for diaplay only)
+		- otherAccount (for display only)
 */
+protocol AccountIdentifiable {
+	var name: String { get }
+	var yearsPlayed: String { get }
+	var zipcode: String { get }
+	var biography: String? { get }
+}
 
 // MARK: Struct
-class Account: Object {
+class Account: Object, AccountIdentifiable {
 	// MARK: Properties
 	dynamic var name: String = ""
 	dynamic var email: String = ""
