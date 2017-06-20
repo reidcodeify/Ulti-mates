@@ -12,6 +12,7 @@ import UIKit
 class DashboardTabBarViewController: UITabBarController {
 	// MARK: Properties
 	private var identifier: String = "DashboardTabBarViewController"
+	
 	private var viewModel: DashboardViewModel
 	
 	// MARK: Life Cycle
@@ -28,21 +29,20 @@ class DashboardTabBarViewController: UITabBarController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-		let profileViewModel: ProfileViewModel = ProfileViewModel(account: viewModel.activeAccount)
+		let feedViewModel = FeedViewModel(realm: viewModel.realm)
+		let messagesViewModel = MessagesViewModel(realm: viewModel.realm)
+		let profileViewModel = ProfileViewModel(realm: viewModel.realm, account: viewModel.activeAccount)
 		
-		let feedViewController = FeedViewController()
-		let messagesViewController = MessagesViewController()
+		let feedViewController = FeedViewController(viewModel: feedViewModel)
+		let messagesViewController = MessagesViewController(viewModel: messagesViewModel)
 		let profileViewController = ProfileViewController(viewModel: profileViewModel)
 		
 		feedViewController.tabBarItem = UITabBarItem(title: "Feed", image: UIImage(named: "Feed"), tag: 0)
 		messagesViewController.tabBarItem = UITabBarItem(title: "Messages", image: UIImage(named: "Message"), tag: 1)
 		profileViewController.tabBarItem = UITabBarItem(title: "\(viewModel.activeAccount.name)", image: UIImage(named: "Profile"), tag: 2)
 		
-		self.viewControllers = [feedViewController, messagesViewController, profileViewController]
+		self.viewControllers = [UINavigationController(rootViewController: feedViewController), UINavigationController(rootViewController: messagesViewController), UINavigationController(rootViewController: profileViewController)]
 		self.setViewControllers(viewControllers, animated: true)
-		
-		self.title = feedViewController.tabBarItem.title
-		
     }
 
     override func didReceiveMemoryWarning() {

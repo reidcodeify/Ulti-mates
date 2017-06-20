@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 // MARK: Protocol
 protocol Dashbordable {
@@ -16,10 +17,12 @@ protocol Dashbordable {
 // MARK: Class
 class DashboardViewModel: Dashbordable {
 	// MARK: Properties
+	var realm: Realm
 	var activeAccount: Account
 	
 	// MARK: Life Cycle
-	init (account: Account) {
+	init (realm: Realm, account: Account) {
+		self.realm = realm
 		activeAccount = account
 	}
 	

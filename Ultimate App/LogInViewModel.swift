@@ -7,17 +7,19 @@
 //
 
 import Foundation
+import RealmSwift
 
 // MARK: Class
 class LogInViewModel {
 	// MARK: Properties
+	fileprivate(set) var realm: Realm
 	fileprivate(set) var email: String = ""
 	fileprivate(set) var password: String = ""
 	fileprivate(set) var canContinue = UpdatableProperty<Bool>(value: false)
 	
 	// MARK: Life Cycle
-	init () {
-		
+	init (realm: Realm) {
+		self.realm = realm
 	}
 	
 	// MARK: Public
@@ -29,9 +31,9 @@ class LogInViewModel {
 		self.password = password
 	}
 	
-	func authenticateCredentials() -> Account? { // This is a good unit test
+	func authenticateCredentials() -> Account? { // This would make a good unit test
 		// If this account exists within the Realm storage, then proceed, otherwise deny access
-		for account in ultimateRealm.objects(Account.self) {
+		for account in realm.objects(Account.self) {
 			if (account.email == email && account.password == password) {
 				canContinue.value = true
 				return account
@@ -40,10 +42,7 @@ class LogInViewModel {
 			}
 		}
 		
-		// Handle inability to log in (Alert View controller?)
 		return nil
-		
-
 	}
 	
 	// The canContinue property becomes true if the email contains ('.' and an '@') and the password has a minimum character amount of 6

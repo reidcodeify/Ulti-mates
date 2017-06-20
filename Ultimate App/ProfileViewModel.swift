@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 // MARK: Protocol
 protocol Profilable {
@@ -16,10 +17,12 @@ protocol Profilable {
 // MARK: Class
 class ProfileViewModel: Profilable {
 	// MARK: Properties
+	var realm: Realm
 	var account: Account
 	
 	// MARK: Life Cycle
-	init (account: Account) {
+	init (realm: Realm, account: Account) {
+		self.realm = realm
 		self.account = account
 	}
 }

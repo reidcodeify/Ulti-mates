@@ -77,7 +77,6 @@ class WelcomeViewController: UIViewController {
 		viewModel.logInViewModel.canContinue.bind { [weak self] canContinue in
 			self?.continueButton.isEnabled = canContinue
 		}
-		
     }
 
     override func didReceiveMemoryWarning() {
@@ -91,27 +90,33 @@ class WelcomeViewController: UIViewController {
 			 //Create an account and add it to the local storage (this should be on a server database, not local)
 			let account: Account = Account(name: self.viewModel.signUpViewModel.name, email: self.viewModel.signUpViewModel.email, password: self.viewModel.signUpViewModel.password, zipcode: self.viewModel.signUpViewModel.zipcode, yearsPlayed: self.viewModel.signUpViewModel.yearsPlayed)
 	
+			if (viewModel.signUpViewModel.emailPreexists()) {
+				let alert = UIAlertController(title: "Couldn't Create Account", message: "Email already exists", preferredStyle: UIAlertControllerStyle.alert)
+				alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+				self.present(alert, animated: true, completion: nil)
+				return
+			}
+			
 			do {
-				try ultimateRealm.write {
-					ultimateRealm.add(account)
+				try self.viewModel.realm.write {
+					self.viewModel.realm.add(account)
 				}
 				
-				let viewModel = DashboardViewModel(account: account)
-				let navController = UINavigationController(rootViewController: DashboardTabBarViewController(viewModel: viewModel))
-				parent?.fadeToChildViewController(navController)
+				let viewModel = DashboardViewModel(realm: self.viewModel.realm, account: account)
+				let tabController = DashboardTabBarViewController(viewModel: viewModel)
+				parent?.fadeToChildViewController(tabController)
 			} catch {
 				DLog("Error. Could not write to the realm, bro")
 			}
 		} else {
 			// Present Sign-in Screen
 			if let account = viewModel.logInViewModel.authenticateCredentials() {
-				let viewModel = DashboardViewModel(account: account)
-				let navController = UINavigationController(rootViewController: DashboardTabBarViewController(viewModel: viewModel))
-				
-				parent?.fadeToChildViewController(navController)
+				let viewModel = DashboardViewModel(realm: self.viewModel.realm, account: account)
+				let tabController = DashboardTabBarViewController(viewModel: viewModel)
+				parent?.fadeToChildViewController(tabController)
 			} else {
 				let alert = UIAlertController(title: "Couldn't Sign In", message: "Incorrect email or password", preferredStyle: UIAlertControllerStyle.alert)
-				alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+				alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
 				self.present(alert, animated: true, completion: nil)
 				DLog("Error, Could not authenticate these log-in credentials, bro")
 			}
@@ -133,7 +138,6 @@ class WelcomeViewController: UIViewController {
 			viewModel.logInViewModel.checkRequirements()
 			continueButton.setTitle("Continue", for: .normal)
 		}
-		
 		
 		UIView.animate(withDuration: 0.3, animations: {
 			self.selectionLine.center.x = buttonCenterToMatch

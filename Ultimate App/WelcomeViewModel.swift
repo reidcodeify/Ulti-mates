@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 enum WelcomeState {
 	case signUp
@@ -17,15 +18,19 @@ enum WelcomeState {
 class WelcomeViewModel {
 	// MARK: Properties
 	var viewState: WelcomeState = .signUp
-	var signUpViewModel: SignUpViewModel = SignUpViewModel()
-	var logInViewModel: LogInViewModel = LogInViewModel()
+	var signUpViewModel: SignUpViewModel
+	var logInViewModel: LogInViewModel
+	let realm: Realm
 	
 		// view model for sign up (use updatable properties for data that matters to know when it changed) instantiate
 		// view model for log in (use updatable properties for data that matters to know when it changed) instantiate 
 	
 	// MARK: Life Cycle
-	init (viewState: WelcomeState) {
+	init (realm: Realm, viewState: WelcomeState) {
+		self.realm = realm
 		self.viewState = viewState
+		signUpViewModel = SignUpViewModel(realm: self.realm)
+		logInViewModel = LogInViewModel(realm: self.realm)
 	}
 	
 	// MARK: Control Handlers

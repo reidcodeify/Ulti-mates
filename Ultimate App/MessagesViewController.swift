@@ -11,7 +11,9 @@ import UIKit
 // MARK: Class
 class MessagesViewController: UIViewController {
 	// MARK: Properties
+	let identifier: String = "MessagesViewController"
 	
+	var viewModel: MessagesViewModel! = nil
 	
 	// MARK: Life Cycle
     override func viewDidLoad() {
@@ -19,6 +21,15 @@ class MessagesViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+	
+	init (viewModel: MessagesViewModel) {
+		self.viewModel = viewModel
+		super.init(nibName: identifier, bundle: nil)
+	}
+	
+	required init?(coder aDecoder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

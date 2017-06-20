@@ -7,10 +7,12 @@
 //
 
 import Foundation
+import RealmSwift
 
 // MARK: Class
 class SignUpViewModel {
 	// MARK: Properties
+	fileprivate var realm: Realm
 	fileprivate(set) var name: String = ""
 	fileprivate(set) var email: String = ""
 	fileprivate(set) var password: String = ""
@@ -19,9 +21,11 @@ class SignUpViewModel {
 	fileprivate(set) var canContinue = UpdatableProperty<Bool>(value: false)
 	
 	// MARK: Life Cycle
-	init () {
-		
+	init (realm: Realm) {
+		self.realm = realm
 	}
+	
+	// MARK: Private
 	
 	// MARK: Public
 	// canContinue's value becomes true if all of this class' String properties contain at least one character, the email property contains ('@' and '.'), and the password is at least 6 characters
@@ -33,11 +37,22 @@ class SignUpViewModel {
 		}
 	}
 	
+	func emailPreexists() -> Bool {
+		for account in realm.objects(Account.self) {
+			if (self.email == account.email) {
+				return true // Email exists
+			}
+		}
+		// Email is new
+		return false
+	}
+	
 	func updateName(name: String) {
 		self.name = name
 	}
 	
 	func updateEmail(email: String) {
+		// check for preexisting email
 		self.email = email
 	}
 	

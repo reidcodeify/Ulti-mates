@@ -10,8 +10,6 @@ import UIKit
 import Realm
 import RealmSwift
 
-let ultimateRealm = try! Realm()
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -21,13 +19,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		// Override point for customization after application launch. test bro
 		self.window = UIWindow(frame: UIScreen.main.bounds)
 		
+		let realm = try! Realm()
 		let rootVC = UIViewController()
-		let viewModel: WelcomeViewModel
-		if UserDefaults.standard.isFirstLaunch() {
-			viewModel = WelcomeViewModel(viewState: .signUp)
-		} else {
-			viewModel = WelcomeViewModel(viewState: .logIn)
-		}
+		let viewModel = WelcomeViewModel(realm: realm, viewState: .signUp)
+		
+//		if UserDefaults.standard.isFirstLaunch() {
+//			viewModel = WelcomeViewModel(viewState: .signUp)
+//		} else {
+//			viewModel = WelcomeViewModel(viewState: .logIn)
+//		}
 
 		rootVC.setInitialViewController(WelcomeViewController(viewModel: viewModel))
 		

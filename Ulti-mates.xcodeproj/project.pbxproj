@@ -27,6 +27,14 @@
 		1F87520A1ED17434006F5733 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8752091ED17434006F5733 /* DashboardViewModel.swift */; };
 		1F87520C1ED1746E006F5733 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F87520B1ED1746E006F5733 /* Account.swift */; };
 		1F87520E1ED175D3006F5733 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F87520D1ED175D3006F5733 /* DataStore.swift */; };
+		1F8781691EF45269009C248C /* MessagesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8781681EF45269009C248C /* MessagesViewModel.swift */; };
+		1F87816C1EF46BE4009C248C /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F87816A1EF46BE4009C248C /* CreateEventViewController.swift */; };
+		1F87816D1EF46BE4009C248C /* CreateEventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F87816B1EF46BE4009C248C /* CreateEventViewController.xib */; };
+		1F87816F1EF46E28009C248C /* CreateEventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F87816E1EF46E28009C248C /* CreateEventViewModel.swift */; };
+		1F87DA1B1EEE0E5500D0E6E8 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F87DA1A1EEE0E5500D0E6E8 /* FeedViewModel.swift */; };
+		1FA6786F1EF0309600611845 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA6786D1EF0309600611845 /* FeedTableViewCell.swift */; };
+		1FA678701EF0309600611845 /* FeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FA6786E1EF0309600611845 /* FeedTableViewCell.xib */; };
+		1FA678721EF0563500611845 /* FeedTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA678711EF0563500611845 /* FeedTableViewCellViewModel.swift */; };
 		1FEE0E551ED20AFE0043EEAB /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEE0E531ED20AFE0043EEAB /* ProfileViewController.swift */; };
 		1FEE0E561ED20AFE0043EEAB /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FEE0E541ED20AFE0043EEAB /* ProfileViewController.xib */; };
 		1FEE0E591ED219AB0043EEAB /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEE0E571ED219AB0043EEAB /* MessagesViewController.swift */; };
@@ -84,6 +92,14 @@
 		1F8752091ED17434006F5733 /* DashboardViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		1F87520B1ED1746E006F5733 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		1F87520D1ED175D3006F5733 /* DataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
+		1F8781681EF45269009C248C /* MessagesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesViewModel.swift; sourceTree = "<group>"; };
+		1F87816A1EF46BE4009C248C /* CreateEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateEventViewController.swift; sourceTree = "<group>"; };
+		1F87816B1EF46BE4009C248C /* CreateEventViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateEventViewController.xib; sourceTree = "<group>"; };
+		1F87816E1EF46E28009C248C /* CreateEventViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateEventViewModel.swift; sourceTree = "<group>"; };
+		1F87DA1A1EEE0E5500D0E6E8 /* FeedViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
+		1FA6786D1EF0309600611845 /* FeedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
+		1FA6786E1EF0309600611845 /* FeedTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedTableViewCell.xib; sourceTree = "<group>"; };
+		1FA678711EF0563500611845 /* FeedTableViewCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		1FEE0E531ED20AFE0043EEAB /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		1FEE0E541ED20AFE0043EEAB /* ProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 		1FEE0E571ED219AB0043EEAB /* MessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
@@ -196,10 +212,11 @@
 		1F8751F31ED1683B006F5733 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				1FD6C8CA1ED349A3004D99A3 /* Onboarding */,
+				1F87816A1EF46BE4009C248C /* CreateEventViewController.swift */,
 				1F8752051ED173AF006F5733 /* DashboardTabBarViewController.swift */,
 				1FEE0E5B1ED219CD0043EEAB /* FeedViewController.swift */,
 				1FEE0E571ED219AB0043EEAB /* MessagesViewController.swift */,
+				1FD6C8CA1ED349A3004D99A3 /* Onboarding */,
 				1FEE0E531ED20AFE0043EEAB /* ProfileViewController.swift */,
 			);
 			name = "View Controllers";
@@ -219,9 +236,13 @@
 		1F8751F51ED16847006F5733 /* View Models */ = {
 			isa = PBXGroup;
 			children = (
-				1FD6C8CC1ED349C6004D99A3 /* Onboarding */,
 				1F8752091ED17434006F5733 /* DashboardViewModel.swift */,
+				1FA678711EF0563500611845 /* FeedTableViewCellViewModel.swift */,
+				1F87DA1A1EEE0E5500D0E6E8 /* FeedViewModel.swift */,
+				1F8781681EF45269009C248C /* MessagesViewModel.swift */,
+				1FD6C8CC1ED349C6004D99A3 /* Onboarding */,
 				1FEE0E611ED220F10043EEAB /* ProfileViewModel.swift */,
+				1F87816E1EF46E28009C248C /* CreateEventViewModel.swift */,
 			);
 			name = "View Models";
 			sourceTree = "<group>";
@@ -229,10 +250,13 @@
 		1F8751FE1ED1689A006F5733 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				1FD6C8CB1ED349AF004D99A3 /* Onboarding */,
+				1F87816B1EF46BE4009C248C /* CreateEventViewController.xib */,
 				1F8752061ED173AF006F5733 /* DashboardTabBarViewController.xib */,
+				1FA6786D1EF0309600611845 /* FeedTableViewCell.swift */,
+				1FA6786E1EF0309600611845 /* FeedTableViewCell.xib */,
 				1FEE0E5C1ED219CD0043EEAB /* FeedViewController.xib */,
 				1FEE0E581ED219AB0043EEAB /* MessagesViewController.xib */,
+				1FD6C8CB1ED349AF004D99A3 /* Onboarding */,
 				1FEE0E541ED20AFE0043EEAB /* ProfileViewController.xib */,
 			);
 			name = Views;
@@ -391,8 +415,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F45840F1EDCCEE50024F49B /* LogInView.xib in Resources */,
+				1FA678701EF0309600611845 /* FeedTableViewCell.xib in Resources */,
 				1FEE0E561ED20AFE0043EEAB /* ProfileViewController.xib in Resources */,
 				1F1072CA1EDBD0B300882053 /* WelcomeViewController.xib in Resources */,
+				1F87816D1EF46BE4009C248C /* CreateEventViewController.xib in Resources */,
 				1FEE0E5E1ED219CD0043EEAB /* FeedViewController.xib in Resources */,
 				1F8751CE1ED167C7006F5733 /* LaunchScreen.storyboard in Resources */,
 				1FEE0E5A1ED219AB0043EEAB /* MessagesViewController.xib in Resources */,
@@ -476,20 +502,26 @@
 				1F8752041ED1709B006F5733 /* LogInViewModel.swift in Sources */,
 				1FEE0E601ED21F710043EEAB /* Utils.swift in Sources */,
 				1F87520E1ED175D3006F5733 /* DataStore.swift in Sources */,
+				1F87816F1EF46E28009C248C /* CreateEventViewModel.swift in Sources */,
 				1F4584071EDCC9030024F49B /* SignUpView.swift in Sources */,
 				1F8751C41ED167C7006F5733 /* AppDelegate.swift in Sources */,
 				1F8752071ED173AF006F5733 /* DashboardTabBarViewController.swift in Sources */,
 				1FEE0E591ED219AB0043EEAB /* MessagesViewController.swift in Sources */,
 				1FF632F71ED25C94007AED58 /* Event.swift in Sources */,
+				1F87DA1B1EEE0E5500D0E6E8 /* FeedViewModel.swift in Sources */,
 				1F1072C91EDBD0B300882053 /* WelcomeViewController.swift in Sources */,
 				1FEE0E551ED20AFE0043EEAB /* ProfileViewController.swift in Sources */,
 				1FEE0E621ED220F10043EEAB /* ProfileViewModel.swift in Sources */,
 				1F87520C1ED1746E006F5733 /* Account.swift in Sources */,
 				1F45840D1EDCCEA80024F49B /* LogInView.swift in Sources */,
+				1FA6786F1EF0309600611845 /* FeedTableViewCell.swift in Sources */,
+				1FA678721EF0563500611845 /* FeedTableViewCellViewModel.swift in Sources */,
 				1F8751F21ED1682F006F5733 /* Extensions.swift in Sources */,
+				1F8781691EF45269009C248C /* MessagesViewModel.swift in Sources */,
 				1FF632F51ED25B93007AED58 /* Message.swift in Sources */,
 				1FEE0E5D1ED219CD0043EEAB /* FeedViewController.swift in Sources */,
 				1F87520A1ED17434006F5733 /* DashboardViewModel.swift in Sources */,
+				1F87816C1EF46BE4009C248C /* CreateEventViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
