@@ -22,9 +22,6 @@ class WelcomeViewModel {
 	var logInViewModel: LogInViewModel
 	let realm: Realm
 	
-		// view model for sign up (use updatable properties for data that matters to know when it changed) instantiate
-		// view model for log in (use updatable properties for data that matters to know when it changed) instantiate 
-	
 	// MARK: Life Cycle
 	init (realm: Realm, viewState: WelcomeState) {
 		self.realm = realm
@@ -38,4 +35,7 @@ class WelcomeViewModel {
 	// MARK: Private
 	
 	// MARK: Public
+	func setViewState(viewState: WelcomeState) {
+		self.viewState = viewState
+	}
 }

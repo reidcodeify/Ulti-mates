@@ -30,8 +30,8 @@ class FeedTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
 		
-		viewModel?.event.bind { [weak self] canContinue in
-			self?.playerAttendanceLabel.text = "\(String(describing: self?.viewModel?.event.value.playerCount)) player(s)"
+		viewModel?.playerCount.bind { [weak self] playerCount in
+			self?.playerAttendanceLabel.text = "\(playerCount) player(s)"
 		}
     }
 
@@ -44,15 +44,17 @@ class FeedTableViewCell: UITableViewCell {
 	// MARK: Control Handlers
 	@IBAction func attendenceButtonHit(_ sender: UIButton) {
 		// for both: set active color, set attending property on viewModel
+		let attendanceCount: Int
 		if (sender === attendButton) {
+			attendanceCount = 1
 			viewModel?.setAttending(isAttending: true)
 			unattendButton.setTitleColor(UIColor.lightGray, for: .normal)
-		} else if (sender === unattendButton) {
+		} else {
+			attendanceCount = -1
 			viewModel?.setAttending(isAttending: false)
 			attendButton.setTitleColor(UIColor.lightGray, for: .normal)
 		}
 		
-		let attendanceCount: Int = (viewModel?.isAttending)! ? 1 : -1
 		viewModel?.updatePlayerCount(amountToAdd: attendanceCount)
 		
 		sender.setTitleColor(self.tintColor, for: .normal)
@@ -60,14 +62,14 @@ class FeedTableViewCell: UITableViewCell {
 	
 	// MARK: Private
 	fileprivate func attach(viewModel: FeedTableViewCellViewModel) {
-		dateLabel.text = DateFormatter.localizedString(from: viewModel.event.value.date as Date, dateStyle: .full, timeStyle: .short)
-		eventNameLabel.text = viewModel.event.value.eventName
-		playerAttendanceLabel.text = "\(viewModel.event.value.playerCount) players"
+		dateLabel.text = DateFormatter.localizedString(from: viewModel.event.date as Date, dateStyle: .full, timeStyle: .short)
+		eventNameLabel.text = viewModel.event.eventName
+		playerAttendanceLabel.text = "\(viewModel.event.playerCount) player(s)"
 	}
 	
 	fileprivate func checkRealmEvents(for: Event) -> Event? {
 		for event in (viewModel?.realm.objects(Event.self))! {
-			if (event === self.viewModel?.event.value) {
+			if (event === self.viewModel?.event) {
 				return event
 			}
 		}

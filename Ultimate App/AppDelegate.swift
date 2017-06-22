@@ -21,13 +21,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		
 		let realm = try! Realm()
 		let rootVC = UIViewController()
-		let viewModel = WelcomeViewModel(realm: realm, viewState: .signUp)
+		let viewModel: WelcomeViewModel //= WelcomeViewModel(realm: realm, viewState: .signUp)
 		
-//		if UserDefaults.standard.isFirstLaunch() {
-//			viewModel = WelcomeViewModel(viewState: .signUp)
-//		} else {
-//			viewModel = WelcomeViewModel(viewState: .logIn)
-//		}
+		if UserDefaults.standard.isFirstLaunch() {
+			viewModel = WelcomeViewModel(realm: realm, viewState: .signUp)
+		} else {
+			viewModel = WelcomeViewModel(realm: realm, viewState: .logIn)
+		}
 
 		rootVC.setInitialViewController(WelcomeViewController(viewModel: viewModel))
 		

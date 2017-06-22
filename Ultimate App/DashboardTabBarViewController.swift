@@ -37,7 +37,7 @@ class DashboardTabBarViewController: UITabBarController {
 		let messagesViewController = MessagesViewController(viewModel: messagesViewModel)
 		let profileViewController = ProfileViewController(viewModel: profileViewModel)
 		
-		feedViewController.tabBarItem = UITabBarItem(title: "Feed", image: UIImage(named: "Feed"), tag: 0)
+		feedViewController.tabBarItem = UITabBarItem(title: "Events", image: UIImage(named: "Feed"), tag: 0)
 		messagesViewController.tabBarItem = UITabBarItem(title: "Messages", image: UIImage(named: "Message"), tag: 1)
 		profileViewController.tabBarItem = UITabBarItem(title: "\(viewModel.activeAccount.name)", image: UIImage(named: "Profile"), tag: 2)
 		

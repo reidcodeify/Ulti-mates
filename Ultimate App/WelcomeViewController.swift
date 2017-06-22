@@ -32,12 +32,6 @@ class WelcomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		
-		if (viewModel.viewState == .signUp) {
-			selectionMade(signUpButton)
-		} else {
-			selectionMade(logInButton)
-		}
-		
 		self.hideKeyboardWhenScreenTapped()
 	
 		let signUpView = SignUpView(frame: scrollView.bounds, viewModel: viewModel.signUpViewModel)
@@ -78,7 +72,15 @@ class WelcomeViewController: UIViewController {
 			self?.continueButton.isEnabled = canContinue
 		}
     }
-
+	
+	override func viewWillAppear(_ animated: Bool) {
+		if (viewModel.viewState == .signUp) {
+			selectionMade(signUpButton)
+		} else {
+			selectionMade(logInButton)
+		}
+	}
+	
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -124,29 +126,30 @@ class WelcomeViewController: UIViewController {
 	}
 	
 	@IBAction func selectionMade(_ sender: UIButton) {
-		let buttonCenterToMatch = sender.center.x
 		var slidePosition: CGFloat
 		
 		if (sender.tag == 0) {
 			slidePosition = 0
-			viewModel.viewState = .signUp
 			viewModel.signUpViewModel.checkRequirements()
+			viewModel.setViewState(viewState: .signUp)
+			logInButton.setTitleColor(.lightGray, for: .normal)
 			continueButton.setTitle("Create", for: .normal)
 		} else {
 			slidePosition = view.bounds.width
-			viewModel.viewState = .logIn
 			viewModel.logInViewModel.checkRequirements()
+			viewModel.setViewState(viewState: .logIn)
+			signUpButton.setTitleColor(.lightGray, for: .normal)
 			continueButton.setTitle("Continue", for: .normal)
 		}
 		
+		sender.setTitleColor(.black, for: .normal)
 		UIView.animate(withDuration: 0.3, animations: {
-			self.selectionLine.center.x = buttonCenterToMatch
+			self.selectionLine.center.x = sender.center.x
 			self.scrollView.contentOffset.x = slidePosition
 		})
 	}
 	
 	// MARK: Private
-	
 	
 	// MARK: Public
 	
