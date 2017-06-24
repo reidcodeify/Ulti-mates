@@ -31,9 +31,9 @@ class LogInViewModel {
 		self.password = password
 	}
 	
-	func authenticateCredentials() -> Account? { // This would make a good unit test
+	func authenticateCredentials() -> ActiveAccount? { // This would make a good unit test
 		// If this account exists within the Realm storage, then proceed, otherwise deny access
-		for account in realm.objects(Account.self) {
+		for account in realm.objects(ActiveAccount.self) {
 			if (account.email == email && account.password == password) {
 				canContinue.value = true
 				return account

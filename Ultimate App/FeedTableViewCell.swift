@@ -30,9 +30,9 @@ class FeedTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
 		
-		viewModel?.playerCount.bind { [weak self] playerCount in
-			self?.playerAttendanceLabel.text = "\(playerCount) player(s)"
-		}
+//		viewModel?.event.players.bind { [weak self] playerCount in
+//			self?.playerAttendanceLabel.text = "\(playerCount) player(s)"
+//		}
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -64,7 +64,7 @@ class FeedTableViewCell: UITableViewCell {
 	fileprivate func attach(viewModel: FeedTableViewCellViewModel) {
 		dateLabel.text = DateFormatter.localizedString(from: viewModel.event.date as Date, dateStyle: .full, timeStyle: .short)
 		eventNameLabel.text = viewModel.event.eventName
-		playerAttendanceLabel.text = "\(viewModel.event.playerCount) player(s)"
+		playerAttendanceLabel.text = "\(viewModel.event.players.count) player(s)"
 	}
 	
 	fileprivate func checkRealmEvents(for: Event) -> Event? {

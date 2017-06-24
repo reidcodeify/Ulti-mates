@@ -1,8 +1,8 @@
 //
-//  ProfileViewModel.swift
-//  Ultimate App
+//  MessagesViewModel.swift
+//  Ulti-mates
 //
-//  Created by Travis Ouellette on 5/21/17.
+//  Created by Travis Ouellette on 6/16/17.
 //  Copyright © 2017 Codeify. All rights reserved.
 //
 
@@ -10,7 +10,7 @@ import Foundation
 import RealmSwift
 
 // MARK: Class
-class ProfileViewModel {
+class MessagesViewModel {
 	// MARK: Properties
 	var realm: Realm
 	var activeAccount: ActiveAccount
@@ -20,4 +20,8 @@ class ProfileViewModel {
 		self.realm = realm
 		self.activeAccount = activeAccount
 	}
+	
+	// MARK: Private
+	
+	// MARK: Public
 }

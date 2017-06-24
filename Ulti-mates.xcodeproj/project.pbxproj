@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		19E2D4194FA3F120D5DF9E9C /* Pods_Ulti_mates.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07A04861D8BDB65F6CE2D1F /* Pods_Ulti_mates.framework */; };
 		1F1072C91EDBD0B300882053 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1072C71EDBD0B300882053 /* WelcomeViewController.swift */; };
 		1F1072CA1EDBD0B300882053 /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F1072C81EDBD0B300882053 /* WelcomeViewController.xib */; };
 		1F4584071EDCC9030024F49B /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4584061EDCC9030024F49B /* SignUpView.swift */; };
@@ -14,6 +15,9 @@
 		1F45840B1EDCCC0C0024F49B /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F45840A1EDCCC0C0024F49B /* WelcomeViewModel.swift */; };
 		1F45840D1EDCCEA80024F49B /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F45840C1EDCCEA80024F49B /* LogInView.swift */; };
 		1F45840F1EDCCEE50024F49B /* LogInView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F45840E1EDCCEE50024F49B /* LogInView.xib */; };
+		1F6B6C4A1EFC1C3600FE0C7F /* SelectedEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6B6C481EFC1C3600FE0C7F /* SelectedEventViewController.swift */; };
+		1F6B6C4B1EFC1C3600FE0C7F /* SelectedEventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F6B6C491EFC1C3600FE0C7F /* SelectedEventViewController.xib */; };
+		1F6B6C4D1EFC1F8600FE0C7F /* SelectedEventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6B6C4C1EFC1F8600FE0C7F /* SelectedEventViewModel.swift */; };
 		1F8751C41ED167C7006F5733 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8751C31ED167C7006F5733 /* AppDelegate.swift */; };
 		1F8751CB1ED167C7006F5733 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F8751CA1ED167C7006F5733 /* Assets.xcassets */; };
 		1F8751CE1ED167C7006F5733 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F8751CC1ED167C7006F5733 /* LaunchScreen.storyboard */; };
@@ -26,7 +30,6 @@
 		1F8752081ED173AF006F5733 /* DashboardTabBarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F8752061ED173AF006F5733 /* DashboardTabBarViewController.xib */; };
 		1F87520A1ED17434006F5733 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8752091ED17434006F5733 /* DashboardViewModel.swift */; };
 		1F87520C1ED1746E006F5733 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F87520B1ED1746E006F5733 /* Account.swift */; };
-		1F87520E1ED175D3006F5733 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F87520D1ED175D3006F5733 /* DataStore.swift */; };
 		1F8781691EF45269009C248C /* MessagesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8781681EF45269009C248C /* MessagesViewModel.swift */; };
 		1F87816C1EF46BE4009C248C /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F87816A1EF46BE4009C248C /* CreateEventViewController.swift */; };
 		1F87816D1EF46BE4009C248C /* CreateEventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F87816B1EF46BE4009C248C /* CreateEventViewController.xib */; };
@@ -73,6 +76,9 @@
 		1F45840A1EDCCC0C0024F49B /* WelcomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
 		1F45840C1EDCCEA80024F49B /* LogInView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
 		1F45840E1EDCCEE50024F49B /* LogInView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LogInView.xib; sourceTree = "<group>"; };
+		1F6B6C481EFC1C3600FE0C7F /* SelectedEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedEventViewController.swift; sourceTree = "<group>"; };
+		1F6B6C491EFC1C3600FE0C7F /* SelectedEventViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectedEventViewController.xib; sourceTree = "<group>"; };
+		1F6B6C4C1EFC1F8600FE0C7F /* SelectedEventViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedEventViewModel.swift; sourceTree = "<group>"; };
 		1F8751C01ED167C7006F5733 /* Ulti-mates.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ulti-mates.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F8751C31ED167C7006F5733 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F8751CA1ED167C7006F5733 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -91,7 +97,6 @@
 		1F8752061ED173AF006F5733 /* DashboardTabBarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DashboardTabBarViewController.xib; sourceTree = "<group>"; };
 		1F8752091ED17434006F5733 /* DashboardViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		1F87520B1ED1746E006F5733 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
-		1F87520D1ED175D3006F5733 /* DataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		1F8781681EF45269009C248C /* MessagesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesViewModel.swift; sourceTree = "<group>"; };
 		1F87816A1EF46BE4009C248C /* CreateEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateEventViewController.swift; sourceTree = "<group>"; };
 		1F87816B1EF46BE4009C248C /* CreateEventViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateEventViewController.xib; sourceTree = "<group>"; };
@@ -110,8 +115,11 @@
 		1FEE0E611ED220F10043EEAB /* ProfileViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		1FF632F41ED25B93007AED58 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		1FF632F61ED25C94007AED58 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		650F111C1F885E0CE386B52D /* Pods-Ulti-mates.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ulti-mates.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ulti-mates/Pods-Ulti-mates.debug.xcconfig"; sourceTree = "<group>"; };
 		8514D11DE18DEE270B6EB3C6 /* Pods-Ultimate App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ultimate App.release.xcconfig"; path = "Pods/Target Support Files/Pods-Ultimate App/Pods-Ultimate App.release.xcconfig"; sourceTree = "<group>"; };
 		8D41EF95959D0F7B7D4FE76B /* Pods-Ultimate App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ultimate App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ultimate App/Pods-Ultimate App.debug.xcconfig"; sourceTree = "<group>"; };
+		AF2D99F94842F6D769319B67 /* Pods-Ulti-mates.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ulti-mates.release.xcconfig"; path = "Pods/Target Support Files/Pods-Ulti-mates/Pods-Ulti-mates.release.xcconfig"; sourceTree = "<group>"; };
+		B07A04861D8BDB65F6CE2D1F /* Pods_Ulti_mates.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ulti_mates.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E74D485177AFD80DD3A13AE3 /* Pods_Ultimate_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ultimate_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -121,6 +129,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4D1C60355FA37B4F5AA095C /* Pods_Ultimate_App.framework in Frameworks */,
+				19E2D4194FA3F120D5DF9E9C /* Pods_Ulti_mates.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				E74D485177AFD80DD3A13AE3 /* Pods_Ultimate_App.framework */,
+				B07A04861D8BDB65F6CE2D1F /* Pods_Ulti_mates.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -217,6 +227,7 @@
 				1FEE0E5B1ED219CD0043EEAB /* FeedViewController.swift */,
 				1FEE0E571ED219AB0043EEAB /* MessagesViewController.swift */,
 				1FD6C8CA1ED349A3004D99A3 /* Onboarding */,
+				1F6B6C481EFC1C3600FE0C7F /* SelectedEventViewController.swift */,
 				1FEE0E531ED20AFE0043EEAB /* ProfileViewController.swift */,
 			);
 			name = "View Controllers";
@@ -226,7 +237,6 @@
 			isa = PBXGroup;
 			children = (
 				1F87520B1ED1746E006F5733 /* Account.swift */,
-				1F87520D1ED175D3006F5733 /* DataStore.swift */,
 				1FF632F61ED25C94007AED58 /* Event.swift */,
 				1FF632F41ED25B93007AED58 /* Message.swift */,
 			);
@@ -243,6 +253,7 @@
 				1FD6C8CC1ED349C6004D99A3 /* Onboarding */,
 				1FEE0E611ED220F10043EEAB /* ProfileViewModel.swift */,
 				1F87816E1EF46E28009C248C /* CreateEventViewModel.swift */,
+				1F6B6C4C1EFC1F8600FE0C7F /* SelectedEventViewModel.swift */,
 			);
 			name = "View Models";
 			sourceTree = "<group>";
@@ -257,6 +268,7 @@
 				1FEE0E5C1ED219CD0043EEAB /* FeedViewController.xib */,
 				1FEE0E581ED219AB0043EEAB /* MessagesViewController.xib */,
 				1FD6C8CB1ED349AF004D99A3 /* Onboarding */,
+				1F6B6C491EFC1C3600FE0C7F /* SelectedEventViewController.xib */,
 				1FEE0E541ED20AFE0043EEAB /* ProfileViewController.xib */,
 			);
 			name = Views;
@@ -297,6 +309,8 @@
 			children = (
 				8D41EF95959D0F7B7D4FE76B /* Pods-Ultimate App.debug.xcconfig */,
 				8514D11DE18DEE270B6EB3C6 /* Pods-Ultimate App.release.xcconfig */,
+				650F111C1F885E0CE386B52D /* Pods-Ulti-mates.debug.xcconfig */,
+				AF2D99F94842F6D769319B67 /* Pods-Ulti-mates.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -416,6 +430,7 @@
 			files = (
 				1F45840F1EDCCEE50024F49B /* LogInView.xib in Resources */,
 				1FA678701EF0309600611845 /* FeedTableViewCell.xib in Resources */,
+				1F6B6C4B1EFC1C3600FE0C7F /* SelectedEventViewController.xib in Resources */,
 				1FEE0E561ED20AFE0043EEAB /* ProfileViewController.xib in Resources */,
 				1F1072CA1EDBD0B300882053 /* WelcomeViewController.xib in Resources */,
 				1F87816D1EF46BE4009C248C /* CreateEventViewController.xib in Resources */,
@@ -457,7 +472,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Ultimate App/Pods-Ultimate App-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Ulti-mates/Pods-Ulti-mates-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		7366FF7A51D4315B3FABCEA6 /* [CP] Copy Pods Resources */ = {
@@ -472,7 +487,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Ultimate App/Pods-Ultimate App-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Ulti-mates/Pods-Ulti-mates-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		941D694E735C9E975FCA606E /* [CP] Check Pods Manifest.lock */ = {
@@ -497,14 +512,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F6B6C4A1EFC1C3600FE0C7F /* SelectedEventViewController.swift in Sources */,
 				1F45840B1EDCCC0C0024F49B /* WelcomeViewModel.swift in Sources */,
 				1F8752021ED16B70006F5733 /* SignUpViewModel.swift in Sources */,
 				1F8752041ED1709B006F5733 /* LogInViewModel.swift in Sources */,
 				1FEE0E601ED21F710043EEAB /* Utils.swift in Sources */,
-				1F87520E1ED175D3006F5733 /* DataStore.swift in Sources */,
 				1F87816F1EF46E28009C248C /* CreateEventViewModel.swift in Sources */,
 				1F4584071EDCC9030024F49B /* SignUpView.swift in Sources */,
 				1F8751C41ED167C7006F5733 /* AppDelegate.swift in Sources */,
+				1F6B6C4D1EFC1F8600FE0C7F /* SelectedEventViewModel.swift in Sources */,
 				1F8752071ED173AF006F5733 /* DashboardTabBarViewController.swift in Sources */,
 				1FEE0E591ED219AB0043EEAB /* MessagesViewController.swift in Sources */,
 				1FF632F71ED25C94007AED58 /* Event.swift in Sources */,
@@ -661,7 +677,7 @@
 		};
 		1F8751E91ED167C8006F5733 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8D41EF95959D0F7B7D4FE76B /* Pods-Ultimate App.debug.xcconfig */;
+			baseConfigurationReference = 650F111C1F885E0CE386B52D /* Pods-Ulti-mates.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = HCS55STQTH;
@@ -675,7 +691,7 @@
 		};
 		1F8751EA1ED167C8006F5733 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8514D11DE18DEE270B6EB3C6 /* Pods-Ultimate App.release.xcconfig */;
+			baseConfigurationReference = AF2D99F94842F6D769319B67 /* Pods-Ulti-mates.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = HCS55STQTH;

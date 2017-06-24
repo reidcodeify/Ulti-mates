@@ -29,9 +29,9 @@ class DashboardTabBarViewController: UITabBarController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-		let feedViewModel = FeedViewModel(realm: viewModel.realm)
-		let messagesViewModel = MessagesViewModel(realm: viewModel.realm)
-		let profileViewModel = ProfileViewModel(realm: viewModel.realm, account: viewModel.activeAccount)
+		let feedViewModel = FeedViewModel(realm: viewModel.realm, activeAccount: viewModel.activeAccount)
+		let messagesViewModel = MessagesViewModel(realm: viewModel.realm, activeAccount: viewModel.activeAccount)
+		let profileViewModel = ProfileViewModel(realm: viewModel.realm, activeAccount: viewModel.activeAccount)
 		
 		let feedViewController = FeedViewController(viewModel: feedViewModel)
 		let messagesViewController = MessagesViewController(viewModel: messagesViewModel)

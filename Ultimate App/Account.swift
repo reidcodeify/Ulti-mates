@@ -10,31 +10,31 @@ import Foundation
 import RealmSwift
 import Realm
 
-/*
-	create protocol for accounts "AccountIdentifiable" break it up:
-		- activeAccount
-		- otherAccount (for display only)
-*/
-protocol AccountIdentifiable {
+// MARK: Protocol
+protocol Profilable {
 	var name: String { get }
-	var yearsPlayed: String { get }
-	var zipcode: String { get }
 	var biography: String? { get }
+	var yearsPlayed: Int { get }
+	var favoritedEvents: List<Event> { get }
+	var friends: List<ViewableAccount> { get }
+	var location: String { get }
 }
 
-// MARK: Struct
-class Account: Object, AccountIdentifiable {
+// MARK: Class
+class ActiveAccount: Object, Profilable {
 	// MARK: Properties
 	dynamic var name: String = ""
 	dynamic var email: String = ""
 	dynamic var password: String = ""
 	dynamic var zipcode: String = ""
-	dynamic var yearsPlayed: String = "" // calculate time played from a given date
+	dynamic var yearsPlayed: Int = 0 // *calculate time played from a given date?
 	dynamic var biography: String? = nil
-	var favoriteEvents = List<Event>()
+	dynamic var location: String = ""
+	var favoritedEvents = List<Event>()
+	var friends = List<ViewableAccount>()
 	
 	// MARK: Life Cycle
-	convenience init (name: String, email: String, password: String, zipcode: String, yearsPlayed: String) {
+	convenience init (name: String, email: String, password: String, zipcode: String, yearsPlayed: Int) {
 		self.init()
 		self.name = name
 		self.email = email
@@ -64,7 +64,30 @@ class Account: Object, AccountIdentifiable {
 		self.biography = biography
 	}
 	
-	func updateYearsPlayed(yearsPlayed: String) {
+	func updateYearsPlayed(yearsPlayed: Int) {
 		self.yearsPlayed = yearsPlayed
 	}
+}
+
+// MARK: Class
+class ViewableAccount: Object, Profilable {
+	// MARK: Properties
+	dynamic var name: String = ""
+	dynamic var yearsPlayed: Int = 0 // calculate time played from a given date
+	dynamic var biography: String? = nil
+	dynamic var location: String = ""
+	var favoritedEvents = List<Event>()
+	var friends = List<ViewableAccount>()
+	
+	// MARK: Life Cycle
+	convenience init (name: String, location: String, yearsPlayed: Int) {
+		self.init()
+		self.name = name
+		self.location = location
+		self.yearsPlayed = yearsPlayed
+	}
+	
+	// MARK: Private
+	
+	// MARK: Public
 }

@@ -49,15 +49,12 @@ class SignUpView: UIView {
 			viewModel.updateName(name: sender.text!)
 		case 1:
 			viewModel.updateEmail(email: sender.text!)
-			if (viewModel.emailPreexists()) {
-				
-			}
 		case 2:
 			viewModel.updatePassword(password: sender.text!)
 		case 3:
 			viewModel.updateZipcode(zipcode: sender.text!)
 		case 4:
-			viewModel.updateYearsPlayed(yearsPlayed: sender.text!)
+			viewModel.updateYearsPlayed(yearsPlayed: Int(sender.text!)!)
 		default:
 			break
 		}

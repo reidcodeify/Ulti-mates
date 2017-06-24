@@ -90,7 +90,7 @@ class WelcomeViewController: UIViewController {
 	@IBAction func continueButtonHit(_ sender: UIButton) {
 		if (viewModel.viewState == .signUp) {
 			 //Create an account and add it to the local storage (this should be on a server database, not local)
-			let account: Account = Account(name: self.viewModel.signUpViewModel.name, email: self.viewModel.signUpViewModel.email, password: self.viewModel.signUpViewModel.password, zipcode: self.viewModel.signUpViewModel.zipcode, yearsPlayed: self.viewModel.signUpViewModel.yearsPlayed)
+			let account: ActiveAccount = ActiveAccount(name: self.viewModel.signUpViewModel.name, email: self.viewModel.signUpViewModel.email, password: self.viewModel.signUpViewModel.password, zipcode: self.viewModel.signUpViewModel.zipcode, yearsPlayed: self.viewModel.signUpViewModel.yearsPlayed!)
 	
 			if (viewModel.signUpViewModel.emailPreexists()) {
 				let alert = UIAlertController(title: "Couldn't Create Account", message: "Email already exists", preferredStyle: UIAlertControllerStyle.alert)

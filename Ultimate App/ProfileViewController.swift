@@ -11,14 +11,11 @@ import UIKit
 // MARK: Class
 class ProfileViewController: UIViewController {
 	// MARK: Properties
-	@IBOutlet private weak var profileImage: UIImageView!
-	@IBOutlet weak var informationStackView: UIStackView!
-	@IBOutlet private weak var yearsPlayedLabel: UILabel!
-	@IBOutlet private weak var zipcodeLabel: UILabel!
-	@IBOutlet private weak var biographyTextView: UITextView!
-	
-	private var identifier: String = "ProfileViewController"
-	private var viewModel: ProfileViewModel!
+	@IBOutlet fileprivate weak var profileImage: UIImageView!
+	@IBOutlet weak var nameLabel: UILabel!
+
+	fileprivate var identifier: String = "ProfileViewController"
+	fileprivate var viewModel: ProfileViewModel!
 	
 	// MARK: Life Cycle
 	init (viewModel: ProfileViewModel) {
@@ -36,17 +33,18 @@ class ProfileViewController: UIViewController {
         // Do any additional setup after loading the view.
 		self.hideKeyboardWhenScreenTapped()
 		
+		let moreButton = UIBarButtonItem(image: #imageLiteral(resourceName: "More"), style: .plain, target: self, action: #selector(moreButtonHit(_:))) 
+		navigationItem.rightBarButtonItem = moreButton
+		
 		profileImage.layer.borderWidth = 0.5
-		profileImage.layer.borderColor = UIColor.black.cgColor
 		profileImage.layer.cornerRadius = profileImage.frame.size.width/2
 		profileImage.clipsToBounds = true
-		yearsPlayedLabel.text = "\(viewModel.account.yearsPlayed) years"
-		zipcodeLabel.text = "\(viewModel.account.zipcode)"
-		
-		navigationItem.title = "\(viewModel.account.name)"
-		
-		profileImage.topAnchor.constraint(equalTo: self.topLayoutGuide.bottomAnchor, constant: 5).isActive = true
-		informationStackView.topAnchor.constraint(equalTo: self.topLayoutGuide.bottomAnchor, constant: 5).isActive = true
+		nameLabel.text = viewModel.activeAccount.name
+//		yearsPlayedLabel.text = "\(viewModel.activeAccount.yearsPlayed) years"
+//		zipcodeLabel.text = "\(viewModel.activeAccount.zipcode)"
+			
+		profileImage.topAnchor.constraint(equalTo: self.topLayoutGuide.bottomAnchor, constant: 20).isActive = true
+//		informationStackView.topAnchor.constraint(equalTo: self.topLayoutGuide.bottomAnchor, constant: 5).isActive = true
 		
     }
 
@@ -58,6 +56,9 @@ class ProfileViewController: UIViewController {
 	// MARK: Control Handlers
 	
 	// MARK: Private
+	@objc fileprivate func moreButtonHit(_ sender: UIButton) {
+		
+	}
 	
 	// MARK: Public
 	

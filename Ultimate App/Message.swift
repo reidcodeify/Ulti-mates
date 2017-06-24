@@ -11,13 +11,13 @@ import Foundation
 // MARK: Structure
 struct Message {
 	// MARK: Properties
-	var from: Account
-	var to: Account
+	var from: ActiveAccount
+	var to: ViewableAccount
 	var date: NSDate
 	var body: String
 	
 	// MARK: Life Cycle
-	init (from: Account, to: Account, date: NSDate) {
+	init (from: ActiveAccount, to: ViewableAccount, date: NSDate) {
 		self.from = from
 		self.to = to
 		self.date = date

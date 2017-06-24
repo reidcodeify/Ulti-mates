@@ -13,8 +13,8 @@ import RealmSwift
 class Event: Object {
 	// MARK: Properties
 	dynamic var eventName: String = ""
+	var players = List<ViewableAccount>()
 	dynamic var date: NSDate = NSDate()
-	dynamic var playerCount: Int = 0
 	dynamic var location: String = ""
 	
 	// MARK: Life Cycle
@@ -30,10 +30,6 @@ class Event: Object {
 	// MARK: Public
 	func updateDate(date: NSDate) {
 		self.date = date
-	}
-	
-	func updatePlayerCount(playerCount: Int) {
-		self.playerCount = playerCount
 	}
 	
 	func updateLocation(location: String) {
