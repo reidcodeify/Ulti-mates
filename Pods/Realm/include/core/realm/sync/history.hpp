@@ -121,7 +121,7 @@ public:
     /// that makes it available via get_status() during future synchronization
     /// sessions. Progress is reported by the server in the DOWNLOAD message.
     ///
-    /// See struct SyncProgress for a description of \param progress
+    /// See struct SyncProgress for a description of \param progress.
     ///
     /// `progress.scan_client_version` has an effect on the process by which old
     /// history entries are discarded.
@@ -149,7 +149,7 @@ public:
     /// changeset was not produced by integration of a changeset received from
     /// the server, and whose changeset was not empty.
     ///
-    /// \param begin_version end_version The range of versions to consider. If
+    /// \param begin_version, end_version The range of versions to consider. If
     /// `begin_version` is equal to `end_version`, this is the empty range. If
     /// `begin_version` is zero, it means that everything preceding
     /// `end_version` is to be considered, which is again the empty range if
@@ -200,7 +200,8 @@ public:
     virtual void get_upload_download_bytes(uint_fast64_t& downloaded_bytes,
                                            uint_fast64_t& downloadable_bytes,
                                            uint_fast64_t& uploaded_bytes,
-                                           uint_fast64_t& uploadable_bytes) = 0;
+                                           uint_fast64_t& uploadable_bytes,
+                                           uint_fast64_t& snapshot_version) = 0;
 
     /// See set_cooked_progress().
     struct CookedProgress {
@@ -281,7 +282,7 @@ public:
     /// \param prior_state The state of the local Realm on which the specified
     /// raw changeset is based.
     ///
-    /// \param changeset changeset_size The raw changeset.
+    /// \param changeset, changeset_size The raw changeset.
     ///
     /// \param buffer The buffer to which the cooked changeset must be written.
     ///

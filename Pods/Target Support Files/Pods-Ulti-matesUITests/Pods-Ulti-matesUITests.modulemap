@@ -1,0 +1,6 @@
+framework module Pods_Ulti_matesUITests {
+  umbrella header "Pods-Ulti-matesUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

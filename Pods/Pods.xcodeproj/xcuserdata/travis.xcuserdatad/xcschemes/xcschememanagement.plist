@@ -4,7 +4,17 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Pods-Ultimate App.xcscheme</key>
+		<key>Pods-Ulti-mates.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Ulti-matesTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Ulti-matesUITests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -22,17 +32,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>20EDEBF1467C053DD8701E457A5D887A</key>
+		<key>10D6B676A70A4219AB75478B18F91B57</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8675E49C714A58FBCF222949D7F8EA57</key>
+		<key>3CF7E7A9A51418C59A46C02B1DCCC7F5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8C5B026238820FC08360729535AE8629</key>
+		<key>BC78B36727A7DC88F8E28B6F3A9C3047</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F814F72760E4C9D655CC409C16F080C9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F81C351A4440F43AF28F9EB9BB1E099C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
