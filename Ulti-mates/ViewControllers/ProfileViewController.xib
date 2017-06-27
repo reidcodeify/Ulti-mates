@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileViewController" customModule="Ulti_mates" customModuleProvider="target">
+            <connections>
+                <outlet property="nameLabel" destination="6rb-W8-Ibm" id="6dV-pJ-YhW"/>
+                <outlet property="profileImage" destination="Wcp-YY-q28" id="EY2-dp-6ST"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wcp-YY-q28">
+                    <rect key="frame" x="137" y="64" width="100" height="100"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="O1t-KG-CSG"/>
+                        <constraint firstAttribute="width" constant="100" id="ebG-zF-FFJ"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6rb-W8-Ibm">
+                    <rect key="frame" x="165" y="179" width="45" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="92R-RU-U1T">
+                    <rect key="frame" x="0.0" y="274.5" width="375" height="50"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YbG-ZU-dV2">
+                            <rect key="frame" x="0.0" y="0.0" width="187.5" height="50"/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <state key="normal" title="Favorite Events"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KZ3-m7-fh5">
+                            <rect key="frame" x="187.5" y="0.0" width="187.5" height="50"/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <state key="normal" title="Contacts"/>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="3rF-fJ-V9L"/>
+                        <constraint firstItem="YbG-ZU-dV2" firstAttribute="width" secondItem="KZ3-m7-fh5" secondAttribute="width" id="8jH-q3-287"/>
+                        <constraint firstItem="YbG-ZU-dV2" firstAttribute="height" secondItem="KZ3-m7-fh5" secondAttribute="height" id="kNN-e7-ubQ"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="6rb-W8-Ibm" firstAttribute="top" secondItem="Wcp-YY-q28" secondAttribute="bottom" constant="15" id="8fG-I1-SZm"/>
+                <constraint firstAttribute="trailing" secondItem="92R-RU-U1T" secondAttribute="trailing" id="Gfp-IR-7l3"/>
+                <constraint firstItem="92R-RU-U1T" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ILu-Rm-RqZ"/>
+                <constraint firstItem="92R-RU-U1T" firstAttribute="top" secondItem="6rb-W8-Ibm" secondAttribute="bottom" constant="75" id="StJ-CV-jVK"/>
+                <constraint firstItem="Wcp-YY-q28" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="lUF-UC-Pt1"/>
+                <constraint firstItem="6rb-W8-Ibm" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="nn2-t6-EkX"/>
+                <constraint firstItem="Wcp-YY-q28" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" placeholder="YES" id="vbg-46-1h3"/>
+            </constraints>
+            <point key="canvasLocation" x="24.5" y="51.5"/>
+        </view>
+    </objects>
+</document>
