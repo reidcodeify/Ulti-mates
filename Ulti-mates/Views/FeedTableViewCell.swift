@@ -50,8 +50,6 @@ class FeedTableViewCell: UITableViewCell {
 		}
 		
 		sender.setTitleColor(self.tintColor, for: .normal)
-		self.setNeedsLayout()
-		self.layoutIfNeeded()
 	}
 	
 	// MARK: Private
