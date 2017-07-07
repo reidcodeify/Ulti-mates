@@ -15,7 +15,6 @@ class FeedTableViewCellViewModel {
 	var realm: Realm
 	var activeAccount: ActiveAccount
 	var event: Event
-	var players: UpdatableProperty<List<ActiveAccount>>
 
 	// make a value for determining the color state of the event
 	var isActive = UpdatableProperty<Bool>(value: false)
@@ -25,7 +24,6 @@ class FeedTableViewCellViewModel {
 		self.realm = realm
 		self.activeAccount = activeAccount
 		self.event = event
-		self.players = UpdatableProperty<List<ActiveAccount>>(value: event.players)
 	}
 	
 	// MARK: Private
@@ -45,6 +43,5 @@ class FeedTableViewCellViewModel {
 				event.players.remove(objectAtIndex: event.players.index(of: activeAccount)!)
 			}
 		}
-		self.players.value = event.players
 	}
 }
