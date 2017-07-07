@@ -7,6 +7,9 @@ target 'Ulti-mates' do
 
   # Pods for Ulti-mates
   pod 'RealmSwift'
+  pod 'GooglePlaces'
+  pod 'GooglePlacePicker'
+  pod 'GoogleMaps'
 
   target 'Ulti-matesTests' do
     inherit! :search_paths

@@ -13,16 +13,20 @@ import RealmSwift
 class Event: Object {
 	// MARK: Properties
 	dynamic var eventName: String = ""
-	var players = List<ViewableAccount>()
+	var players = List<ActiveAccount>()
 	dynamic var date: NSDate = NSDate()
-	dynamic var location: String = ""
+	dynamic var locationName: String = ""
+	dynamic var locationLongitude: Double = 0
+	dynamic var locationLatitude: Double = 0
 	
 	// MARK: Life Cycle
-	convenience init (eventName: String, date: NSDate, location: String) {
+	convenience init (eventName: String, date: NSDate, locationName: String, locationLongitude: Double, locationLatitude: Double) {
 		self.init()
 		self.eventName = eventName
 		self.date = date
-		self.location = location
+		self.locationName = locationName
+		self.locationLongitude = locationLongitude
+		self.locationLatitude = locationLatitude
 	}
 	
 	// MARK: Private
@@ -32,7 +36,15 @@ class Event: Object {
 		self.date = date
 	}
 	
-	func updateLocation(location: String) {
-		self.location = location
+	func updateLocationName(location: String) {
+		self.locationName = location
+	}
+	
+	func updateLocationLongitude(longitude: Double) {
+		self.locationLongitude = longitude
+	}
+	
+	func updateLocationLatitude(latitude: Double) {
+		self.locationLatitude = latitude
 	}
 }

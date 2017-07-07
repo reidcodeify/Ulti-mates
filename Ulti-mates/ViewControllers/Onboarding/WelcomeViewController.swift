@@ -16,6 +16,7 @@ class WelcomeViewController: UIViewController {
 	@IBOutlet fileprivate weak var signUpButton: UIButton!
 	@IBOutlet fileprivate weak var logInButton: UIButton!
 	@IBOutlet fileprivate weak var selectionLine: UIView!
+	@IBOutlet fileprivate weak var selectionLineCenter: NSLayoutConstraint!
 	
 	fileprivate var viewModel: WelcomeViewModel! = nil
 	
@@ -33,7 +34,9 @@ class WelcomeViewController: UIViewController {
         super.viewDidLoad()
 		
 		self.hideKeyboardWhenScreenTapped()
-	
+		
+		selectionLineCenter.constant = signUpButton.center.x
+		
 		let signUpView = SignUpView(frame: scrollView.bounds, viewModel: viewModel.signUpViewModel)
 		let logInView = LogInView(frame: scrollView.bounds, viewModel: viewModel.logInViewModel)
 		let views: [UIView] = [signUpView, logInView]
@@ -76,8 +79,10 @@ class WelcomeViewController: UIViewController {
 	override func viewWillAppear(_ animated: Bool) {
 		if (viewModel.viewState == .signUp) {
 			selectionMade(signUpButton)
+			viewModel.signUpViewModel.checkRequirements()
 		} else {
 			selectionMade(logInButton)
+			viewModel.logInViewModel.checkRequirements()
 		}
 	}
 	
@@ -93,7 +98,7 @@ class WelcomeViewController: UIViewController {
 			let account: ActiveAccount = ActiveAccount(name: self.viewModel.signUpViewModel.name, email: self.viewModel.signUpViewModel.email, password: self.viewModel.signUpViewModel.password, zipcode: self.viewModel.signUpViewModel.zipcode, yearsPlayed: self.viewModel.signUpViewModel.yearsPlayed!)
 	
 			if (viewModel.signUpViewModel.emailPreexists()) {
-				let alert = UIAlertController(title: "Couldn't Create Account", message: "Email already exists", preferredStyle: UIAlertControllerStyle.alert)
+				let alert = UIAlertController(title: "Couldn't Create Account", message: "This email already exists", preferredStyle: UIAlertControllerStyle.alert)
 				alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
 				self.present(alert, animated: true, completion: nil)
 				return
@@ -143,8 +148,9 @@ class WelcomeViewController: UIViewController {
 		}
 		
 		sender.setTitleColor(.black, for: .normal)
+		selectionLineCenter.constant = (sender === signUpButton) ? 0 : view.bounds.midX
 		UIView.animate(withDuration: 0.3, animations: {
-			self.selectionLine.center.x = sender.center.x
+			self.view.layoutIfNeeded()
 			self.scrollView.contentOffset.x = slidePosition
 		})
 	}

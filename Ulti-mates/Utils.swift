@@ -1,6 +1,5 @@
 //
 //  Utils.swift
-//  ProxiUi
 //
 //  Created by Travis Ouellette on 11/8/16.
 //  Copyright © 2016 Codeify. All rights reserved.

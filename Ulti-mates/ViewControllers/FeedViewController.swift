@@ -19,6 +19,15 @@ class FeedViewController: UIViewController {
 	fileprivate var viewModel: FeedViewModel! = nil
 	
 	// MARK: Life Cycle
+	init (viewModel: FeedViewModel) {
+		self.viewModel = viewModel
+		super.init(nibName: identifier, bundle: nil)
+	}
+	
+	required init?(coder aDecoder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 		tableView.rowHeight = self.view.bounds.height/6
@@ -31,22 +40,18 @@ class FeedViewController: UIViewController {
 		segmentedControl.addTarget(self, action: #selector(segmentedControlChanged(_:)), for: .valueChanged)
 		self.navigationItem.titleView = segmentedControl
 		
-		let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonHit(_:)))
+		let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addEventButtonHit(_:)))
 		navigationItem.rightBarButtonItem = addButton
 		
 		// Updatable Properties
 		viewModel.feedState.bind { [weak self] feedState in
 			// animate to the uiview corresponding to the feedState
+			if (feedState == .list) {
+				
+			} else {
+				
+			}
 		}
-	}
-	
-	init (viewModel: FeedViewModel) {
-		self.viewModel = viewModel
-		super.init(nibName: identifier, bundle: nil)
-	}
-	
-	required init?(coder aDecoder: NSCoder) {
-		fatalError("init(coder:) has not been implemented")
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -57,7 +62,7 @@ class FeedViewController: UIViewController {
 		}
 		tableView.reloadData()
 	}
-
+	
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -75,10 +80,14 @@ class FeedViewController: UIViewController {
 		}
 	}
 	
-	@objc fileprivate func addButtonHit(_ sender: UIBarButtonItem) {
+	@objc fileprivate func addEventButtonHit(_ sender: UIBarButtonItem) {
 		// push view controller to specify details about event and create
 		let viewModel = CreateEventViewModel(realm: self.viewModel.realm)
 		self.navigationController?.pushViewController(CreateEventViewController(viewModel: viewModel), animated: true)
+	}
+	
+	@objc fileprivate func reloadTableViewCell(_ sender: UIButton) {
+		tableView.reloadData()
 	}
 	
 	// MARK: Public
@@ -88,6 +97,8 @@ class FeedViewController: UIViewController {
 extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell: FeedTableViewCell = tableView.dequeueReusableCell(withIdentifier: "FeedCell") as! FeedTableViewCell
+		cell.attendButton.addTarget(self, action: #selector(reloadTableViewCell(_:)), for: .touchUpInside)
+		cell.unattendButton.addTarget(self, action: #selector(reloadTableViewCell(_:)), for: .touchUpInside)
 		return cell
 	}
 	
@@ -104,7 +115,7 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
 		let event = viewModel.events[indexPath.row]
-		let cellViewModel = FeedTableViewCellViewModel(realm: viewModel.realm, event: event)
+		let cellViewModel = FeedTableViewCellViewModel(realm: viewModel.realm, activeAccount: viewModel.activeAccount, event: event)
 		let typeCastedCell = cell as! FeedTableViewCell
 		typeCastedCell.viewModel = cellViewModel
 	}

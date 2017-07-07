@@ -13,33 +13,38 @@ import RealmSwift
 class FeedTableViewCellViewModel {
 	// MARK: Properties
 	var realm: Realm
+	var activeAccount: ActiveAccount
 	var event: Event
+	var players: UpdatableProperty<List<ActiveAccount>>
 
 	// make a value for determining the color state of the event
-	var isAttending: Bool?
+	var isActive = UpdatableProperty<Bool>(value: false)
 	
 	// MARK: Life Cycle
-	init (realm: Realm, event: Event) {
+	init (realm: Realm, activeAccount: ActiveAccount, event: Event) {
 		self.realm = realm
+		self.activeAccount = activeAccount
 		self.event = event
+		self.players = UpdatableProperty<List<ActiveAccount>>(value: event.players)
 	}
 	
 	// MARK: Private
 	
 	// MARK: Public
-	func setAttending(isAttending: Bool) {
-		self.isAttending = isAttending
+	func setActiviteState(isActive: Bool) {
+		self.isActive.value = isActive
 	}
 	
-	func updatePlayerCount(amountToAdd: Int) {
-		if (event.players.count == 0 && amountToAdd == -1) {} else { // make sure players.count is not 0, otherwise updatePlayerCount
-			do {
-				try realm.write {
-					//event.players.append(<#T##newElement: Account##Account#>)
-				}
-			} catch {
-				DLog("Could not update player count bro")
+	func updatePlayerCount(shouldAdd: Bool) {
+		if (shouldAdd == true && !event.players.contains(activeAccount)) {
+			try! realm.write {
+				event.players.append(activeAccount)
+			}
+		} else if (shouldAdd == false && event.players.contains(activeAccount)) {
+			try! realm.write {
+				event.players.remove(objectAtIndex: event.players.index(of: activeAccount)!)
 			}
 		}
+		self.players.value = event.players
 	}
 }

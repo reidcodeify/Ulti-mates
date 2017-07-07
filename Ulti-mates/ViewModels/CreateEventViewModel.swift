@@ -8,6 +8,7 @@
 
 import Foundation
 import RealmSwift
+import GooglePlaces
 
 // MARK: Class
 class CreateEventViewModel {
@@ -15,6 +16,7 @@ class CreateEventViewModel {
 	var realm: Realm
 	var eventName: String = ""
 	var date: NSDate?
+	var location: GMSPlace?
 	var canFinish = UpdatableProperty(value: false)
 	
 	// MARK: Life Cycle
@@ -26,7 +28,7 @@ class CreateEventViewModel {
 	
 	// MARK: Public
 	func checkRequirements() {
-		if (!eventName.isEmpty && date != nil) {
+		if (!eventName.isEmpty && date != nil && location != nil) {
 			canFinish.value = true
 		} else {
 			canFinish.value = false

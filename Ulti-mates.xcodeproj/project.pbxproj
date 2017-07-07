@@ -8,6 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		085088E914160E7815458286 /* Pods_Ulti_matesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F18A1859B3E29413B24210DF /* Pods_Ulti_matesTests.framework */; };
+		1F09C0971F0AB78F00A69555 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F09C0961F0AB78F00A69555 /* AVFoundation.framework */; };
+		1F09C0991F0AB79A00A69555 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F09C0981F0AB79A00A69555 /* CoreData.framework */; };
+		1F09C09B1F0AB7A500A69555 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F09C09A1F0AB7A500A69555 /* CoreLocation.framework */; };
+		1F09C09D1F0AB7AE00A69555 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F09C09C1F0AB7AE00A69555 /* CoreText.framework */; };
+		1F09C09F1F0AB7B700A69555 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F09C09E1F0AB7B700A69555 /* GLKit.framework */; };
+		1F09C0A11F0AB7C100A69555 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F09C0A01F0AB7C100A69555 /* ImageIO.framework */; };
+		1F09C0A31F0AB7FE00A69555 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F09C0A21F0AB7FE00A69555 /* OpenGLES.framework */; };
+		1F09C0A51F0AB80700A69555 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F09C0A41F0AB80700A69555 /* QuartzCore.framework */; };
+		1F09C0A71F0AB80F00A69555 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F09C0A61F0AB80F00A69555 /* SystemConfiguration.framework */; };
 		1F46CEFA1F02FA67000A73DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F46CEF71F02FA67000A73DA /* AppDelegate.swift */; };
 		1F46CEFB1F02FA67000A73DA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F46CEF81F02FA67000A73DA /* Extensions.swift */; };
 		1F46CEFC1F02FA67000A73DA /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F46CEF91F02FA67000A73DA /* Utils.swift */; };
@@ -71,6 +80,15 @@
 
 /* Begin PBXFileReference section */
 		0A6A3146395E6BB308E1ABB8 /* Pods-Ulti-mates.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ulti-mates.release.xcconfig"; path = "Pods/Target Support Files/Pods-Ulti-mates/Pods-Ulti-mates.release.xcconfig"; sourceTree = "<group>"; };
+		1F09C0961F0AB78F00A69555 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		1F09C0981F0AB79A00A69555 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		1F09C09A1F0AB7A500A69555 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		1F09C09C1F0AB7AE00A69555 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		1F09C09E1F0AB7B700A69555 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		1F09C0A01F0AB7C100A69555 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		1F09C0A21F0AB7FE00A69555 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		1F09C0A41F0AB80700A69555 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		1F09C0A61F0AB80F00A69555 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		1F46CEF71F02FA67000A73DA /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "Ulti-mates/AppDelegate.swift"; sourceTree = SOURCE_ROOT; };
 		1F46CEF81F02FA67000A73DA /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = "Ulti-mates/Extensions.swift"; sourceTree = SOURCE_ROOT; };
 		1F46CEF91F02FA67000A73DA /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Utils.swift; path = "Ulti-mates/Utils.swift"; sourceTree = SOURCE_ROOT; };
@@ -132,6 +150,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F09C0A71F0AB80F00A69555 /* SystemConfiguration.framework in Frameworks */,
+				1F09C0A51F0AB80700A69555 /* QuartzCore.framework in Frameworks */,
+				1F09C0A31F0AB7FE00A69555 /* OpenGLES.framework in Frameworks */,
+				1F09C0A11F0AB7C100A69555 /* ImageIO.framework in Frameworks */,
+				1F09C09F1F0AB7B700A69555 /* GLKit.framework in Frameworks */,
+				1F09C09D1F0AB7AE00A69555 /* CoreText.framework in Frameworks */,
+				1F09C09B1F0AB7A500A69555 /* CoreLocation.framework in Frameworks */,
+				1F09C0991F0AB79A00A69555 /* CoreData.framework in Frameworks */,
+				1F09C0971F0AB78F00A69555 /* AVFoundation.framework in Frameworks */,
 				EF7076826DE62E123FE5F207 /* Pods_Ulti_mates.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -158,6 +185,15 @@
 		1679214D7F90BDB60A24C222 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1F09C0A61F0AB80F00A69555 /* SystemConfiguration.framework */,
+				1F09C0A41F0AB80700A69555 /* QuartzCore.framework */,
+				1F09C0A21F0AB7FE00A69555 /* OpenGLES.framework */,
+				1F09C0A01F0AB7C100A69555 /* ImageIO.framework */,
+				1F09C09E1F0AB7B700A69555 /* GLKit.framework */,
+				1F09C09C1F0AB7AE00A69555 /* CoreText.framework */,
+				1F09C09A1F0AB7A500A69555 /* CoreLocation.framework */,
+				1F09C0981F0AB79A00A69555 /* CoreData.framework */,
+				1F09C0961F0AB78F00A69555 /* AVFoundation.framework */,
 				D415FA0DBA0056D0DC8BC3AE /* Pods_Ulti_mates.framework */,
 				F18A1859B3E29413B24210DF /* Pods_Ulti_matesTests.framework */,
 				6851A09CCD316BA5E4D93922 /* Pods_Ulti_matesUITests.framework */,
@@ -791,7 +827,7 @@
 				DEVELOPMENT_TEAM = HCS55STQTH;
 				INFOPLIST_FILE = "Ulti-mates/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.codeify.Ultimate-App";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.codeify.Ulti-mates";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -805,7 +841,7 @@
 				DEVELOPMENT_TEAM = HCS55STQTH;
 				INFOPLIST_FILE = "Ulti-mates/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.codeify.Ultimate-App";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.codeify.Ulti-mates";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

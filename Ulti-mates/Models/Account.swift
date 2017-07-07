@@ -12,6 +12,7 @@ import Realm
 
 // MARK: Protocol
 protocol Profilable {
+	var uniqueIdentifier: Int { get }
 	var name: String { get }
 	var biography: String? { get }
 	var yearsPlayed: Int { get }
@@ -23,6 +24,7 @@ protocol Profilable {
 // MARK: Class
 class ActiveAccount: Object, Profilable {
 	// MARK: Properties
+	dynamic var uniqueIdentifier: Int = Int(arc4random())
 	dynamic var name: String = ""
 	dynamic var email: String = ""
 	dynamic var password: String = ""
@@ -72,6 +74,7 @@ class ActiveAccount: Object, Profilable {
 // MARK: Class
 class ViewableAccount: Object, Profilable {
 	// MARK: Properties
+	dynamic var uniqueIdentifier: Int = Int(arc4random())
 	dynamic var name: String = ""
 	dynamic var yearsPlayed: Int = 0 // calculate time played from a given date
 	dynamic var biography: String? = nil

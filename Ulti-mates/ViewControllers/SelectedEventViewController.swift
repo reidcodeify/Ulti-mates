@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import GoogleMaps
 
 // MARK: Class
 class SelectedEventViewController: UIViewController {
 	// MARK: Properties
 	fileprivate let identifier: String = "SelectedEventViewController"
+	@IBOutlet fileprivate weak var mapView: GMSMapView!
+	
 	var viewModel: SelectedEventViewModel? = nil
 	
 	// MARK: Life Cycle
@@ -19,6 +22,15 @@ class SelectedEventViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+		mapView.topAnchor.constraint(equalTo: self.topLayoutGuide.bottomAnchor, constant: 0)
+		
+		mapView.camera = GMSCameraPosition.camera(withLatitude: (viewModel?.event.locationLatitude)!, longitude: (viewModel?.event.locationLongitude)!, zoom: 12)
+		mapView.isMyLocationEnabled = true
+		
+		let marker = GMSMarker()
+		marker.position = CLLocationCoordinate2D(latitude: (viewModel?.event.locationLatitude)!, longitude: (viewModel?.event.locationLongitude)!)
+		marker.title = viewModel?.event.locationName
+		marker.map = mapView
     }
 	
 	init(viewModel: SelectedEventViewModel) {

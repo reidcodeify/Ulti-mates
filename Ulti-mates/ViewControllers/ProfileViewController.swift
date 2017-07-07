@@ -33,7 +33,7 @@ class ProfileViewController: UIViewController {
         // Do any additional setup after loading the view.
 		self.hideKeyboardWhenScreenTapped()
 		
-		let moreButton = UIBarButtonItem(image: #imageLiteral(resourceName: "More"), style: .plain, target: self, action: #selector(moreButtonHit(_:))) 
+		let moreButton = UIBarButtonItem(image: #imageLiteral(resourceName: "More"), style: .plain, target: self, action: #selector(moreButtonHit(_:)))
 		navigationItem.rightBarButtonItem = moreButton
 		
 		profileImage.layer.borderWidth = 0.5
@@ -57,7 +57,13 @@ class ProfileViewController: UIViewController {
 	
 	// MARK: Private
 	@objc fileprivate func moreButtonHit(_ sender: UIButton) {
-		
+		let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+		alert.addAction(UIAlertAction(title: "Log out", style: .default) { action in
+			// sign the user out by taking away credentials from keychain, and transitioning to welcome view controller
+			
+		})
+		alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+		present(alert, animated: true, completion: nil)
 	}
 	
 	// MARK: Public

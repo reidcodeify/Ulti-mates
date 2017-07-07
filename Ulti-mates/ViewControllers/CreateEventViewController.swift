@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import GooglePlaces
+import GooglePlacePicker
 
 // MARK: Class
 class CreateEventViewController: UIViewController {
@@ -18,6 +20,8 @@ class CreateEventViewController: UIViewController {
 	fileprivate let identifier = "CreateEventViewController"
 	var viewModel: CreateEventViewModel! = nil
 	
+	let locationManager = CLLocationManager()
+	
 	// MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,10 +29,13 @@ class CreateEventViewController: UIViewController {
         // Do any additional setup after loading the view.
 		self.hideKeyboardWhenScreenTapped()
 		
+		locationManager.requestWhenInUseAuthorization()
+		
 		eventNameTextField.topAnchor.constraint(equalTo: self.topLayoutGuide.bottomAnchor, constant: 0).isActive = true
 		eventNameTextField.indentAndUnderline()
 		
 		let pickerView = UIDatePicker()
+		pickerView.minimumDate = Date()
 		pickerView.datePickerMode = .dateAndTime
 		pickerView.addTarget(self, action: #selector(dateChanged(_:)), for: .valueChanged)
 		dateTextField.inputView = pickerView
@@ -60,7 +67,10 @@ class CreateEventViewController: UIViewController {
 	
 	// MARK: Control Handlers
 	@IBAction func textFieldChanged(_ sender: UITextField) {
-		viewModel.updateEventName(eventName: sender.text!)
+		if (sender === eventNameTextField) {
+			viewModel.updateEventName(eventName: sender.text!)
+			
+		}
 		viewModel.checkRequirements()
 	}
 	
@@ -71,9 +81,11 @@ class CreateEventViewController: UIViewController {
 		dateTextField.text = DateFormatter.localizedString(from: viewModel.date! as Date, dateStyle: .full, timeStyle: .short)
 	}
 	
+	
+	
 	@objc fileprivate func doneButtonHit(sender: UIButton) {
 		// Create an event, add it to the realm, pop this VC and return to feedVC
-		let newEvent = Event(eventName: viewModel.eventName, date: viewModel.date!, location: "Not set up yet")
+		let newEvent = Event(eventName: viewModel.eventName, date: viewModel.date!, locationName: (viewModel.location?.name)!, locationLongitude: (viewModel.location?.coordinate.longitude)!, locationLatitude: (viewModel.location?.coordinate.latitude)!)
 		// write to realm and save the event
 		do {
 			try viewModel.realm.write {
@@ -88,4 +100,31 @@ class CreateEventViewController: UIViewController {
 	
 	// MARK: Public
 	
+}
+
+extension CreateEventViewController: GMSPlacePickerViewControllerDelegate, UITextFieldDelegate {
+	func placePicker(_ viewController: GMSPlacePickerViewController, didPick place: GMSPlace) {
+		// Dismiss the place picker, as it cannot dismiss itself.
+		viewController.dismiss(animated: true, completion: nil)
+		viewModel.location = place // do a set location here
+		viewModel.checkRequirements()
+		locationTextField.text = viewModel.location?.name
+	}
+	
+	func placePickerDidCancel(_ viewController: GMSPlacePickerViewController) {
+		// Dismiss the place picker, as it cannot dismiss itself.
+		viewController.dismiss(animated: true, completion: nil)
+		print("No place selected")
+	}
+
+	func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+		if textField === locationTextField {
+			let config = GMSPlacePickerConfig(viewport: nil)
+			let placePicker = GMSPlacePickerViewController(config: config)
+			placePicker.delegate = self
+			present(placePicker, animated: true, completion: nil)
+		}
+		
+		return false
+	}
 }

@@ -43,6 +43,8 @@ class DashboardTabBarViewController: UITabBarController {
 		
 		self.viewControllers = [UINavigationController(rootViewController: feedViewController), UINavigationController(rootViewController: messagesViewController), UINavigationController(rootViewController: profileViewController)]
 		self.setViewControllers(viewControllers, animated: true)
+		
+		// get user's current location?
     }
 
     override func didReceiveMemoryWarning() {

@@ -9,6 +9,8 @@
 import UIKit
 import Realm
 import RealmSwift
+import GooglePlaces
+import GoogleMaps
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,18 +18,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	var window: UIWindow?
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-		// Override point for customization after application launch. test bro
+		// Override point for customization after application launch
 		self.window = UIWindow(frame: UIScreen.main.bounds)
 		
 		let realm = try! Realm()
-		let rootVC = UIViewController()
-		let viewModel: WelcomeViewModel //= WelcomeViewModel(realm: realm, viewState: .signUp)
+		GMSPlacesClient.provideAPIKey("AIzaSyCzr5XJT5hXmJa_UGcfRRwUa1V6GD2Z3aU")
+		GMSServices.provideAPIKey("AIzaSyCzr5XJT5hXmJa_UGcfRRwUa1V6GD2Z3aU")
 		
-		if UserDefaults.standard.isFirstLaunch() {
-			viewModel = WelcomeViewModel(realm: realm, viewState: .signUp)
-		} else {
-			viewModel = WelcomeViewModel(realm: realm, viewState: .logIn)
-		}
+		let rootVC = UIViewController()
+		let viewModel: WelcomeViewModel = WelcomeViewModel(realm: realm, viewState: .signUp)
+		
+//		if UserDefaults.standard.isFirstLaunch() {
+//			viewModel = WelcomeViewModel(realm: realm, viewState: .signUp)
+//		} else {
+//			viewModel = WelcomeViewModel(realm: realm, viewState: .logIn)
+//		}
 
 		rootVC.setInitialViewController(WelcomeViewController(viewModel: viewModel))
 		

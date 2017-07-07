@@ -12,10 +12,11 @@ import UIKit
 class FeedTableViewCell: UITableViewCell {
 	// MARK: Properties
 	@IBOutlet fileprivate weak var eventNameLabel: UILabel!
+	@IBOutlet fileprivate weak var locationLabel: UILabel!
 	@IBOutlet fileprivate weak var dateLabel: UILabel!
 	@IBOutlet fileprivate weak var playerAttendanceLabel: UILabel!
-	@IBOutlet fileprivate weak var attendButton: UIButton!
-	@IBOutlet fileprivate weak var unattendButton: UIButton!
+	@IBOutlet weak var attendButton: UIButton!
+	@IBOutlet weak var unattendButton: UIButton!
 	
 	var viewModel: FeedTableViewCellViewModel? {
 		didSet {
@@ -29,10 +30,6 @@ class FeedTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-		
-//		viewModel?.event.players.bind { [weak self] playerCount in
-//			self?.playerAttendanceLabel.text = "\(playerCount) player(s)"
-//		}
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -44,25 +41,23 @@ class FeedTableViewCell: UITableViewCell {
 	// MARK: Control Handlers
 	@IBAction func attendenceButtonHit(_ sender: UIButton) {
 		// for both: set active color, set attending property on viewModel
-		let attendanceCount: Int
 		if (sender === attendButton) {
-			attendanceCount = 1
-			viewModel?.setAttending(isAttending: true)
+			viewModel?.updatePlayerCount(shouldAdd: true)
 			unattendButton.setTitleColor(UIColor.lightGray, for: .normal)
 		} else {
-			attendanceCount = -1
-			viewModel?.setAttending(isAttending: false)
+			viewModel?.updatePlayerCount(shouldAdd: false)
 			attendButton.setTitleColor(UIColor.lightGray, for: .normal)
 		}
 		
-		viewModel?.updatePlayerCount(amountToAdd: attendanceCount)
-		
 		sender.setTitleColor(self.tintColor, for: .normal)
+		self.setNeedsLayout()
+		self.layoutIfNeeded()
 	}
 	
 	// MARK: Private
 	fileprivate func attach(viewModel: FeedTableViewCellViewModel) {
 		dateLabel.text = DateFormatter.localizedString(from: viewModel.event.date as Date, dateStyle: .full, timeStyle: .short)
+		locationLabel.text = viewModel.event.locationName
 		eventNameLabel.text = viewModel.event.eventName
 		playerAttendanceLabel.text = "\(viewModel.event.players.count) player(s)"
 	}

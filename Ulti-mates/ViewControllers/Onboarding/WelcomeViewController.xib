@@ -16,6 +16,7 @@
                 <outlet property="logInButton" destination="MLx-k8-T4o" id="4qW-kG-veE"/>
                 <outlet property="scrollView" destination="wx0-AA-Jem" id="3P2-ZL-zAg"/>
                 <outlet property="selectionLine" destination="PU0-5j-nf8" id="JVa-Ux-4TF"/>
+                <outlet property="selectionLineCenter" destination="9WQ-mM-q4t" id="Pcm-El-2ub"/>
                 <outlet property="signUpButton" destination="3is-jF-lg3" id="6El-8B-L82"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -26,13 +27,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ulti-mates" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N3U-0r-Ir2">
-                    <rect key="frame" x="127" y="49.999999999999993" width="160.66666666666669" height="38.333333333333321"/>
+                    <rect key="frame" x="127" y="50" width="161" height="39"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wx0-AA-Jem">
-                    <rect key="frame" x="0.0" y="128.33333333333331" width="414" height="446.66666666666669"/>
+                    <rect key="frame" x="0.0" y="129" width="414" height="446"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="jrt-d2-mmg"/>
                     </connections>
@@ -98,10 +99,10 @@
                 <constraint firstItem="wx0-AA-Jem" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="0Tv-Fl-4eb"/>
                 <constraint firstItem="wx0-AA-Jem" firstAttribute="top" secondItem="N3U-0r-Ir2" secondAttribute="bottom" constant="40" id="3NP-KU-FgD"/>
                 <constraint firstItem="N3U-0r-Ir2" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="3uO-Lq-U3f"/>
+                <constraint firstItem="PU0-5j-nf8" firstAttribute="centerX" secondItem="3is-jF-lg3" secondAttribute="centerX" id="9WQ-mM-q4t"/>
                 <constraint firstItem="lQX-Os-VEv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="EMd-n1-Gkz"/>
                 <constraint firstAttribute="bottom" secondItem="lQX-Os-VEv" secondAttribute="bottom" id="HGl-jn-pF2"/>
                 <constraint firstItem="N3U-0r-Ir2" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="50" id="J9m-Ex-eaL"/>
-                <constraint firstItem="PU0-5j-nf8" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="KGm-kr-gTk"/>
                 <constraint firstAttribute="trailing" secondItem="lQX-Os-VEv" secondAttribute="trailing" id="LBw-SB-rwE"/>
                 <constraint firstItem="PU0-5j-nf8" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.5" id="NTq-P6-LDD"/>
                 <constraint firstItem="MLx-k8-T4o" firstAttribute="top" secondItem="kRO-hF-Dbh" secondAttribute="bottom" id="QKk-ju-NXx"/>

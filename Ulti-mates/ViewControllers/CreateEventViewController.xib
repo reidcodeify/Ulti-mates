@@ -22,7 +22,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name of event" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eQD-IE-a4Y">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name the event" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eQD-IE-a4Y">
                     <rect key="frame" x="0.0" y="20" width="375" height="55"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="55" id="dLl-D1-h4e"/>
@@ -34,7 +34,7 @@
                         <action selector="textFieldChanged:" destination="-1" eventType="editingChanged" id="RR2-UI-EAy"/>
                     </connections>
                 </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Start time" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vd7-Dr-NkK">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Choose a start time" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vd7-Dr-NkK">
                     <rect key="frame" x="0.0" y="75" width="375" height="55"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="55" id="ZCL-bS-F4G"/>
@@ -46,7 +46,7 @@
                         <action selector="textFieldChanged:" destination="-1" eventType="editingChanged" id="GQR-xj-4gM"/>
                     </connections>
                 </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Mq-eW-yCz">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Pick a location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Mq-eW-yCz">
                     <rect key="frame" x="0.0" y="130" width="375" height="55"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="55" id="WfM-JR-ZOU"/>
@@ -55,7 +55,7 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                     <connections>
-                        <action selector="textFieldChanged:" destination="-1" eventType="editingChanged" id="GTB-6Z-8iw"/>
+                        <outlet property="delegate" destination="-1" id="eiK-d1-FYV"/>
                     </connections>
                 </textField>
             </subviews>
