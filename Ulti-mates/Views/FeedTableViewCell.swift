@@ -7,14 +7,15 @@
 //
 
 import UIKit
+import GooglePlaces
 
 // MARK: Class
 class FeedTableViewCell: UITableViewCell {
 	// MARK: Properties
 	@IBOutlet fileprivate weak var eventNameLabel: UILabel!
-	@IBOutlet fileprivate weak var locationLabel: UILabel!
 	@IBOutlet fileprivate weak var dateLabel: UILabel!
 	@IBOutlet fileprivate weak var playerAttendanceLabel: UILabel!
+	@IBOutlet weak var backgroundImage: UIImageView!
 	@IBOutlet weak var attendButton: UIButton!
 	@IBOutlet weak var unattendButton: UIButton!
 	
@@ -43,31 +44,47 @@ class FeedTableViewCell: UITableViewCell {
 		// for both: set active color, set attending property on viewModel
 		if (sender === attendButton) {
 			viewModel?.updatePlayerCount(shouldAdd: true)
+			attendButton.setTitle("Attending", for: .normal)
 			unattendButton.setTitleColor(UIColor.lightGray, for: .normal)
 		} else {
 			viewModel?.updatePlayerCount(shouldAdd: false)
+			attendButton.setTitle("Attend", for: .normal)
 			attendButton.setTitleColor(UIColor.lightGray, for: .normal)
 		}
 		
-		sender.setTitleColor(self.tintColor, for: .normal)
+		sender.setTitleColor(ultimatesRed, for: .normal)
 	}
 	
 	// MARK: Private
 	fileprivate func attach(viewModel: FeedTableViewCellViewModel) {
-		dateLabel.text = DateFormatter.localizedString(from: viewModel.event.date as Date, dateStyle: .full, timeStyle: .short)
-		locationLabel.text = viewModel.event.locationName
+		dateLabel.text = DateFormatter.localizedString(from: viewModel.event.date as Date, dateStyle: .none, timeStyle: .short)
 		eventNameLabel.text = viewModel.event.eventName
 		playerAttendanceLabel.text = "\(viewModel.event.players.count) player(s)"
+		//loadFirstPhotoForPlace(placeID: (viewModel.event.location?.placeID)!)
 	}
 	
-	fileprivate func checkRealmEvents(for: Event) -> Event? {
-		for event in (viewModel?.realm.objects(Event.self))! {
-			if (event === self.viewModel?.event) {
-				return event
+	fileprivate func loadFirstPhotoForPlace(placeID: String) {
+		GMSPlacesClient.shared().lookUpPhotos(forPlaceID: placeID) { (photos, error) -> Void in
+			if let error = error {
+				// TODO: handle the error.
+				print("Error: \(error.localizedDescription)")
+			} else {
+				if let firstPhoto = photos?.results.first {
+					self.loadImageForMetadata(photoMetadata: firstPhoto)
+				}
 			}
 		}
-		
-		return nil
+	}
+	
+	fileprivate func loadImageForMetadata(photoMetadata: GMSPlacePhotoMetadata) {
+		GMSPlacesClient.shared().loadPlacePhoto(photoMetadata, callback: { (photo, error) -> Void in
+			if let error = error {
+				// TODO: handle the error.
+				print("Error: \(error.localizedDescription)")
+			} else {
+				self.backgroundImage.image = photo
+			}
+		})
 	}
 	
 	// MARK: Public

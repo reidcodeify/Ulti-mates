@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileViewController" customModule="Ulti_mates" customModuleProvider="target">
             <connections>
+                <outlet property="collectionView" destination="MjA-tY-nq8" id="cSX-bO-LJ6"/>
                 <outlet property="nameLabel" destination="6rb-W8-Ibm" id="6dV-pJ-YhW"/>
                 <outlet property="profileImage" destination="Wcp-YY-q28" id="EY2-dp-6ST"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -34,35 +35,38 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="92R-RU-U1T">
-                    <rect key="frame" x="0.0" y="274.5" width="375" height="50"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YbG-ZU-dV2">
-                            <rect key="frame" x="0.0" y="0.0" width="187.5" height="50"/>
-                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                            <state key="normal" title="Favorite Events"/>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KZ3-m7-fh5">
-                            <rect key="frame" x="187.5" y="0.0" width="187.5" height="50"/>
-                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                            <state key="normal" title="Contacts"/>
-                        </button>
-                    </subviews>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="50" id="3rF-fJ-V9L"/>
-                        <constraint firstItem="YbG-ZU-dV2" firstAttribute="width" secondItem="KZ3-m7-fh5" secondAttribute="width" id="8jH-q3-287"/>
-                        <constraint firstItem="YbG-ZU-dV2" firstAttribute="height" secondItem="KZ3-m7-fh5" secondAttribute="height" id="kNN-e7-ubQ"/>
-                    </constraints>
-                </stackView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My events" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tML-TG-V5f">
+                    <rect key="frame" x="148" y="274.5" width="79" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="MjA-tY-nq8">
+                    <rect key="frame" x="0.0" y="300.5" width="375" height="366.5"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="B2R-Tj-rjg">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="XU2-kS-Pxx"/>
+                        <outlet property="delegate" destination="-1" id="wp6-1r-Sgd"/>
+                    </connections>
+                </collectionView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="MjA-tY-nq8" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="1jn-17-cRK"/>
+                <constraint firstItem="tML-TG-V5f" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="4VT-wF-w2h"/>
+                <constraint firstAttribute="trailing" secondItem="MjA-tY-nq8" secondAttribute="trailing" id="5Vt-g4-Tyn"/>
                 <constraint firstItem="6rb-W8-Ibm" firstAttribute="top" secondItem="Wcp-YY-q28" secondAttribute="bottom" constant="15" id="8fG-I1-SZm"/>
-                <constraint firstAttribute="trailing" secondItem="92R-RU-U1T" secondAttribute="trailing" id="Gfp-IR-7l3"/>
-                <constraint firstItem="92R-RU-U1T" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ILu-Rm-RqZ"/>
-                <constraint firstItem="92R-RU-U1T" firstAttribute="top" secondItem="6rb-W8-Ibm" secondAttribute="bottom" constant="75" id="StJ-CV-jVK"/>
+                <constraint firstItem="MjA-tY-nq8" firstAttribute="top" secondItem="tML-TG-V5f" secondAttribute="bottom" constant="5" id="c6l-TJ-L2T"/>
+                <constraint firstAttribute="bottom" secondItem="MjA-tY-nq8" secondAttribute="bottom" id="hcu-52-cyz"/>
                 <constraint firstItem="Wcp-YY-q28" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="lUF-UC-Pt1"/>
                 <constraint firstItem="6rb-W8-Ibm" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="nn2-t6-EkX"/>
+                <constraint firstItem="tML-TG-V5f" firstAttribute="top" secondItem="6rb-W8-Ibm" secondAttribute="bottom" constant="75" id="vJz-q6-1le"/>
                 <constraint firstItem="Wcp-YY-q28" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" placeholder="YES" id="vbg-46-1h3"/>
             </constraints>
             <point key="canvasLocation" x="24.5" y="51.5"/>

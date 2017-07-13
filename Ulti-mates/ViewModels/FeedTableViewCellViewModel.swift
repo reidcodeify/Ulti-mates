@@ -12,7 +12,6 @@ import RealmSwift
 // MARK: Class
 class FeedTableViewCellViewModel {
 	// MARK: Properties
-	var realm: Realm
 	var activeAccount: ActiveAccount
 	var event: Event
 
@@ -20,8 +19,7 @@ class FeedTableViewCellViewModel {
 	var isActive = UpdatableProperty<Bool>(value: false)
 	
 	// MARK: Life Cycle
-	init (realm: Realm, activeAccount: ActiveAccount, event: Event) {
-		self.realm = realm
+	init (activeAccount: ActiveAccount, event: Event) {
 		self.activeAccount = activeAccount
 		self.event = event
 	}
@@ -29,17 +27,17 @@ class FeedTableViewCellViewModel {
 	// MARK: Private
 	
 	// MARK: Public
-	func setActiviteState(isActive: Bool) {
-		self.isActive.value = isActive
+	func setActiveState(isActive: Bool) {
+		self.isActive.update(isActive)
 	}
 	
 	func updatePlayerCount(shouldAdd: Bool) {
 		if (shouldAdd == true && !event.players.contains(activeAccount)) {
-			try! realm.write {
+			try! event.realm?.write {
 				event.players.append(activeAccount)
 			}
 		} else if (shouldAdd == false && event.players.contains(activeAccount)) {
-			try! realm.write {
+			try! event.realm?.write {
 				event.players.remove(objectAtIndex: event.players.index(of: activeAccount)!)
 			}
 		}

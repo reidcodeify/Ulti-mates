@@ -35,10 +35,10 @@ class LogInViewModel {
 		// If this account exists within the Realm storage, then proceed, otherwise deny access
 		for account in realm.objects(ActiveAccount.self) {
 			if (account.email == email && account.password == password) {
-				canContinue.value = true
+				canContinue.update(true)
 				return account
 			} else {
-				canContinue.value = false
+				canContinue.update(false)
 			}
 		}
 		
@@ -48,9 +48,9 @@ class LogInViewModel {
 	// The canContinue property becomes true if the email contains ('.' and an '@') and the password has a minimum character amount of 6
 	func checkRequirements() {
 		if (email.contains("@") && email.contains(".") && password.characters.count >= 6) {
-			canContinue.value =  true
+			canContinue.update(true)
 		} else {
-			canContinue.value =  false
+			canContinue.update(false)
 		}
 	}
 }

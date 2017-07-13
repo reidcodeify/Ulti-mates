@@ -69,7 +69,7 @@ class UpdatableProperty<T> {
 	typealias Update = (T) -> ()
 	fileprivate var update: Update?
 	
-	var value: T {
+	private(set) var value: T {
 		didSet {
 			update?(value)
 		}
@@ -87,6 +87,14 @@ class UpdatableProperty<T> {
 		if fire {
 			self.update?(value)
 		}
+	}
+	
+	func unbind() {
+		update = nil
+	}
+	
+	func update(_ newValue: T) {
+		value = newValue
 	}
 	
 }

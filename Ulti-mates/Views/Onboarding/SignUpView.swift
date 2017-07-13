@@ -14,8 +14,6 @@ class SignUpView: UIView {
 	@IBOutlet fileprivate weak var nameTextField: UITextField!
 	@IBOutlet fileprivate weak var emailTextField: UITextField!
 	@IBOutlet fileprivate weak var passwordTextField: UITextField!
-	@IBOutlet fileprivate weak var zipcodeTextField: UITextField!
-	@IBOutlet fileprivate weak var yearsPlayedTextField: UITextField!
 	
 	fileprivate var nibView: UIView! = nil
 	fileprivate var viewModel: SignUpViewModel! = nil
@@ -31,11 +29,9 @@ class SignUpView: UIView {
 		addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-(0)-[view]-(0)-|", options: [], metrics: nil, views: ["view": nibView]))
 		addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-(0)-[view]-(0)-|", options: [], metrics: nil, views: ["view": nibView]))
 		
-		nameTextField.indentAndUnderline()
-		emailTextField.indentAndUnderline()
-		passwordTextField.indentAndUnderline()
-		zipcodeTextField.indentAndUnderline()
-		yearsPlayedTextField.indentAndUnderline()
+		nameTextField.indentUnderlineAndTint(placeholder: "Name")
+		emailTextField.indentUnderlineAndTint(placeholder: "Email")
+		passwordTextField.indentUnderlineAndTint(placeholder: "Password")
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -51,10 +47,6 @@ class SignUpView: UIView {
 			viewModel.updateEmail(email: sender.text!)
 		case 2:
 			viewModel.updatePassword(password: sender.text!)
-		case 3:
-			viewModel.updateZipcode(zipcode: sender.text!)
-		case 4:
-			viewModel.updateYearsPlayed(yearsPlayed: Int(sender.text!)!)
 		default:
 			break
 		}

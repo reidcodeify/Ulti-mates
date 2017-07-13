@@ -15,7 +15,7 @@ class SelectedEventViewController: UIViewController {
 	fileprivate let identifier: String = "SelectedEventViewController"
 	@IBOutlet fileprivate weak var mapView: GMSMapView!
 	
-	var viewModel: SelectedEventViewModel? = nil
+	let viewModel: SelectedEventViewModel
 	
 	// MARK: Life Cycle
     override func viewDidLoad() {
@@ -24,12 +24,12 @@ class SelectedEventViewController: UIViewController {
         // Do any additional setup after loading the view.
 		mapView.topAnchor.constraint(equalTo: self.topLayoutGuide.bottomAnchor, constant: 0)
 		
-		mapView.camera = GMSCameraPosition.camera(withLatitude: (viewModel?.event.locationLatitude)!, longitude: (viewModel?.event.locationLongitude)!, zoom: 12)
+		mapView.camera = GMSCameraPosition.camera(withLatitude: (viewModel.event.location?.latitude)!, longitude: (viewModel.event.location?.longtitude)!, zoom: 12)
 		mapView.isMyLocationEnabled = true
 		
 		let marker = GMSMarker()
-		marker.position = CLLocationCoordinate2D(latitude: (viewModel?.event.locationLatitude)!, longitude: (viewModel?.event.locationLongitude)!)
-		marker.title = viewModel?.event.locationName
+		marker.position = CLLocationCoordinate2D(latitude: (viewModel.event.location?.latitude)!, longitude: (viewModel.event.location?.longtitude)!)
+		marker.title = viewModel.event.location?.name
 		marker.map = mapView
     }
 	

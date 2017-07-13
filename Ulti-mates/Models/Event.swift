@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import RealmSwift
+import GooglePlaces
 
 // MARK: Struct
 class Event: Object {
@@ -15,18 +16,14 @@ class Event: Object {
 	dynamic var eventName: String = ""
 	var players = List<ActiveAccount>()
 	dynamic var date: NSDate = NSDate()
-	dynamic var locationName: String = ""
-	dynamic var locationLongitude: Double = 0
-	dynamic var locationLatitude: Double = 0
+	var location: RealmPlace? = nil
 	
 	// MARK: Life Cycle
-	convenience init (eventName: String, date: NSDate, locationName: String, locationLongitude: Double, locationLatitude: Double) {
+	convenience init (eventName: String, date: NSDate, location: GMSPlace) {
 		self.init()
 		self.eventName = eventName
 		self.date = date
-		self.locationName = locationName
-		self.locationLongitude = locationLongitude
-		self.locationLatitude = locationLatitude
+		self.location = RealmPlace(withPlace: location)
 	}
 	
 	// MARK: Private
@@ -36,15 +33,10 @@ class Event: Object {
 		self.date = date
 	}
 	
-	func updateLocationName(location: String) {
-		self.locationName = location
+	func updateLocation(location: GMSPlace) {
+		self.location?.name = location.name
+		self.location?.longtitude = location.coordinate.longitude
+		self.location?.latitude = location.coordinate.latitude
 	}
-	
-	func updateLocationLongitude(longitude: Double) {
-		self.locationLongitude = longitude
-	}
-	
-	func updateLocationLatitude(latitude: Double) {
-		self.locationLatitude = latitude
-	}
+
 }

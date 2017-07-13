@@ -17,6 +17,9 @@
 		1F09C0A31F0AB7FE00A69555 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F09C0A21F0AB7FE00A69555 /* OpenGLES.framework */; };
 		1F09C0A51F0AB80700A69555 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F09C0A41F0AB80700A69555 /* QuartzCore.framework */; };
 		1F09C0A71F0AB80F00A69555 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F09C0A61F0AB80F00A69555 /* SystemConfiguration.framework */; };
+		1F1727C51F1533D100D85DD7 /* RealmLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1727C41F1533D100D85DD7 /* RealmLocation.swift */; };
+		1F3DA4AF1F10968700A56583 /* ProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3DA4AD1F10968700A56583 /* ProfileCollectionViewCell.swift */; };
+		1F3DA4B01F10968700A56583 /* ProfileCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F3DA4AE1F10968700A56583 /* ProfileCollectionViewCell.xib */; };
 		1F46CEFA1F02FA67000A73DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F46CEF71F02FA67000A73DA /* AppDelegate.swift */; };
 		1F46CEFB1F02FA67000A73DA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F46CEF81F02FA67000A73DA /* Extensions.swift */; };
 		1F46CEFC1F02FA67000A73DA /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F46CEF91F02FA67000A73DA /* Utils.swift */; };
@@ -26,6 +29,7 @@
 		1F46CF051F02FBB9000A73DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F46CF041F02FBB9000A73DA /* Assets.xcassets */; };
 		1F8751D91ED167C8006F5733 /* Ulti-matesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8751D81ED167C8006F5733 /* Ulti-matesTests.swift */; };
 		1F8751E41ED167C8006F5733 /* Ulti-matesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8751E31ED167C8006F5733 /* Ulti-matesUITests.swift */; };
+		1FCF8AD61F148D9000AEE2DA /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCF8AD51F148D9000AEE2DA /* Colors.swift */; };
 		1FF37E511F02F81B00F16383 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF37E2C1F02F81B00F16383 /* Account.swift */; };
 		1FF37E521F02F81B00F16383 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF37E2D1F02F81B00F16383 /* Event.swift */; };
 		1FF37E531F02F81B00F16383 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF37E2E1F02F81B00F16383 /* Message.swift */; };
@@ -89,6 +93,9 @@
 		1F09C0A21F0AB7FE00A69555 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		1F09C0A41F0AB80700A69555 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		1F09C0A61F0AB80F00A69555 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		1F1727C41F1533D100D85DD7 /* RealmLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmLocation.swift; sourceTree = "<group>"; };
+		1F3DA4AD1F10968700A56583 /* ProfileCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileCollectionViewCell.swift; sourceTree = "<group>"; };
+		1F3DA4AE1F10968700A56583 /* ProfileCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileCollectionViewCell.xib; sourceTree = "<group>"; };
 		1F46CEF71F02FA67000A73DA /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "Ulti-mates/AppDelegate.swift"; sourceTree = SOURCE_ROOT; };
 		1F46CEF81F02FA67000A73DA /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = "Ulti-mates/Extensions.swift"; sourceTree = SOURCE_ROOT; };
 		1F46CEF91F02FA67000A73DA /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Utils.swift; path = "Ulti-mates/Utils.swift"; sourceTree = SOURCE_ROOT; };
@@ -104,6 +111,7 @@
 		1F8751DF1ED167C8006F5733 /* Ulti-matesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Ulti-matesUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F8751E31ED167C8006F5733 /* Ulti-matesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Ulti-matesUITests.swift"; path = "Ulti-matesUITests/Ulti-matesUITests.swift"; sourceTree = "<group>"; };
 		1F8751E51ED167C8006F5733 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = Info.plist; path = "Ulti-matesUITests/Info.plist"; sourceTree = "<group>"; };
+		1FCF8AD51F148D9000AEE2DA /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Colors.swift; path = "Ulti-mates/Colors.swift"; sourceTree = SOURCE_ROOT; };
 		1FF37E2C1F02F81B00F16383 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		1FF37E2D1F02F81B00F16383 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		1FF37E2E1F02F81B00F16383 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
@@ -231,6 +239,7 @@
 				1FF37E2F1F02F81B00F16383 /* ViewControllers */,
 				1FF37E491F02F81B00F16383 /* Views */,
 				1F46CEF71F02FA67000A73DA /* AppDelegate.swift */,
+				1FCF8AD51F148D9000AEE2DA /* Colors.swift */,
 				1F46CEF81F02FA67000A73DA /* Extensions.swift */,
 				1F46CEF91F02FA67000A73DA /* Utils.swift */,
 				1F8751CF1ED167C7006F5733 /* Info.plist */,
@@ -249,7 +258,7 @@
 			);
 			name = "Ulti-mates Unit Tests";
 			path = "Ultimate AppTests";
-			sourceTree = "<group>";
+			sourceTree = SOURCE_ROOT;
 		};
 		1F8751E21ED167C8006F5733 /* Ulti-mates UI Tests */ = {
 			isa = PBXGroup;
@@ -267,6 +276,7 @@
 				1FF37E2C1F02F81B00F16383 /* Account.swift */,
 				1FF37E2D1F02F81B00F16383 /* Event.swift */,
 				1FF37E2E1F02F81B00F16383 /* Message.swift */,
+				1F1727C41F1533D100D85DD7 /* RealmLocation.swift */,
 			);
 			name = Models;
 			path = "Ulti-mates/Models";
@@ -334,6 +344,8 @@
 				1FF37E4C1F02F81B00F16383 /* Onboarding */,
 				1FF37E4A1F02F81B00F16383 /* FeedTableViewCell.swift */,
 				1FF37E4B1F02F81B00F16383 /* FeedTableViewCell.xib */,
+				1F3DA4AD1F10968700A56583 /* ProfileCollectionViewCell.swift */,
+				1F3DA4AE1F10968700A56583 /* ProfileCollectionViewCell.xib */,
 			);
 			name = Views;
 			path = "Ulti-mates/Views";
@@ -482,6 +494,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F3DA4B01F10968700A56583 /* ProfileCollectionViewCell.xib in Resources */,
 				1FF37E6F1F02F81B00F16383 /* SignUpView.xib in Resources */,
 				1FF37E6D1F02F81B00F16383 /* LogInView.xib in Resources */,
 				1FF37E5B1F02F81B00F16383 /* MessagesViewController.xib in Resources */,
@@ -668,13 +681,16 @@
 				1FF37E671F02F81B00F16383 /* SignUpViewModel.swift in Sources */,
 				1FF37E5C1F02F81B00F16383 /* WelcomeViewController.swift in Sources */,
 				1FF37E6C1F02F81B00F16383 /* LogInView.swift in Sources */,
+				1F1727C51F1533D100D85DD7 /* RealmLocation.swift in Sources */,
 				1FF37E581F02F81B00F16383 /* FeedViewController.swift in Sources */,
 				1FF37E621F02F81B00F16383 /* CreateEventViewModel.swift in Sources */,
 				1FF37E631F02F81B00F16383 /* DashboardViewModel.swift in Sources */,
 				1FF37E561F02F81B00F16383 /* DashboardTabBarViewController.swift in Sources */,
 				1FF37E511F02F81B00F16383 /* Account.swift in Sources */,
+				1FCF8AD61F148D9000AEE2DA /* Colors.swift in Sources */,
 				1FF37E5E1F02F81B00F16383 /* ProfileViewController.swift in Sources */,
 				1F46CF001F02FB03000A73DA /* SelectedEventViewModel.swift in Sources */,
+				1F3DA4AF1F10968700A56583 /* ProfileCollectionViewCell.swift in Sources */,
 				1FF37E541F02F81B00F16383 /* CreateEventViewController.swift in Sources */,
 				1FF37E531F02F81B00F16383 /* Message.swift in Sources */,
 				1FF37E641F02F81B00F16383 /* FeedViewModel.swift in Sources */,

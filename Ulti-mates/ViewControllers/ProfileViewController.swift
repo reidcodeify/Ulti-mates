@@ -12,15 +12,16 @@ import UIKit
 class ProfileViewController: UIViewController {
 	// MARK: Properties
 	@IBOutlet fileprivate weak var profileImage: UIImageView!
-	@IBOutlet weak var nameLabel: UILabel!
+	@IBOutlet fileprivate weak var nameLabel: UILabel!
+	@IBOutlet fileprivate weak var collectionView: UICollectionView!
 
 	fileprivate var identifier: String = "ProfileViewController"
 	fileprivate var viewModel: ProfileViewModel!
 	
 	// MARK: Life Cycle
 	init (viewModel: ProfileViewModel) {
-		super.init(nibName: identifier, bundle: nil)
 		self.viewModel = viewModel
+		super.init(nibName: identifier, bundle: nil)
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -29,6 +30,7 @@ class ProfileViewController: UIViewController {
 	
     override func viewDidLoad() {
         super.viewDidLoad()
+		collectionView.register(UINib(nibName: "ProfileCollectionViewCell", bundle: nil) , forCellWithReuseIdentifier: "Profile Cell")
 
         // Do any additional setup after loading the view.
 		self.hideKeyboardWhenScreenTapped()
@@ -40,12 +42,8 @@ class ProfileViewController: UIViewController {
 		profileImage.layer.cornerRadius = profileImage.frame.size.width/2
 		profileImage.clipsToBounds = true
 		nameLabel.text = viewModel.activeAccount.name
-//		yearsPlayedLabel.text = "\(viewModel.activeAccount.yearsPlayed) years"
-//		zipcodeLabel.text = "\(viewModel.activeAccount.zipcode)"
 			
 		profileImage.topAnchor.constraint(equalTo: self.topLayoutGuide.bottomAnchor, constant: 20).isActive = true
-//		informationStackView.topAnchor.constraint(equalTo: self.topLayoutGuide.bottomAnchor, constant: 5).isActive = true
-		
     }
 
     override func didReceiveMemoryWarning() {
@@ -58,6 +56,10 @@ class ProfileViewController: UIViewController {
 	// MARK: Private
 	@objc fileprivate func moreButtonHit(_ sender: UIButton) {
 		let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+		alert.addAction(UIAlertAction(title: "Edit", style: .default) { action in
+			// allow editing of information
+			
+		})
 		alert.addAction(UIAlertAction(title: "Log out", style: .default) { action in
 			// sign the user out by taking away credentials from keychain, and transitioning to welcome view controller
 			
@@ -67,6 +69,18 @@ class ProfileViewController: UIViewController {
 	}
 	
 	// MARK: Public
-	
 
+}
+
+// MARK: Extension
+extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+		return 4 //viewModel.activeAccount.favoritedEvents.count
+	}
+	
+	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Profile Cell", for: indexPath)
+		cell.backgroundView?.backgroundColor = .blue
+		return cell
+	}
 }

@@ -31,21 +31,24 @@ class CreateEventViewController: UIViewController {
 		
 		locationManager.requestWhenInUseAuthorization()
 		
+		// set up navigation bar
+		navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(doneButtonHit(sender:)))
+		navigationItem.rightBarButtonItem?.isEnabled = false
+		
+		// set up textFields
 		eventNameTextField.topAnchor.constraint(equalTo: self.topLayoutGuide.bottomAnchor, constant: 0).isActive = true
-		eventNameTextField.indentAndUnderline()
+		eventNameTextField.indentUnderlineAndTint(placeholder: "Event name")
 		
 		let pickerView = UIDatePicker()
 		pickerView.minimumDate = Date()
 		pickerView.datePickerMode = .dateAndTime
 		pickerView.addTarget(self, action: #selector(dateChanged(_:)), for: .valueChanged)
 		dateTextField.inputView = pickerView
-		dateTextField.indentAndUnderline()
+		dateTextField.indentUnderlineAndTint(placeholder: "Date")
+
+		locationTextField.indentUnderlineAndTint(placeholder: "Location")
 		
-		locationTextField.indentAndUnderline()
-		
-		navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(doneButtonHit(sender:)))
-		navigationItem.rightBarButtonItem?.isEnabled = false
-		
+		// updatable properties
 		viewModel.canFinish.bind { [weak self] canFinish in
 			self?.navigationItem.rightBarButtonItem?.isEnabled = canFinish
 		}
@@ -81,11 +84,9 @@ class CreateEventViewController: UIViewController {
 		dateTextField.text = DateFormatter.localizedString(from: viewModel.date! as Date, dateStyle: .full, timeStyle: .short)
 	}
 	
-	
-	
 	@objc fileprivate func doneButtonHit(sender: UIButton) {
 		// Create an event, add it to the realm, pop this VC and return to feedVC
-		let newEvent = Event(eventName: viewModel.eventName, date: viewModel.date!, locationName: (viewModel.location?.name)!, locationLongitude: (viewModel.location?.coordinate.longitude)!, locationLatitude: (viewModel.location?.coordinate.latitude)!)
+		let newEvent = Event(eventName: viewModel.eventName, date: viewModel.date!, location: viewModel.location!)
 		// write to realm and save the event
 		do {
 			try viewModel.realm.write {
@@ -93,7 +94,7 @@ class CreateEventViewController: UIViewController {
 			}
 
 		} catch {
-			DLog("Error. Could not write to the realm, bro")
+			DLog("Error. Could not write to the realm")
 		}
 		self.navigationController?.popViewController(animated: true)
 	}

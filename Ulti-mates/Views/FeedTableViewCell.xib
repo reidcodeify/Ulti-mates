@@ -19,20 +19,17 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="99.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Rxp-FF-H9G">
+                        <rect key="frame" x="8" y="8" width="304" height="83"/>
+                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jbz-mF-b0V">
-                        <rect key="frame" x="13" y="13" width="119" height="26.5"/>
+                        <rect key="frame" x="13" y="60" width="119" height="26.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date and time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r42-Zu-uf8">
-                        <rect key="frame" x="13" y="63.5" width="96" height="18"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#/#" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hl0-tD-UGV">
-                        <rect key="frame" x="292.5" y="72.5" width="22.5" height="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X Players" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hl0-tD-UGV">
+                        <rect key="frame" x="255" y="72.5" width="60" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -57,36 +54,40 @@
                             <action selector="attendenceButtonHit:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="8Nr-MG-9cy"/>
                         </connections>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dy1-ML-W6m">
-                        <rect key="frame" x="13" y="42.5" width="59" height="18"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date and time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r42-Zu-uf8">
+                        <rect key="frame" x="13" y="37" width="96" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="r42-Zu-uf8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="3Pb-98-iA7"/>
-                    <constraint firstItem="Dy1-ML-W6m" firstAttribute="top" secondItem="Jbz-mF-b0V" secondAttribute="bottom" constant="3" id="3WV-ac-Oic"/>
                     <constraint firstAttribute="bottom" secondItem="Hl0-tD-UGV" secondAttribute="bottom" constant="10" id="7ho-ZB-qrD"/>
+                    <constraint firstItem="Rxp-FF-H9G" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="D4P-2J-6Go"/>
+                    <constraint firstItem="r42-Zu-uf8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="GZ1-Lw-pkU"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Rxp-FF-H9G" secondAttribute="trailing" id="Gon-iZ-LQt"/>
                     <constraint firstAttribute="trailing" secondItem="Hl0-tD-UGV" secondAttribute="trailing" constant="5" id="Io3-2Y-0T7"/>
-                    <constraint firstItem="Jbz-mF-b0V" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="5" id="LrH-PI-gca"/>
+                    <constraint firstItem="Jbz-mF-b0V" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="NB1-LH-lXv"/>
+                    <constraint firstItem="Jbz-mF-b0V" firstAttribute="top" secondItem="r42-Zu-uf8" secondAttribute="bottom" constant="5" id="OuY-on-TNz"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="Rxp-FF-H9G" secondAttribute="bottom" id="UMm-Bs-IoB"/>
                     <constraint firstItem="lmf-Ke-apA" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="UVU-zm-USs"/>
-                    <constraint firstItem="Jbz-mF-b0V" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="cF4-JF-PMD"/>
                     <constraint firstAttribute="trailing" secondItem="lmf-Ke-apA" secondAttribute="trailing" constant="5" id="cRY-oY-huw"/>
-                    <constraint firstItem="r42-Zu-uf8" firstAttribute="top" secondItem="Dy1-ML-W6m" secondAttribute="bottom" constant="3" id="cpi-Dl-jlz"/>
-                    <constraint firstItem="Dy1-ML-W6m" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="hhd-M9-Cc6"/>
+                    <constraint firstItem="Rxp-FF-H9G" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="edp-QY-yUh"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="Jbz-mF-b0V" secondAttribute="bottom" constant="5" id="kUe-tu-WXN"/>
                     <constraint firstAttribute="trailing" secondItem="TVf-wG-qfZ" secondAttribute="trailing" constant="5" id="mFA-bz-n78"/>
                     <constraint firstItem="TVf-wG-qfZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="nuH-bk-w31"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="attendButton" destination="TVf-wG-qfZ" id="T1L-ne-u99"/>
+                <outlet property="backgroundImage" destination="Rxp-FF-H9G" id="MSx-5m-KN0"/>
                 <outlet property="dateLabel" destination="r42-Zu-uf8" id="4tA-wi-ZmV"/>
                 <outlet property="eventNameLabel" destination="Jbz-mF-b0V" id="2bD-Il-MzJ"/>
-                <outlet property="locationLabel" destination="Dy1-ML-W6m" id="QSa-j3-bSb"/>
+                <outlet property="imageView" destination="Rxp-FF-H9G" id="Wsk-Nq-eTH"/>
                 <outlet property="playerAttendanceLabel" destination="Hl0-tD-UGV" id="i1q-fF-7gc"/>
                 <outlet property="unattendButton" destination="lmf-Ke-apA" id="NaD-Vh-Am5"/>
             </connections>
+            <point key="canvasLocation" x="-168" y="136"/>
         </tableViewCell>
     </objects>
 </document>

@@ -30,8 +30,8 @@ class LogInView: UIView {
 		addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-(0)-[view]-(0)-|", options: [], metrics: nil, views: ["view": nibView]))
 		addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-(0)-[view]-(0)-|", options: [], metrics: nil, views: ["view": nibView]))
 		
-		emailTextField.indentAndUnderline()
-		passwordTextField.indentAndUnderline()
+		emailTextField.indentUnderlineAndTint(placeholder: "Email")
+		passwordTextField.indentUnderlineAndTint(placeholder: "Password")
 	}
 	
 	required init?(coder aDecoder: NSCoder) {

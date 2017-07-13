@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GooglePlaces
 
 
 // MARK: Class
@@ -16,7 +17,7 @@ class FeedViewController: UIViewController {
 	
 	@IBOutlet fileprivate weak var tableView: UITableView!
 	
-	fileprivate var viewModel: FeedViewModel! = nil
+	fileprivate var viewModel: FeedViewModel
 	
 	// MARK: Life Cycle
 	init (viewModel: FeedViewModel) {
@@ -30,13 +31,15 @@ class FeedViewController: UIViewController {
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-		tableView.rowHeight = self.view.bounds.height/6
+		tableView.rowHeight = self.view.bounds.height/4
 		tableView.register(UINib(nibName: "FeedTableViewCell", bundle: nil), forCellReuseIdentifier: "FeedCell")
 		tableView.tableFooterView = UIView(frame: .zero)
 		
 		// Set up NavigationBar
+		
 		let segmentedControl = UISegmentedControl(items: ["List", "Map"])
 		segmentedControl.selectedSegmentIndex = 0
+		segmentedControl.tintColor = .darkGray
 		segmentedControl.addTarget(self, action: #selector(segmentedControlChanged(_:)), for: .valueChanged)
 		self.navigationItem.titleView = segmentedControl
 		
@@ -44,6 +47,10 @@ class FeedViewController: UIViewController {
 		navigationItem.rightBarButtonItem = addButton
 		
 		// Updatable Properties
+		viewModel.events.bind { [weak self] _ in
+			self?.tableView.reloadData()
+		}
+		
 		viewModel.feedState.bind { [weak self] feedState in
 			// animate to the uiview corresponding to the feedState
 			if (feedState == .list) {
@@ -55,12 +62,7 @@ class FeedViewController: UIViewController {
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
-		// populate table view data from realm storage
-		viewModel.events = []
-		for event in viewModel.realm.objects(Event.self) {
-			viewModel.events.append(event)
-		}
-		tableView.reloadData()
+		super.viewWillAppear(animated)
 	}
 	
     override func didReceiveMemoryWarning() {
@@ -103,21 +105,26 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
 	}
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return viewModel.events.count
+		return viewModel.events.value.count
 	}
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		// push in VC for event details
-		let viewModel = SelectedEventViewModel(event: self.viewModel.events[indexPath.row], activeAccount: self.viewModel.activeAccount)
-		navigationController?.pushViewController(SelectedEventViewController(viewModel: viewModel), animated: true)
-		tableView.deselectRow(at: indexPath, animated: true)
+//		let viewModel = SelectedEventViewModel(event: self.viewModel.events[indexPath.row], activeAccount: self.viewModel.activeAccount) // make viewModel func to handle this (return a viewModel)
+//		navigationController?.pushViewController(SelectedEventViewController(viewModel: viewModel), animated: true)
+//		tableView.deselectRow(at: indexPath, animated: true)
 	}
 	
 	func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-		let event = viewModel.events[indexPath.row]
-		let cellViewModel = FeedTableViewCellViewModel(realm: viewModel.realm, activeAccount: viewModel.activeAccount, event: event)
+		let cellViewModel = viewModel.events.value[indexPath.row]
 		let typeCastedCell = cell as! FeedTableViewCell
 		typeCastedCell.viewModel = cellViewModel
+		
+		// check to see if this activeAccount is already in the players for each event, if so, then enable the attending button
+		if (typeCastedCell.viewModel?.event.players.contains(self.viewModel.activeAccount))! {
+			typeCastedCell.attendButton.setTitle("Attending", for: .normal)
+			typeCastedCell.attendButton.setTitleColor(ultimatesRed, for: .normal)
+		}
 	}
 	
 	// To swipe delete cells
@@ -128,14 +135,10 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
 	func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
 		if (editingStyle == UITableViewCellEditingStyle.delete) {
 			let cell = tableView.cellForRow(at: indexPath) as! FeedTableViewCell
-			viewModel.events.remove(at: indexPath.row)
-			tableView.deleteRows(at: [indexPath as IndexPath], with: .fade)
 			
 			try! viewModel.realm.write {
 				viewModel.realm.delete((cell.viewModel?.event)!)
 			}
-			
-			tableView.reloadData()
 		}
 	}
 }

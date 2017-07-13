@@ -34,6 +34,7 @@ class WelcomeViewController: UIViewController {
         super.viewDidLoad()
 		
 		self.hideKeyboardWhenScreenTapped()
+		continueButton.roundAndShadow()
 		
 		selectionLineCenter.constant = signUpButton.center.x
 		
@@ -69,6 +70,10 @@ class WelcomeViewController: UIViewController {
 		
 		viewModel.signUpViewModel.canContinue.bind { [weak self] canContinue in
 			self?.continueButton.isEnabled = canContinue
+			
+			// when canContinue is true, do a cool red-fill effect on the continueButton to declare that it's enabled. Do a reverse effect when canContinue is false
+			let color = (canContinue) ? UIColor.darkText : UIColor.lightText
+			self?.continueButton.setTitleColor(color, for: .normal)
 		}
 		
 		viewModel.logInViewModel.canContinue.bind { [weak self] canContinue in
@@ -95,7 +100,7 @@ class WelcomeViewController: UIViewController {
 	@IBAction func continueButtonHit(_ sender: UIButton) {
 		if (viewModel.viewState == .signUp) {
 			 //Create an account and add it to the local storage (this should be on a server database, not local)
-			let account: ActiveAccount = ActiveAccount(name: self.viewModel.signUpViewModel.name, email: self.viewModel.signUpViewModel.email, password: self.viewModel.signUpViewModel.password, zipcode: self.viewModel.signUpViewModel.zipcode, yearsPlayed: self.viewModel.signUpViewModel.yearsPlayed!)
+			let account: ActiveAccount = ActiveAccount(name: self.viewModel.signUpViewModel.name, email: self.viewModel.signUpViewModel.email, password: self.viewModel.signUpViewModel.password)
 	
 			if (viewModel.signUpViewModel.emailPreexists()) {
 				let alert = UIAlertController(title: "Couldn't Create Account", message: "This email already exists", preferredStyle: UIAlertControllerStyle.alert)
@@ -147,7 +152,7 @@ class WelcomeViewController: UIViewController {
 			continueButton.setTitle("Continue", for: .normal)
 		}
 		
-		sender.setTitleColor(.black, for: .normal)
+		sender.setTitleColor(.darkGray, for: .normal)
 		selectionLineCenter.constant = (sender === signUpButton) ? 0 : view.bounds.midX
 		UIView.animate(withDuration: 0.3, animations: {
 			self.view.layoutIfNeeded()

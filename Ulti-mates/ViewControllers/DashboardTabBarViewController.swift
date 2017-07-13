@@ -27,21 +27,28 @@ class DashboardTabBarViewController: UITabBarController {
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+		
+		// set up tab bar controller
+		self.tabBar.tintColor = ultimatesRed
+		
+		// set up navigation controllers
 		let feedViewModel = FeedViewModel(realm: viewModel.realm, activeAccount: viewModel.activeAccount)
 		let messagesViewModel = MessagesViewModel(realm: viewModel.realm, activeAccount: viewModel.activeAccount)
 		let profileViewModel = ProfileViewModel(realm: viewModel.realm, activeAccount: viewModel.activeAccount)
 		
-		let feedViewController = FeedViewController(viewModel: feedViewModel)
-		let messagesViewController = MessagesViewController(viewModel: messagesViewModel)
-		let profileViewController = ProfileViewController(viewModel: profileViewModel)
+		let feedViewController = UINavigationController(rootViewController: FeedViewController(viewModel: feedViewModel))
+		let messagesViewController = UINavigationController(rootViewController: MessagesViewController(viewModel: messagesViewModel))
+		let profileViewController = UINavigationController(rootViewController: ProfileViewController(viewModel: profileViewModel))
+		
+		feedViewController.navigationBar.tintColor = .darkGray
+		messagesViewController.navigationBar.tintColor = .darkGray
+		profileViewController.navigationBar.tintColor = .darkGray
 		
 		feedViewController.tabBarItem = UITabBarItem(title: "Events", image: UIImage(named: "Feed"), tag: 0)
 		messagesViewController.tabBarItem = UITabBarItem(title: "Messages", image: UIImage(named: "Message"), tag: 1)
 		profileViewController.tabBarItem = UITabBarItem(title: "\(viewModel.activeAccount.name)", image: UIImage(named: "Profile"), tag: 2)
 		
-		self.viewControllers = [UINavigationController(rootViewController: feedViewController), UINavigationController(rootViewController: messagesViewController), UINavigationController(rootViewController: profileViewController)]
+		self.viewControllers = [feedViewController, messagesViewController, profileViewController]
 		self.setViewControllers(viewControllers, animated: true)
 		
 		// get user's current location?

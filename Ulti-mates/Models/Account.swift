@@ -14,8 +14,6 @@ import Realm
 protocol Profilable {
 	var uniqueIdentifier: Int { get }
 	var name: String { get }
-	var biography: String? { get }
-	var yearsPlayed: Int { get }
 	var favoritedEvents: List<Event> { get }
 	var friends: List<ViewableAccount> { get }
 	var location: String { get }
@@ -28,21 +26,16 @@ class ActiveAccount: Object, Profilable {
 	dynamic var name: String = ""
 	dynamic var email: String = ""
 	dynamic var password: String = ""
-	dynamic var zipcode: String = ""
-	dynamic var yearsPlayed: Int = 0 // *calculate time played from a given date?
-	dynamic var biography: String? = nil
 	dynamic var location: String = ""
 	var favoritedEvents = List<Event>()
 	var friends = List<ViewableAccount>()
 	
 	// MARK: Life Cycle
-	convenience init (name: String, email: String, password: String, zipcode: String, yearsPlayed: Int) {
+	convenience init (name: String, email: String, password: String) {
 		self.init()
 		self.name = name
 		self.email = email
 		self.password = password
-		self.zipcode = zipcode
-		self.yearsPlayed = yearsPlayed
 	}
 	
 	// MARK: Public
@@ -57,18 +50,6 @@ class ActiveAccount: Object, Profilable {
 	func updatePassword(password: String) {
 		self.password = password
 	}
-	
-	func updateZipcode(zipcode: String) {
-		self.zipcode = zipcode
-	}
-	
-	func updateBiography(biography: String) {
-		self.biography = biography
-	}
-	
-	func updateYearsPlayed(yearsPlayed: Int) {
-		self.yearsPlayed = yearsPlayed
-	}
 }
 
 // MARK: Class
@@ -77,17 +58,15 @@ class ViewableAccount: Object, Profilable {
 	dynamic var uniqueIdentifier: Int = Int(arc4random())
 	dynamic var name: String = ""
 	dynamic var yearsPlayed: Int = 0 // calculate time played from a given date
-	dynamic var biography: String? = nil
 	dynamic var location: String = ""
 	var favoritedEvents = List<Event>()
 	var friends = List<ViewableAccount>()
 	
 	// MARK: Life Cycle
-	convenience init (name: String, location: String, yearsPlayed: Int) {
+	convenience init (name: String, location: String) {
 		self.init()
 		self.name = name
 		self.location = location
-		self.yearsPlayed = yearsPlayed
 	}
 	
 	// MARK: Private

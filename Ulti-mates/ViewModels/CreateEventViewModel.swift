@@ -29,9 +29,9 @@ class CreateEventViewModel {
 	// MARK: Public
 	func checkRequirements() {
 		if (!eventName.isEmpty && date != nil && location != nil) {
-			canFinish.value = true
+			canFinish.update(true)
 		} else {
-			canFinish.value = false
+			canFinish.update(false)
 		}
 	}
 	

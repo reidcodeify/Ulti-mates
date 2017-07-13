@@ -10,7 +10,8 @@ import LocalAuthentication
 
 extension UIView {
 	func roundAndShadow () {
-		self.layer.cornerRadius = self.bounds.height/2
+		
+		self.layer.cornerRadius = 5
 		self.layer.shadowOpacity = 0.2
 		self.layer.shadowOffset = CGSize(width: 1, height: 2)
 	}
@@ -23,7 +24,10 @@ extension UIView {
 }
 
 extension UITextField {
-		func indentAndUnderline() {
+	func indentUnderlineAndTint(placeholder: String) {
+			self.alpha = 0.75
+		self.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSForegroundColorAttributeName: UIColor.white])
+			
 			let border = CALayer()
 			let width = CGFloat(1)
 			border.borderColor = UIColor(red: 246/255, green: 246/255, blue: 248/255, alpha: 0.75).cgColor
