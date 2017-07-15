@@ -34,8 +34,10 @@ class SelectedEventViewController: UIViewController {
         // Do any additional setup after loading the view.
 		mapView.topAnchor.constraint(equalTo: self.topLayoutGuide.bottomAnchor, constant: 0)
 		
-		mapView.camera = GMSCameraPosition.camera(withLatitude: (viewModel.event.location?.latitude)!, longitude: (viewModel.event.location?.longtitude)!, zoom: 12)
+		mapView.camera = GMSCameraPosition.camera(withLatitude: (viewModel.event.location?.latitude)!, longitude: (viewModel.event.location?.longtitude)!, zoom: 16)
 		mapView.isMyLocationEnabled = true
+		mapView.settings.myLocationButton = true
+		mapView.settings.compassButton = true
 		
 		let marker = GMSMarker()
 		marker.position = CLLocationCoordinate2D(latitude: (viewModel.event.location?.latitude)!, longitude: (viewModel.event.location?.longtitude)!)

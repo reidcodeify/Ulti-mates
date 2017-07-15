@@ -52,7 +52,7 @@ class FeedTableViewCell: UITableViewCell {
 	
 	// MARK: Private
 	fileprivate func attach(viewModel: FeedTableViewCellViewModel) {
-		dateLabel.text = DateFormatter.localizedString(from: viewModel.event.date as Date, dateStyle: .none, timeStyle: .short)
+		dateLabel.text = DateFormatter.localizedString(from: viewModel.event.date as Date, dateStyle: .short, timeStyle: .short)
 		eventNameLabel.text = viewModel.event.eventName
 		playerAttendanceLabel.text = "\(viewModel.event.players.count) player(s)"
 		//loadFirstPhotoForPlace(placeID: (viewModel.event.location?.placeID)!)
