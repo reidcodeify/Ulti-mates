@@ -20,4 +20,17 @@ class ProfileViewModel {
 		self.realm = realm
 		self.activeAccount = activeAccount
 	}
+	
+	// MARK: Private
+	
+	// MARK: Public
+	func deleteAccount() {
+		do {
+			try realm.write {
+				realm.delete(activeAccount)
+			}
+		} catch (let error) {
+			DLog("Error deleting ActiveAccount from Realm: \(error.localizedDescription)")
+		}
+	}
 }

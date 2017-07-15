@@ -11,22 +11,25 @@ import UIKit
 // MARK: Class
 class ProfileViewController: UIViewController {
 	// MARK: Properties
+	fileprivate var identifier: String = "ProfileViewController"
+
 	@IBOutlet fileprivate weak var profileImage: UIImageView!
 	@IBOutlet fileprivate weak var nameLabel: UILabel!
 	@IBOutlet fileprivate weak var collectionView: UICollectionView!
 
-	fileprivate var identifier: String = "ProfileViewController"
 	fileprivate var viewModel: ProfileViewModel!
 	
 	// MARK: Life Cycle
+	required init?(coder aDecoder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
+	
 	init (viewModel: ProfileViewModel) {
 		self.viewModel = viewModel
 		super.init(nibName: identifier, bundle: nil)
 	}
 	
-	required init?(coder aDecoder: NSCoder) {
-		fatalError("init(coder:) has not been implemented")
-	}
+	deinit { print(identifier + " dismissed") }
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,12 +63,25 @@ class ProfileViewController: UIViewController {
 			// allow editing of information
 			
 		})
-		alert.addAction(UIAlertAction(title: "Log out", style: .default) { action in
+		alert.addAction(UIAlertAction(title: "Log out", style: .default) { [weak self] action in
 			// sign the user out by taking away credentials from keychain, and transitioning to welcome view controller
-			
+			self?.tearDown()
 		})
+		alert.addAction(UIAlertAction(title: "Delete account", style: .default, handler: { [weak self] action in
+			// delete account in viewModel and transition to welcomeviewController
+			self?.viewModel.deleteAccount()
+			self?.tearDown()
+		}))
 		alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
 		present(alert, animated: true, completion: nil)
+	}
+	
+	fileprivate func tearDown() {
+		let viewModel = WelcomeViewModel(realm: self.viewModel.realm, viewState: .logIn)
+		let rootVC = UIViewController()
+		rootVC.setInitialViewController(WelcomeViewController(viewModel: viewModel))
+		self.view.window?.rootViewController = rootVC
+		self.view.window?.makeKeyAndVisible()
 	}
 	
 	// MARK: Public

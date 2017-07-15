@@ -36,6 +36,10 @@ class WelcomeViewModel {
 	// MARK: Private
 	
 	// MARK: Public
+	
+	/// Takes a viewState and updates the value of local variable, viewState with it
+	/// 
+	/// - Parameter viewState: An instance of WelcomeState
 	func setViewState(viewState: WelcomeState) {
 		self.viewState = viewState
 	}

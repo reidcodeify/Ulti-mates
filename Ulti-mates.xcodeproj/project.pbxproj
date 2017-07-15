@@ -29,6 +29,8 @@
 		1F46CF051F02FBB9000A73DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F46CF041F02FBB9000A73DA /* Assets.xcassets */; };
 		1F8751D91ED167C8006F5733 /* Ulti-matesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8751D81ED167C8006F5733 /* Ulti-matesTests.swift */; };
 		1F8751E41ED167C8006F5733 /* Ulti-matesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8751E31ED167C8006F5733 /* Ulti-matesUITests.swift */; };
+		1FB0B8C11F1ABCA9007555BB /* PlayersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB0B8BF1F1ABCA9007555BB /* PlayersTableViewCell.swift */; };
+		1FB0B8C21F1ABCA9007555BB /* PlayersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FB0B8C01F1ABCA9007555BB /* PlayersTableViewCell.xib */; };
 		1FCF8AD61F148D9000AEE2DA /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCF8AD51F148D9000AEE2DA /* Colors.swift */; };
 		1FF37E511F02F81B00F16383 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF37E2C1F02F81B00F16383 /* Account.swift */; };
 		1FF37E521F02F81B00F16383 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF37E2D1F02F81B00F16383 /* Event.swift */; };
@@ -111,6 +113,8 @@
 		1F8751DF1ED167C8006F5733 /* Ulti-matesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Ulti-matesUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F8751E31ED167C8006F5733 /* Ulti-matesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Ulti-matesUITests.swift"; path = "Ulti-matesUITests/Ulti-matesUITests.swift"; sourceTree = "<group>"; };
 		1F8751E51ED167C8006F5733 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = Info.plist; path = "Ulti-matesUITests/Info.plist"; sourceTree = "<group>"; };
+		1FB0B8BF1F1ABCA9007555BB /* PlayersTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayersTableViewCell.swift; sourceTree = "<group>"; };
+		1FB0B8C01F1ABCA9007555BB /* PlayersTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayersTableViewCell.xib; sourceTree = "<group>"; };
 		1FCF8AD51F148D9000AEE2DA /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Colors.swift; path = "Ulti-mates/Colors.swift"; sourceTree = SOURCE_ROOT; };
 		1FF37E2C1F02F81B00F16383 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		1FF37E2D1F02F81B00F16383 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
@@ -346,6 +350,8 @@
 				1FF37E4B1F02F81B00F16383 /* FeedTableViewCell.xib */,
 				1F3DA4AD1F10968700A56583 /* ProfileCollectionViewCell.swift */,
 				1F3DA4AE1F10968700A56583 /* ProfileCollectionViewCell.xib */,
+				1FB0B8BF1F1ABCA9007555BB /* PlayersTableViewCell.swift */,
+				1FB0B8C01F1ABCA9007555BB /* PlayersTableViewCell.xib */,
 			);
 			name = Views;
 			path = "Ulti-mates/Views";
@@ -494,6 +500,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FB0B8C21F1ABCA9007555BB /* PlayersTableViewCell.xib in Resources */,
 				1F3DA4B01F10968700A56583 /* ProfileCollectionViewCell.xib in Resources */,
 				1FF37E6F1F02F81B00F16383 /* SignUpView.xib in Resources */,
 				1FF37E6D1F02F81B00F16383 /* LogInView.xib in Resources */,
@@ -677,6 +684,7 @@
 				1FF37E6E1F02F81B00F16383 /* SignUpView.swift in Sources */,
 				1FF37E651F02F81B00F16383 /* MessagesViewModel.swift in Sources */,
 				1FF37E661F02F81B00F16383 /* LogInViewModel.swift in Sources */,
+				1FB0B8C11F1ABCA9007555BB /* PlayersTableViewCell.swift in Sources */,
 				1FF37E691F02F81B00F16383 /* ProfileViewModel.swift in Sources */,
 				1FF37E671F02F81B00F16383 /* SignUpViewModel.swift in Sources */,
 				1FF37E5C1F02F81B00F16383 /* WelcomeViewController.swift in Sources */,

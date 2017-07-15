@@ -32,14 +32,12 @@ class FeedViewController: UIViewController {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
+	deinit { print(identifier + " dismissed") }
+	
     override func viewDidLoad() {
         super.viewDidLoad()
-		tableView.rowHeight = self.view.bounds.height/4
-		tableView.register(UINib(nibName: "FeedTableViewCell", bundle: nil), forCellReuseIdentifier: "FeedCell")
-		tableView.tableFooterView = UIView(frame: .zero)
 		
 		// Set up navigationItem
-		
 		let segmentedControl = UISegmentedControl(items: ["List", "Map"])
 		segmentedControl.selectedSegmentIndex = 0
 		segmentedControl.tintColor = .darkGray
@@ -49,14 +47,28 @@ class FeedViewController: UIViewController {
 		let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addEventButtonHit(_:)))
 		navigationItem.rightBarButtonItem = addButton
 		
-		// Set up views
+		let sortButton = UIBarButtonItem(title: "Sort", style: .plain, target: self, action: #selector(sortButtonHit(_:)))
+		navigationItem.leftBarButtonItem = sortButton
+		
+		// Set up tableView
+		tableView.register(UINib(nibName: "FeedTableViewCell", bundle: nil), forCellReuseIdentifier: "FeedCell")
+		tableView.tableFooterView = UIView(frame: .zero)
 		tableView.topAnchor.constraint(equalTo: self.topLayoutGuide.bottomAnchor, constant: 0).isActive = true
-		mapView.topAnchor.constraint(equalTo: self.topLayoutGuide.bottomAnchor, constant: 0).isActive = true
 		tableView.bottomAnchor.constraint(equalTo: self.bottomLayoutGuide.topAnchor, constant: 0).isActive = true
+		tableView.rowHeight = self.tableView.bounds.height/3
+		
+		// Set up mapView
+		mapView.topAnchor.constraint(equalTo: self.topLayoutGuide.bottomAnchor, constant: 0).isActive = true
 		mapView.bottomAnchor.constraint(equalTo: self.bottomLayoutGuide.topAnchor, constant: 0).isActive = true
+		mapView.delegate = self
+		mapView.camera = GMSCameraPosition.camera(withLatitude: (locationManager.location?.coordinate.latitude)!, longitude: (locationManager.location?.coordinate.longitude)!, zoom: 12)
+		mapView.isMyLocationEnabled = true
+		mapView.settings.myLocationButton = true
+		mapView.settings.compassButton = true
 		
 		// Set up location services
 		locationManager.requestWhenInUseAuthorization()
+		locationManager.delegate = self
 		
 		// Updatable Properties
 		viewModel.events.bind { [weak self] _ in
@@ -66,9 +78,16 @@ class FeedViewController: UIViewController {
 		viewModel.feedState.bind { [weak self] feedState in
 			// animate to the uiview corresponding to the feedState
 			if (feedState == .list) {
-				
-			} else {
-				
+				UIView.animate(withDuration: 0.3, animations: { 
+					self?.mapView.alpha = 0
+					self?.tableView.alpha = 1
+				})
+			} else if (feedState == .map) {
+				self?.layoutMarkers()
+				UIView.animate(withDuration: 0.3, animations: { 
+					self?.tableView.alpha = 0
+					self?.mapView.alpha = 1
+				})
 			}
 		}
 	}
@@ -80,8 +99,10 @@ class FeedViewController: UIViewController {
 		mapView.isMyLocationEnabled = true
 		mapView.delegate = self
 		
-		locationManager.delegate = self
+		
 		locationManager.startUpdatingLocation()
+		
+		layoutMarkers()
 	}
 	
     override func didReceiveMemoryWarning() {
@@ -97,8 +118,23 @@ class FeedViewController: UIViewController {
 		case 1:
 			self.viewModel.updateFeedState(to: .map)
 		default:
-			DLog("Segmented control index out of range, bro")
+			DLog("Segmented control index out of range")
 		}
+	}
+	
+	@objc fileprivate func sortButtonHit(_ sender: UIBarButtonItem) {
+		let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+		alert.addAction(UIAlertAction(title: "Closest location", style: .default, handler: { action in
+			
+		}))
+		alert.addAction(UIAlertAction(title: "Player count", style: .default) { action in
+			
+		})
+		alert.addAction(UIAlertAction(title: "Soonest start time", style: .default) { action in
+			
+		})
+		alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+		present(alert, animated: true, completion: nil)
 	}
 	
 	@objc fileprivate func addEventButtonHit(_ sender: UIBarButtonItem) {
@@ -109,6 +145,15 @@ class FeedViewController: UIViewController {
 	
 	@objc fileprivate func reloadTableViewCell(_ sender: UIButton) {
 		tableView.reloadData()
+	}
+	
+	fileprivate func layoutMarkers() {
+		for event in viewModel.realm.objects(Event.self) {
+			let marker = GMSMarker()
+			marker.position = CLLocationCoordinate2D(latitude: (event.location?.latitude)!, longitude: (event.location?.longtitude)!)
+			marker.title = event.location?.name
+			marker.map = mapView
+		}
 	}
 	
 	// MARK: Public
@@ -157,5 +202,17 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource, GMSMap
 				viewModel.realm.delete((cell.viewModel?.event)!)
 			}
 		}
+	}
+	
+	func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
+		// find the event connected to this marker, show a selectedViewController of it
+		for selectedViewModel in viewModel.events.value {
+			if (selectedViewModel.event.location?.latitude == marker.position.latitude &&
+				selectedViewModel.event.location?.longtitude == marker.position.longitude) {
+				let viewModel = SelectedEventViewModel(event: selectedViewModel.event, activeAccount: self.viewModel.activeAccount)
+				self.navigationController?.pushViewController(SelectedEventViewController(viewModel: viewModel), animated: true)
+			}
+		}
+		return true
 	}
 }

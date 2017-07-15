@@ -16,6 +16,7 @@ class SignUpView: UIView {
 	@IBOutlet fileprivate weak var nameTextField: UITextField!
 	@IBOutlet fileprivate weak var emailTextField: UITextField!
 	@IBOutlet fileprivate weak var passwordTextField: UITextField!
+	@IBOutlet fileprivate weak var supportLabel: UILabel!
 	
 	fileprivate var viewModel: SignUpViewModel
 	
@@ -34,11 +35,12 @@ class SignUpView: UIView {
 		self.setUp()
 	}
 	
-	deinit {}
+	deinit { print("SignUpView dismissed") }
 	
 	// MARK: Control Handlers
 	
-	/// Updates the viewModel's properties with respect to the edited UITextField
+	/// Updates the viewModel's properties with respect to the edited UITextField.
+	/// If UITextField is the passwordTextField, then supportLabel's instructions are updated accordingly 
 	/// 
 	/// - Parameter sender: The UITextField that that the user entered text into
 	@IBAction func textFieldChanged(_ sender: UITextField) {
@@ -48,7 +50,7 @@ class SignUpView: UIView {
 		case 1:
 			viewModel.updateEmail(email: sender.text!)
 		case 2:
-			viewModel.updatePassword(password: sender.text!)
+			supportLabel.text = viewModel.updatePassword(password: sender.text!)
 		default:
 			break
 		}

@@ -14,9 +14,9 @@ import GooglePlaces
 class Event: Object {
 	// MARK: Properties
 	dynamic var eventName: String = ""
-	var players = List<ActiveAccount>()
 	dynamic var date: NSDate = NSDate()
 	dynamic var location: RealmPlace? = nil
+	var players = List<ActiveAccount>()
 	
 	// MARK: Life Cycle
 	convenience init (eventName: String, date: NSDate, location: GMSPlace) {

@@ -23,6 +23,17 @@ class CreateEventViewController: UIViewController {
 	let locationManager = CLLocationManager()
 	
 	// MARK: Life Cycle
+	required init?(coder aDecoder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
+	
+	init (viewModel: CreateEventViewModel) {
+		self.viewModel = viewModel
+		super.init(nibName: identifier, bundle: nil)
+	}
+	
+	deinit { print(identifier + " dismissed") }
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -54,14 +65,9 @@ class CreateEventViewController: UIViewController {
 		}
 	}
 	
-	init (viewModel: CreateEventViewModel) {
-		self.viewModel = viewModel
-		super.init(nibName: identifier, bundle: nil)
-	}
 	
-	required init?(coder aDecoder: NSCoder) {
-		fatalError("init(coder:) has not been implemented")
-	}
+	
+	
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -35,7 +35,7 @@ class LogInView: UIView {
 		self.setUp()
 	}
 	
-	deinit {}
+	deinit { print("LogInView dismissed") }
 	
 	// MARK: Control Handlers
 	

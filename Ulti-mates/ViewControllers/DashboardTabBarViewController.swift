@@ -28,7 +28,7 @@ class DashboardTabBarViewController: UITabBarController {
 		super.init(nibName: identifier, bundle: nil)
 	}
 	
-	deinit {}
+	deinit { print(identifier + " dismissed") }
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,9 +55,7 @@ class DashboardTabBarViewController: UITabBarController {
 		
 		self.viewControllers = [feedViewController, messagesViewController, profileViewController]
 		self.setViewControllers(viewControllers, animated: true)
-		
-		// get user's current location?
-    }
+	}
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -11,6 +11,8 @@ import UIKit
 // MARK: Class
 class WelcomeViewController: UIViewController {
 	// MARK: Properties
+	fileprivate let identifier: String = "WelcomeViewController"
+	
 	@IBOutlet fileprivate weak var scrollView: UIScrollView!
 	@IBOutlet fileprivate weak var continueButton: UIButton!
 	@IBOutlet fileprivate weak var signUpButton: UIButton!
@@ -30,10 +32,10 @@ class WelcomeViewController: UIViewController {
 	/// - Parameter viewModel: An instance of WelcomeViewModel
 	init (viewModel: WelcomeViewModel) {
 		self.viewModel = viewModel
-		super.init(nibName: "WelcomeViewController", bundle: nil)
+		super.init(nibName: identifier, bundle: nil)
 	}
 	
-	deinit { print("WelcomeViewController dismissed") }
+	deinit { print(identifier + " dismissed") }
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,9 +77,6 @@ class WelcomeViewController: UIViewController {
 			index += 1
 		}
 		
-		// Set starting x-position on the selectionLine center constraint
-		selectionLineCenter.constant = signUpButton.center.x
-		
 		// Updatable properties
 		viewModel.signUpViewModel.canContinue.bind { [weak self] canContinue in
 			self?.continueButton.isEnabled = canContinue
@@ -118,7 +117,7 @@ class WelcomeViewController: UIViewController {
 			let account: ActiveAccount = ActiveAccount(name: self.viewModel.signUpViewModel.name, email: self.viewModel.signUpViewModel.email, password: self.viewModel.signUpViewModel.password)
 	
 			if (viewModel.signUpViewModel.emailPreexists()) {
-				let alert = UIAlertController(title: "Couldn't Create Account", message: "This email already exists", preferredStyle: UIAlertControllerStyle.alert)
+				let alert = UIAlertController(title: "Couldn't Create Account", message: "An account is already associated with this email", preferredStyle: UIAlertControllerStyle.alert)
 				alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
 				self.present(alert, animated: true, completion: nil)
 				return
@@ -144,7 +143,7 @@ class WelcomeViewController: UIViewController {
 				let alert = UIAlertController(title: "Couldn't Sign In", message: "Incorrect email or password", preferredStyle: UIAlertControllerStyle.alert)
 				alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
 				self.present(alert, animated: true, completion: nil)
-				DLog("Error, Could not authenticate these log-in credentials, bro")
+				DLog("Error, Could not authenticate these log-in credentials")
 			}
 		}
 	}
