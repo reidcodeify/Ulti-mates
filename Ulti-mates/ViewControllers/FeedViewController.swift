@@ -8,6 +8,7 @@
 
 import UIKit
 import GooglePlaces
+import GoogleMaps
 
 
 // MARK: Class
@@ -16,6 +17,8 @@ class FeedViewController: UIViewController {
 	fileprivate var identifier: String = "FeedViewController"
 	
 	@IBOutlet fileprivate weak var tableView: UITableView!
+	@IBOutlet fileprivate weak var mapView: GMSMapView!
+	let locationManager = CLLocationManager()
 	
 	fileprivate var viewModel: FeedViewModel
 	
@@ -35,7 +38,7 @@ class FeedViewController: UIViewController {
 		tableView.register(UINib(nibName: "FeedTableViewCell", bundle: nil), forCellReuseIdentifier: "FeedCell")
 		tableView.tableFooterView = UIView(frame: .zero)
 		
-		// Set up NavigationBar
+		// Set up navigationItem
 		
 		let segmentedControl = UISegmentedControl(items: ["List", "Map"])
 		segmentedControl.selectedSegmentIndex = 0
@@ -45,6 +48,13 @@ class FeedViewController: UIViewController {
 		
 		let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addEventButtonHit(_:)))
 		navigationItem.rightBarButtonItem = addButton
+		
+		// Set up views
+		tableView.topAnchor.constraint(equalTo: self.topLayoutGuide.bottomAnchor, constant: 0).isActive = true
+		mapView.topAnchor.constraint(equalTo: self.topLayoutGuide.bottomAnchor, constant: 0).isActive = true
+		
+		// Set up location services
+		locationManager.requestWhenInUseAuthorization()
 		
 		// Updatable Properties
 		viewModel.events.bind { [weak self] _ in
@@ -63,6 +73,13 @@ class FeedViewController: UIViewController {
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
+		
+		// Set up mapView
+		mapView.isMyLocationEnabled = true
+		mapView.delegate = self
+		
+		locationManager.delegate = self
+		locationManager.startUpdatingLocation()
 	}
 	
     override func didReceiveMemoryWarning() {
@@ -96,11 +113,10 @@ class FeedViewController: UIViewController {
 
 }
 
-extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
+extension FeedViewController: UITableViewDelegate, UITableViewDataSource, GMSMapViewDelegate, CLLocationManagerDelegate {
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell: FeedTableViewCell = tableView.dequeueReusableCell(withIdentifier: "FeedCell") as! FeedTableViewCell
-		cell.attendButton.addTarget(self, action: #selector(reloadTableViewCell(_:)), for: .touchUpInside)
-		cell.unattendButton.addTarget(self, action: #selector(reloadTableViewCell(_:)), for: .touchUpInside)
+		cell.attendanceButton.addTarget(self, action: #selector(reloadTableViewCell(_:)), for: .touchUpInside)
 		return cell
 	}
 	
@@ -110,9 +126,9 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		// push in VC for event details
-//		let viewModel = SelectedEventViewModel(event: self.viewModel.events[indexPath.row], activeAccount: self.viewModel.activeAccount) // make viewModel func to handle this (return a viewModel)
-//		navigationController?.pushViewController(SelectedEventViewController(viewModel: viewModel), animated: true)
-//		tableView.deselectRow(at: indexPath, animated: true)
+		let viewModel = self.viewModel.createSelectedViewModel(indexPath.row)
+		navigationController?.pushViewController(SelectedEventViewController(viewModel: viewModel), animated: true)
+		tableView.deselectRow(at: indexPath, animated: true)
 	}
 	
 	func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -122,8 +138,7 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
 		
 		// check to see if this activeAccount is already in the players for each event, if so, then enable the attending button
 		if (typeCastedCell.viewModel?.event.players.contains(self.viewModel.activeAccount))! {
-			typeCastedCell.attendButton.setTitle("Attending", for: .normal)
-			typeCastedCell.attendButton.setTitleColor(ultimatesRed, for: .normal)
+			typeCastedCell.attendanceButton.setImage(#imageLiteral(resourceName: "Frisbee Closed"), for: .normal)
 		}
 	}
 	

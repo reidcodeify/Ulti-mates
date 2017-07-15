@@ -15,9 +15,8 @@ class FeedTableViewCell: UITableViewCell {
 	@IBOutlet fileprivate weak var eventNameLabel: UILabel!
 	@IBOutlet fileprivate weak var dateLabel: UILabel!
 	@IBOutlet fileprivate weak var playerAttendanceLabel: UILabel!
+	@IBOutlet weak var attendanceButton: UIButton!
 	@IBOutlet weak var backgroundImage: UIImageView!
-	@IBOutlet weak var attendButton: UIButton!
-	@IBOutlet weak var unattendButton: UIButton!
 	
 	var viewModel: FeedTableViewCellViewModel? {
 		didSet {
@@ -42,17 +41,13 @@ class FeedTableViewCell: UITableViewCell {
 	// MARK: Control Handlers
 	@IBAction func attendenceButtonHit(_ sender: UIButton) {
 		// for both: set active color, set attending property on viewModel
-		if (sender === attendButton) {
+		if (attendanceButton.imageView?.image == #imageLiteral(resourceName: "Frisbee Open")) {
 			viewModel?.updatePlayerCount(shouldAdd: true)
-			attendButton.setTitle("Attending", for: .normal)
-			unattendButton.setTitleColor(UIColor.lightGray, for: .normal)
+			attendanceButton.setImage(#imageLiteral(resourceName: "Frisbee Closed"), for: .normal)
 		} else {
 			viewModel?.updatePlayerCount(shouldAdd: false)
-			attendButton.setTitle("Attend", for: .normal)
-			attendButton.setTitleColor(UIColor.lightGray, for: .normal)
+			attendanceButton.setImage(#imageLiteral(resourceName: "Frisbee Open"), for: .normal)
 		}
-		
-		sender.setTitleColor(ultimatesRed, for: .normal)
 	}
 	
 	// MARK: Private

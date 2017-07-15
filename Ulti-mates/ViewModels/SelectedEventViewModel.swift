@@ -25,5 +25,4 @@ class SelectedEventViewModel {
 	
 	// MARK: Public
 	
-	
 }

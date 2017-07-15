@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FeedViewController" customModule="Ulti_mates" customModuleProvider="target">
             <connections>
+                <outlet property="mapView" destination="7hH-dv-WH2" id="bmM-V8-wdY"/>
                 <outlet property="tableView" destination="teN-D8-vws" id="HSg-7f-H95"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -20,6 +21,10 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7hH-dv-WH2" userLabel="Map View" customClass="GMSMapView">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="teN-D8-vws">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -33,7 +38,11 @@
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="teN-D8-vws" secondAttribute="bottom" id="FBp-z4-dgE"/>
                 <constraint firstItem="teN-D8-vws" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="LwF-jh-aU8"/>
-                <constraint firstItem="teN-D8-vws" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="nmE-lE-3yx"/>
+                <constraint firstItem="7hH-dv-WH2" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" placeholder="YES" id="MLX-PB-Ih6"/>
+                <constraint firstItem="7hH-dv-WH2" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="bBl-n4-bCb"/>
+                <constraint firstAttribute="trailing" secondItem="7hH-dv-WH2" secondAttribute="trailing" id="cgT-fb-ITd"/>
+                <constraint firstAttribute="bottom" secondItem="7hH-dv-WH2" secondAttribute="bottom" id="mQd-cv-qXs"/>
+                <constraint firstItem="teN-D8-vws" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" placeholder="YES" id="nmE-lE-3yx"/>
                 <constraint firstAttribute="trailing" secondItem="teN-D8-vws" secondAttribute="trailing" id="vkY-FU-eRD"/>
             </constraints>
         </view>

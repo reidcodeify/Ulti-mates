@@ -13,11 +13,21 @@ import GoogleMaps
 class SelectedEventViewController: UIViewController {
 	// MARK: Properties
 	fileprivate let identifier: String = "SelectedEventViewController"
+	
 	@IBOutlet fileprivate weak var mapView: GMSMapView!
 	
 	let viewModel: SelectedEventViewModel
 	
 	// MARK: Life Cycle
+	required init?(coder aDecoder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
+	
+	init(viewModel: SelectedEventViewModel) {
+		self.viewModel = viewModel
+		super.init(nibName: identifier, bundle: nil)
+	}
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,15 +43,6 @@ class SelectedEventViewController: UIViewController {
 		marker.map = mapView
     }
 	
-	init(viewModel: SelectedEventViewModel) {
-		self.viewModel = viewModel
-		super.init(nibName: identifier, bundle: nil)
-	}
-	
-	required init?(coder aDecoder: NSCoder) {
-		fatalError("init(coder:) has not been implemented")
-	}
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

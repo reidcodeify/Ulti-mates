@@ -11,27 +11,32 @@ import UIKit
 // MARK: Class
 class DashboardTabBarViewController: UITabBarController {
 	// MARK: Properties
-	private var identifier: String = "DashboardTabBarViewController"
+	fileprivate var identifier: String = "DashboardTabBarViewController"
 	
-	private var viewModel: DashboardViewModel
+	fileprivate var viewModel: DashboardViewModel
 	
 	// MARK: Life Cycle
+	required init?(coder aDecoder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
+	
+	/// Custom initializer that takes a viewModel
+	///
+	/// - Parameter viewModel: An instance of DashboardViewModel
 	init (viewModel: DashboardViewModel) {
 		self.viewModel = viewModel
 		super.init(nibName: identifier, bundle: nil)
 	}
 	
-	required init?(coder aDecoder: NSCoder) {
-		fatalError("init(coder:) has not been implemented")
-	}
+	deinit {}
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
 		
-		// set up tab bar controller
+		// Set up tab bar controller
 		self.tabBar.tintColor = ultimatesRed
 		
-		// set up navigation controllers
+		// Set up navigation controllers
 		let feedViewModel = FeedViewModel(realm: viewModel.realm, activeAccount: viewModel.activeAccount)
 		let messagesViewModel = MessagesViewModel(realm: viewModel.realm, activeAccount: viewModel.activeAccount)
 		let profileViewModel = ProfileViewModel(realm: viewModel.realm, activeAccount: viewModel.activeAccount)

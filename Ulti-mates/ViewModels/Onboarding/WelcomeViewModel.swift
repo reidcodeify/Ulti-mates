@@ -9,6 +9,7 @@
 import Foundation
 import RealmSwift
 
+// MARK: Enum
 enum WelcomeState {
 	case signUp
 	case logIn
@@ -17,21 +18,21 @@ enum WelcomeState {
 // MARK: Class
 class WelcomeViewModel {
 	// MARK: Properties
-	var viewState: WelcomeState = .signUp
+	let realm: Realm
 	var signUpViewModel: SignUpViewModel
 	var logInViewModel: LogInViewModel
-	let realm: Realm
+	var viewState: WelcomeState = .signUp
 	
 	// MARK: Life Cycle
 	init (realm: Realm, viewState: WelcomeState) {
 		self.realm = realm
+		self.signUpViewModel = SignUpViewModel(realm: self.realm)
+		self.logInViewModel = LogInViewModel(realm: self.realm)
 		self.viewState = viewState
-		signUpViewModel = SignUpViewModel(realm: self.realm)
-		logInViewModel = LogInViewModel(realm: self.realm)
 	}
 	
-	// MARK: Control Handlers
-	
+	deinit {}
+		
 	// MARK: Private
 	
 	// MARK: Public

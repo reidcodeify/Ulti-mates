@@ -29,40 +29,31 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X Players" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hl0-tD-UGV">
-                        <rect key="frame" x="255" y="72.5" width="60" height="17"/>
+                        <rect key="frame" x="255" y="65" width="60" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lmf-Ke-apA">
-                        <rect key="frame" x="270" y="38" width="45" height="24"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                        <state key="normal" title="Unattend">
-                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                        </state>
-                        <connections>
-                            <action selector="attendenceButtonHit:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="YXr-RX-P71"/>
-                        </connections>
-                    </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TVf-wG-qfZ">
-                        <rect key="frame" x="282" y="5" width="33" height="24"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                        <state key="normal" title="Attend">
-                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                        </state>
-                        <connections>
-                            <action selector="attendenceButtonHit:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="8Nr-MG-9cy"/>
-                        </connections>
-                    </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date and time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r42-Zu-uf8">
                         <rect key="frame" x="13" y="37" width="96" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H7C-BG-yzK">
+                        <rect key="frame" x="262" y="8" width="50" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="50" id="1f2-Rb-E3d"/>
+                            <constraint firstAttribute="width" constant="50" id="J2B-SR-eje"/>
+                        </constraints>
+                        <state key="normal" image="Frisbee Open"/>
+                        <connections>
+                            <action selector="attendenceButtonHit:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="yaC-4p-NaK"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="Hl0-tD-UGV" secondAttribute="bottom" constant="10" id="7ho-ZB-qrD"/>
+                    <constraint firstItem="H7C-BG-yzK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="4sm-Iq-2NV"/>
                     <constraint firstItem="Rxp-FF-H9G" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="D4P-2J-6Go"/>
                     <constraint firstItem="r42-Zu-uf8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="GZ1-Lw-pkU"/>
                     <constraint firstAttribute="trailingMargin" secondItem="Rxp-FF-H9G" secondAttribute="trailing" id="Gon-iZ-LQt"/>
@@ -70,24 +61,24 @@
                     <constraint firstItem="Jbz-mF-b0V" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="NB1-LH-lXv"/>
                     <constraint firstItem="Jbz-mF-b0V" firstAttribute="top" secondItem="r42-Zu-uf8" secondAttribute="bottom" constant="5" id="OuY-on-TNz"/>
                     <constraint firstAttribute="bottomMargin" secondItem="Rxp-FF-H9G" secondAttribute="bottom" id="UMm-Bs-IoB"/>
-                    <constraint firstItem="lmf-Ke-apA" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="UVU-zm-USs"/>
-                    <constraint firstAttribute="trailing" secondItem="lmf-Ke-apA" secondAttribute="trailing" constant="5" id="cRY-oY-huw"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="H7C-BG-yzK" secondAttribute="trailing" id="YAW-9h-QQL"/>
+                    <constraint firstItem="Hl0-tD-UGV" firstAttribute="centerY" secondItem="Jbz-mF-b0V" secondAttribute="centerY" id="eGM-0V-nf4"/>
                     <constraint firstItem="Rxp-FF-H9G" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="edp-QY-yUh"/>
                     <constraint firstAttribute="bottomMargin" secondItem="Jbz-mF-b0V" secondAttribute="bottom" constant="5" id="kUe-tu-WXN"/>
-                    <constraint firstAttribute="trailing" secondItem="TVf-wG-qfZ" secondAttribute="trailing" constant="5" id="mFA-bz-n78"/>
-                    <constraint firstItem="TVf-wG-qfZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="nuH-bk-w31"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="attendButton" destination="TVf-wG-qfZ" id="T1L-ne-u99"/>
+                <outlet property="attendanceButton" destination="H7C-BG-yzK" id="ToE-nZ-eoR"/>
                 <outlet property="backgroundImage" destination="Rxp-FF-H9G" id="MSx-5m-KN0"/>
                 <outlet property="dateLabel" destination="r42-Zu-uf8" id="4tA-wi-ZmV"/>
                 <outlet property="eventNameLabel" destination="Jbz-mF-b0V" id="2bD-Il-MzJ"/>
                 <outlet property="imageView" destination="Rxp-FF-H9G" id="Wsk-Nq-eTH"/>
                 <outlet property="playerAttendanceLabel" destination="Hl0-tD-UGV" id="i1q-fF-7gc"/>
-                <outlet property="unattendButton" destination="lmf-Ke-apA" id="NaD-Vh-Am5"/>
             </connections>
             <point key="canvasLocation" x="-168" y="136"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="Frisbee Open" width="25" height="25"/>
+    </resources>
 </document>

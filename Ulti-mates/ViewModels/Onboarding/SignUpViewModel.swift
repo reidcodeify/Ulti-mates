@@ -13,15 +13,21 @@ import RealmSwift
 class SignUpViewModel {
 	// MARK: Properties
 	fileprivate var realm: Realm
-	fileprivate(set) var name: String = ""
-	fileprivate(set) var email: String = ""
-	fileprivate(set) var password: String = ""
-	fileprivate(set) var canContinue = UpdatableProperty<Bool>(value: false)
+	fileprivate(set) var name: String
+	fileprivate(set) var email: String
+	fileprivate(set) var password: String
+	fileprivate(set) var canContinue: UpdatableProperty<Bool>
 	
 	// MARK: Life Cycle
 	init (realm: Realm) {
 		self.realm = realm
+		self.name = ""
+		self.email = ""
+		self.password = ""
+		self.canContinue = UpdatableProperty(value: false)
 	}
+	
+	deinit {}
 	
 	// MARK: Private
 	

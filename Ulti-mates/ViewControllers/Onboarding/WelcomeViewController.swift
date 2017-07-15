@@ -18,26 +18,33 @@ class WelcomeViewController: UIViewController {
 	@IBOutlet fileprivate weak var selectionLine: UIView!
 	@IBOutlet fileprivate weak var selectionLineCenter: NSLayoutConstraint!
 	
-	fileprivate var viewModel: WelcomeViewModel! = nil
+	fileprivate var viewModel: WelcomeViewModel
 	
 	// MARK: Life Cycle
+	required init?(coder aDecoder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
+	
+	/// Custom initializer that takes a viewModel
+	///
+	/// - Parameter viewModel: An instance of WelcomeViewModel
 	init (viewModel: WelcomeViewModel) {
 		self.viewModel = viewModel
 		super.init(nibName: "WelcomeViewController", bundle: nil)
 	}
 	
-	required init?(coder aDecoder: NSCoder) {
-		fatalError("init(coder:) has not been implemented")
-	}
+	deinit { print("WelcomeViewController dismissed") }
 	
     override func viewDidLoad() {
         super.viewDidLoad()
 		
+		// Set up UIViewController
 		self.hideKeyboardWhenScreenTapped()
+		
+		// Set up UIButton
 		continueButton.roundAndShadow()
 		
-		selectionLineCenter.constant = signUpButton.center.x
-		
+		// Set up UIScrollView
 		let signUpView = SignUpView(frame: scrollView.bounds, viewModel: viewModel.signUpViewModel)
 		let logInView = LogInView(frame: scrollView.bounds, viewModel: viewModel.logInViewModel)
 		let views: [UIView] = [signUpView, logInView]
@@ -68,6 +75,10 @@ class WelcomeViewController: UIViewController {
 			index += 1
 		}
 		
+		// Set starting x-position on the selectionLine center constraint
+		selectionLineCenter.constant = signUpButton.center.x
+		
+		// Updatable properties
 		viewModel.signUpViewModel.canContinue.bind { [weak self] canContinue in
 			self?.continueButton.isEnabled = canContinue
 			
@@ -97,9 +108,13 @@ class WelcomeViewController: UIViewController {
     }
 	
 	// MARK: Control Handlers
+	
+	/// If the user is creating an account, then an account is added to the local realm storage.
+	/// If the user is logging in, then their credentials are checked in the local realm storage by the viewModel. The user is presented their dashboard if successful
+	///
+	/// - Parameter sender: The UIButton that was tapped by the user
 	@IBAction func continueButtonHit(_ sender: UIButton) {
 		if (viewModel.viewState == .signUp) {
-			 //Create an account and add it to the local storage (this should be on a server database, not local)
 			let account: ActiveAccount = ActiveAccount(name: self.viewModel.signUpViewModel.name, email: self.viewModel.signUpViewModel.email, password: self.viewModel.signUpViewModel.password)
 	
 			if (viewModel.signUpViewModel.emailPreexists()) {
@@ -121,7 +136,6 @@ class WelcomeViewController: UIViewController {
 				DLog("Error. Could not write to the realm, bro")
 			}
 		} else {
-			// Present Sign-in Screen
 			if let account = viewModel.logInViewModel.authenticateCredentials() {
 				let viewModel = DashboardViewModel(realm: self.viewModel.realm, account: account)
 				let tabController = DashboardTabBarViewController(viewModel: viewModel)
@@ -135,6 +149,9 @@ class WelcomeViewController: UIViewController {
 		}
 	}
 	
+	/// Adjusts the user interface to match the corresponding selection made
+	///
+	/// - Parameter sender: The UIButton that was tapped by the user
 	@IBAction func selectionMade(_ sender: UIButton) {
 		var slidePosition: CGFloat
 		

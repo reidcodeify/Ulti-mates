@@ -85,4 +85,8 @@ class FeedViewModel {
 		}
 	}
 	
+	func createSelectedViewModel(_ index: Int) -> SelectedEventViewModel {
+		return SelectedEventViewModel(event: events.value[index].event, activeAccount: activeAccount)
+	}
+	
 }
