@@ -37,23 +37,7 @@ class DashboardTabBarViewController: UITabBarController {
 		self.tabBar.tintColor = ultimatesRed
 		
 		// Set up navigation controllers
-		let feedViewModel = FeedViewModel(realm: viewModel.realm, activeAccount: viewModel.activeAccount)
-		let messagesViewModel = MessagesViewModel(realm: viewModel.realm, activeAccount: viewModel.activeAccount)
-		let profileViewModel = ProfileViewModel(realm: viewModel.realm, activeAccount: viewModel.activeAccount)
-		
-		let feedViewController = UINavigationController(rootViewController: FeedViewController(viewModel: feedViewModel))
-		let messagesViewController = UINavigationController(rootViewController: MessagesViewController(viewModel: messagesViewModel))
-		let profileViewController = UINavigationController(rootViewController: ProfileViewController(viewModel: profileViewModel))
-		
-		feedViewController.navigationBar.tintColor = .darkGray
-		messagesViewController.navigationBar.tintColor = .darkGray
-		profileViewController.navigationBar.tintColor = .darkGray
-		
-		feedViewController.tabBarItem = UITabBarItem(title: "Events", image: UIImage(named: "Feed"), tag: 0)
-		messagesViewController.tabBarItem = UITabBarItem(title: "Messages", image: UIImage(named: "Message"), tag: 1)
-		profileViewController.tabBarItem = UITabBarItem(title: "\(viewModel.activeAccount.name)", image: UIImage(named: "Profile"), tag: 2)
-		
-		self.viewControllers = [feedViewController, messagesViewController, profileViewController]
+		self.viewControllers = viewModel.setUpViewControllers()
 		self.setViewControllers(viewControllers, animated: true)
 	}
 
@@ -63,9 +47,9 @@ class DashboardTabBarViewController: UITabBarController {
     }
 	
 	// MARK: Control Handlers
-	override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-		title = item.title
-	}
+//	override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+//		title = item.title
+//	}
 	
 	// MARK: Private
 	

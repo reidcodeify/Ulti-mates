@@ -55,6 +55,8 @@ class LogInView: UIView {
 	}
 	
 	// MARK: Private
+	
+	/// Progresses through the default layout of LogInView
 	fileprivate func setUp() {
 		// Set up UINib
 		nibView = Bundle(for: type(of: self)).loadNibNamed(identifier, owner: self, options: nil)![0] as! UIView

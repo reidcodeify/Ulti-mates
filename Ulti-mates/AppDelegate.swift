@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		GMSServices.provideAPIKey("AIzaSyCzr5XJT5hXmJa_UGcfRRwUa1V6GD2Z3aU")
 		
 		let rootVC = UIViewController()
-		let viewModel: WelcomeViewModel = WelcomeViewModel(realm: realm, viewState: .signUp)
+		let viewModel: WelcomeViewModel = WelcomeViewModel(realm: realm, isSignUpState: true)
 		
 //		if UserDefaults.standard.isFirstLaunch() {
 //			viewModel = WelcomeViewModel(realm: realm, viewState: .signUp)

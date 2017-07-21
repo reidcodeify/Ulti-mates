@@ -27,6 +27,9 @@ class SelectedEventViewController: UIViewController {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
+	/// Custom initializer that takes a viewModel
+	///
+	/// - Parameter viewModel: An instance of SelectedEventViewModel
 	init(viewModel: SelectedEventViewModel) {
 		self.viewModel = viewModel
 		super.init(nibName: identifier, bundle: nil)

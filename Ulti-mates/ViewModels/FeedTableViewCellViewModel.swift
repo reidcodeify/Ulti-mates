@@ -14,11 +14,13 @@ class FeedTableViewCellViewModel {
 	// MARK: Properties
 	var activeAccount: ActiveAccount
 	var event: Event
-
-	// make a value for determining the color state of the event
-	var isActive = UpdatableProperty<Bool>(value: false)
 	
 	// MARK: Life Cycle
+	
+	/// Initializer that takes an activeAccount and an event
+	///
+	/// - Parameter activeAccount: An instance of ActiveAccount
+	/// - Parameter event: An instance of Event
 	init (activeAccount: ActiveAccount, event: Event) {
 		self.activeAccount = activeAccount
 		self.event = event
@@ -27,10 +29,12 @@ class FeedTableViewCellViewModel {
 	// MARK: Private
 	
 	// MARK: Public
-	func setActiveState(isActive: Bool) {
-		self.isActive.update(isActive)
-	}
 	
+	/// Takes a Bool, that determines how the event's players property should be manipulated
+	/// If true, the realm is written to and the event's players property is appended with activeAccount
+	/// If false, the realm is written to, and the event's players property inversely removes the activeAccount
+	///
+	/// - Parameter shouldAdd: Signals to this function how the event should be manipulated
 	func updatePlayerCount(shouldAdd: Bool) {
 		if (shouldAdd == true && !event.players.contains(activeAccount)) {
 			try! event.realm?.write {

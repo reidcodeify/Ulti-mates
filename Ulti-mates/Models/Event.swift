@@ -19,6 +19,12 @@ class Event: Object {
 	var players = List<ActiveAccount>()
 	
 	// MARK: Life Cycle
+	
+	/// Initializer that takes an eventName, date, and a location
+	///
+	/// - Parameter eventName: An instance of String that holds the event's displayed name
+	/// - Parameter date: An instance of NSDate that holds the event's start time and date
+	/// - Parameter location: An instance of GMSPlace that holds the event's location information provided by the Google Places APi
 	convenience init (eventName: String, date: NSDate, location: GMSPlace) {
 		self.init()
 		self.eventName = eventName
@@ -29,10 +35,17 @@ class Event: Object {
 	// MARK: Private
 	
 	// MARK: Public
+	
+	/// Takes a date and updates the respective local value with it
+	///
+	/// - Parameter date: An instance of NSDate
 	func updateDate(date: NSDate) {
 		self.date = date
 	}
 	
+	/// Takes a location and updates the respective local value with it
+	///
+	/// - Parameter location: An instance of GMSPlace
 	func updateLocation(location: GMSPlace) {
 		self.location?.name = location.name
 		self.location?.longtitude = location.coordinate.longitude

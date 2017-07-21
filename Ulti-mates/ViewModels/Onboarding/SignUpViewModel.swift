@@ -19,6 +19,10 @@ class SignUpViewModel {
 	fileprivate(set) var canContinue: UpdatableProperty<Bool>
 	
 	// MARK: Life Cycle
+	
+	/// Initializer that takes a realm
+	///
+	/// - Parameter realm: An instance of Realm
 	init (realm: Realm) {
 		self.realm = realm
 		self.name = ""

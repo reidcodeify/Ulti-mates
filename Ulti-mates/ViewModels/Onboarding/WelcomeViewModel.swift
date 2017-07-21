@@ -9,26 +9,25 @@
 import Foundation
 import RealmSwift
 
-// MARK: Enum
-enum WelcomeState {
-	case signUp
-	case logIn
-}
-
 // MARK: Class
 class WelcomeViewModel {
 	// MARK: Properties
 	let realm: Realm
 	var signUpViewModel: SignUpViewModel
 	var logInViewModel: LogInViewModel
-	var viewState: WelcomeState = .signUp
+	var isSignUp: Bool = false
 	
 	// MARK: Life Cycle
-	init (realm: Realm, viewState: WelcomeState) {
+	
+	/// Initializer that takes a realm and viewState
+	///
+	/// - Parameter realm: An instance of Realm
+	/// - Parameter viewState: An instance of WelcomeState
+	init (realm: Realm, isSignUpState: Bool) {
 		self.realm = realm
 		self.signUpViewModel = SignUpViewModel(realm: self.realm)
 		self.logInViewModel = LogInViewModel(realm: self.realm)
-		self.viewState = viewState
+		self.isSignUp = isSignUpState
 	}
 	
 	deinit {}
@@ -37,10 +36,10 @@ class WelcomeViewModel {
 	
 	// MARK: Public
 	
-	/// Takes a viewState and updates the value of local variable, viewState with it
+	/// Takes a viewState and updates the local value of viewState with it
 	/// 
 	/// - Parameter viewState: An instance of WelcomeState
-	func setViewState(viewState: WelcomeState) {
-		self.viewState = viewState
+	func setViewState(_ viewState: Bool) {
+		self.isSignUp = viewState
 	}
 }

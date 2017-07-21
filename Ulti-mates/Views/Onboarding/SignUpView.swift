@@ -59,6 +59,7 @@ class SignUpView: UIView {
 	}
 	
 	// MARK: Private 
+	/// Progresses through the default layout of SignUpView
 	fileprivate func setUp() {
 		// Set up UINib
 		var nibView: UIView! = nil

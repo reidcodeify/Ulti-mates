@@ -16,6 +16,11 @@ class ProfileViewModel {
 	var activeAccount: ActiveAccount
 	
 	// MARK: Life Cycle
+	
+	/// Initializer that takes a realm and an activeAccount
+	///
+	/// - Parameter realm: An instance of Realm
+	/// - Parameter activeAccount: An instance of ActiveAccount
 	init (realm: Realm, activeAccount: ActiveAccount) {
 		self.realm = realm
 		self.activeAccount = activeAccount
@@ -24,6 +29,8 @@ class ProfileViewModel {
 	// MARK: Private
 	
 	// MARK: Public
+	
+	/// Attempts to remove the current activeAccount from the realm storage
 	func deleteAccount() {
 		do {
 			try realm.write {

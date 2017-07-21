@@ -11,7 +11,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileViewController" customModule="Ulti_mates" customModuleProvider="target">
             <connections>
-                <outlet property="collectionView" destination="MjA-tY-nq8" id="cSX-bO-LJ6"/>
                 <outlet property="nameLabel" destination="6rb-W8-Ibm" id="6dV-pJ-YhW"/>
                 <outlet property="profileImage" destination="Wcp-YY-q28" id="EY2-dp-6ST"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -41,29 +40,11 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="MjA-tY-nq8">
-                    <rect key="frame" x="0.0" y="300.5" width="375" height="366.5"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="B2R-Tj-rjg">
-                        <size key="itemSize" width="50" height="50"/>
-                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    </collectionViewFlowLayout>
-                    <connections>
-                        <outlet property="dataSource" destination="-1" id="XU2-kS-Pxx"/>
-                        <outlet property="delegate" destination="-1" id="wp6-1r-Sgd"/>
-                    </connections>
-                </collectionView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="MjA-tY-nq8" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="1jn-17-cRK"/>
                 <constraint firstItem="tML-TG-V5f" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="4VT-wF-w2h"/>
-                <constraint firstAttribute="trailing" secondItem="MjA-tY-nq8" secondAttribute="trailing" id="5Vt-g4-Tyn"/>
                 <constraint firstItem="6rb-W8-Ibm" firstAttribute="top" secondItem="Wcp-YY-q28" secondAttribute="bottom" constant="15" id="8fG-I1-SZm"/>
-                <constraint firstItem="MjA-tY-nq8" firstAttribute="top" secondItem="tML-TG-V5f" secondAttribute="bottom" constant="5" id="c6l-TJ-L2T"/>
-                <constraint firstAttribute="bottom" secondItem="MjA-tY-nq8" secondAttribute="bottom" id="hcu-52-cyz"/>
                 <constraint firstItem="Wcp-YY-q28" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="lUF-UC-Pt1"/>
                 <constraint firstItem="6rb-W8-Ibm" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="nn2-t6-EkX"/>
                 <constraint firstItem="tML-TG-V5f" firstAttribute="top" secondItem="6rb-W8-Ibm" secondAttribute="bottom" constant="75" id="vJz-q6-1le"/>

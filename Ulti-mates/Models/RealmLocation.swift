@@ -19,6 +19,10 @@ class RealmPlace: Object {
 	dynamic var placeID: String = ""
 	
 	// MARK: Life Cycle
+	
+	/// Initializer that takes a GMSPlace and stores the essential data so that it can therefore be stored as a realm object
+	///
+	/// - Parameter place: An instance of GMSPlace
 	convenience init(withPlace place: GMSPlace) {
 		self.init()
 		self.name = place.name

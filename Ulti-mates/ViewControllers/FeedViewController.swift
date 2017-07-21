@@ -23,13 +23,16 @@ class FeedViewController: UIViewController {
 	fileprivate var viewModel: FeedViewModel
 	
 	// MARK: Life Cycle
+	required init?(coder aDecoder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
+	
+	/// Custom initializer that takes a viewModel
+	///
+	/// - Parameter viewModel: An instance of FeedViewModel
 	init (viewModel: FeedViewModel) {
 		self.viewModel = viewModel
 		super.init(nibName: identifier, bundle: nil)
-	}
-	
-	required init?(coder aDecoder: NSCoder) {
-		fatalError("init(coder:) has not been implemented")
 	}
 	
 	deinit { print(identifier + " dismissed") }
@@ -75,15 +78,15 @@ class FeedViewController: UIViewController {
 			self?.tableView.reloadData()
 		}
 		
-		viewModel.feedState.bind { [weak self] feedState in
+		viewModel.isFeedEnabled.bind { [weak self] feedState in
 			// animate to the uiview corresponding to the feedState
-			if (feedState == .list) {
+			if (feedState == true) {
 				UIView.animate(withDuration: 0.3, animations: { 
 					self?.mapView.alpha = 0
 					self?.tableView.alpha = 1
 				})
-			} else if (feedState == .map) {
-				self?.layoutMarkers()
+			} else if (feedState == false) {
+				self?.layoutMapMarkers()
 				UIView.animate(withDuration: 0.3, animations: { 
 					self?.tableView.alpha = 0
 					self?.mapView.alpha = 1
@@ -102,7 +105,7 @@ class FeedViewController: UIViewController {
 		
 		locationManager.startUpdatingLocation()
 		
-		layoutMarkers()
+		layoutMapMarkers()
 	}
 	
     override func didReceiveMemoryWarning() {
@@ -111,17 +114,20 @@ class FeedViewController: UIViewController {
     }
 
 	// MARK: Private
+	
+	/// Updates the viewModel's isFeed property using the user's selection from the UISegmentedControl
 	@objc fileprivate func segmentedControlChanged(_ sender: UISegmentedControl) {
 		switch sender.selectedSegmentIndex {
 		case 0:
-			self.viewModel.updateFeedState(to: .list)
+			self.viewModel.updateFeedState(true)
 		case 1:
-			self.viewModel.updateFeedState(to: .map)
+			self.viewModel.updateFeedState(false)
 		default:
 			DLog("Segmented control index out of range")
 		}
 	}
 	
+	/// Displays evemt sort options in a UIAlertViewController
 	@objc fileprivate func sortButtonHit(_ sender: UIBarButtonItem) {
 		let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
 		alert.addAction(UIAlertAction(title: "Closest location", style: .default, handler: { action in
@@ -137,17 +143,19 @@ class FeedViewController: UIViewController {
 		present(alert, animated: true, completion: nil)
 	}
 	
+	/// Pushes a CreateEventViewController to FeedViewController's UINavigationController
 	@objc fileprivate func addEventButtonHit(_ sender: UIBarButtonItem) {
-		// push view controller to specify details about event and create
 		let viewModel = CreateEventViewModel(realm: self.viewModel.realm)
 		self.navigationController?.pushViewController(CreateEventViewController(viewModel: viewModel), animated: true)
 	}
 	
+	/// Reloads tableView's data
 	@objc fileprivate func reloadTableViewCell(_ sender: UIButton) {
 		tableView.reloadData()
 	}
 	
-	fileprivate func layoutMarkers() {
+	/// Creates and attaches a marker for each event stored in the realm storage onto the mapView
+	fileprivate func layoutMapMarkers() {
 		for event in viewModel.realm.objects(Event.self) {
 			let marker = GMSMarker()
 			marker.position = CLLocationCoordinate2D(latitude: (event.location?.latitude)!, longitude: (event.location?.longtitude)!)

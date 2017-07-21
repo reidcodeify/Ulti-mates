@@ -26,6 +26,8 @@ class LogInViewModel {
 		self.realm = realm
 	}
 	
+	deinit {}
+	
 	// MARK: Private
 	
 	// MARK: Public

@@ -9,4 +9,4 @@
 import Foundation
 import UIKit
 
-let ultimatesRed = UIColor(red: 291/255, green: 71/255, blue: 72/255, alpha: 1)
+let ultimatesRed = #colorLiteral(red: 0.8602545818, green: 0.2790640649, blue: 0.2811532081, alpha: 1)

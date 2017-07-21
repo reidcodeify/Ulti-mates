@@ -8,8 +8,11 @@
 
 import UIKit
 
+// MARK: Class
 class PlayersTableViewCell: UITableViewCell {
-
+	// MARK: Properties
+	
+	// MARK: Life Cycle
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,5 +23,11 @@ class PlayersTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+	
+	// MARK: Control Handlers
+	
+	// MARK: Private
+	
+	// MARK: Public
     
 }

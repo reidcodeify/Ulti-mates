@@ -39,6 +39,9 @@ class FeedTableViewCell: UITableViewCell {
     }
 	
 	// MARK: Control Handlers
+	
+	/// If the button's state is activated, the viewModel will know to add the activeAccount
+	/// If the button's state is not activated, the viewModel will know not to add the activeAccount
 	@IBAction func attendenceButtonHit(_ sender: UIButton) {
 		// for both: set active color, set attending property on viewModel
 		if (attendanceButton.imageView?.image == #imageLiteral(resourceName: "Frisbee Open")) {
@@ -51,6 +54,8 @@ class FeedTableViewCell: UITableViewCell {
 	}
 	
 	// MARK: Private
+	
+	/// Updates cell UI with current viewModel data 
 	fileprivate func attach(viewModel: FeedTableViewCellViewModel) {
 		dateLabel.text = DateFormatter.localizedString(from: viewModel.event.date as Date, dateStyle: .short, timeStyle: .short)
 		eventNameLabel.text = viewModel.event.eventName

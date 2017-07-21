@@ -7,14 +7,17 @@
 //
 
 import UIKit
+import LocalAuthentication
 
 // MARK: Class
 class WelcomeViewController: UIViewController {
 	// MARK: Properties
 	fileprivate let identifier: String = "WelcomeViewController"
 	
+	@IBOutlet fileprivate weak var logoStack: UIStackView!
 	@IBOutlet fileprivate weak var scrollView: UIScrollView!
 	@IBOutlet fileprivate weak var continueButton: UIButton!
+	@IBOutlet fileprivate weak var touchIDButton: UIButton!
 	@IBOutlet fileprivate weak var signUpButton: UIButton!
 	@IBOutlet fileprivate weak var logInButton: UIButton!
 	@IBOutlet fileprivate weak var selectionLine: UIView!
@@ -40,11 +43,16 @@ class WelcomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		
+		// Set up UIImageView
+		self.logoStack.topAnchor.constraint(equalTo: self.topLayoutGuide.bottomAnchor, constant: 25).isActive = true
+		
 		// Set up UIViewController
 		self.hideKeyboardWhenScreenTapped()
 		
-		// Set up UIButton
+		// Set up UIButtons
 		continueButton.roundAndShadow()
+		touchIDButton.roundAndShadow()
+		touchIDButton.imageEdgeInsets = UIEdgeInsetsMake(5, 5, 5, 5)
 		
 		// Set up UIScrollView
 		let signUpView = SignUpView(frame: scrollView.bounds, viewModel: viewModel.signUpViewModel)
@@ -82,20 +90,33 @@ class WelcomeViewController: UIViewController {
 			self?.continueButton.isEnabled = canContinue
 			
 			// when canContinue is true, do a cool red-fill effect on the continueButton to declare that it's enabled. Do a reverse effect when canContinue is false
-			let color = (canContinue) ? UIColor.darkText : UIColor.lightText
-			self?.continueButton.setTitleColor(color, for: .normal)
+			let alpha: CGFloat = (canContinue) ? 1 : 0.25
+			let color: UIColor = (canContinue) ? .white : .darkText
+			UIView.animate(withDuration: 0.3, animations: { 
+				self?.continueButton.titleLabel?.alpha = alpha
+				self?.continueButton.setTitleColor(color, for: .normal)
+				self?.continueButton.backgroundColor = (canContinue) ? ultimatesRed : .lightGray
+			})
 		}
 		
 		viewModel.logInViewModel.canContinue.bind { [weak self] canContinue in
 			self?.continueButton.isEnabled = canContinue
+			
+			let alpha: CGFloat = (canContinue) ? 1 : 0.25
+			let color: UIColor = (canContinue) ? .white : .darkText
+			UIView.animate(withDuration: 0.3, animations: {
+				self?.continueButton.setTitleColor(color, for: .normal)
+				self?.continueButton.titleLabel?.alpha = alpha
+				self?.continueButton.backgroundColor = (canContinue) ? ultimatesRed : .lightGray
+			})
 		}
     }
 	
 	override func viewWillAppear(_ animated: Bool) {
-		if (viewModel.viewState == .signUp) {
+		if (viewModel.isSignUp == true) {
 			selectionMade(signUpButton)
 			viewModel.signUpViewModel.checkRequirements()
-		} else {
+		} else if (viewModel.isSignUp == false) {
 			selectionMade(logInButton)
 			viewModel.logInViewModel.checkRequirements()
 		}
@@ -113,7 +134,7 @@ class WelcomeViewController: UIViewController {
 	///
 	/// - Parameter sender: The UIButton that was tapped by the user
 	@IBAction func continueButtonHit(_ sender: UIButton) {
-		if (viewModel.viewState == .signUp) {
+		if (viewModel.isSignUp == true) {
 			let account: ActiveAccount = ActiveAccount(name: self.viewModel.signUpViewModel.name, email: self.viewModel.signUpViewModel.email, password: self.viewModel.signUpViewModel.password)
 	
 			if (viewModel.signUpViewModel.emailPreexists()) {
@@ -157,13 +178,15 @@ class WelcomeViewController: UIViewController {
 		if (sender.tag == 0) {
 			slidePosition = 0
 			viewModel.signUpViewModel.checkRequirements()
-			viewModel.setViewState(viewState: .signUp)
+			viewModel.setViewState(true)
+			touchIDButton.isHidden = true
 			logInButton.setTitleColor(.lightGray, for: .normal)
 			continueButton.setTitle("Create", for: .normal)
 		} else {
 			slidePosition = view.bounds.width
 			viewModel.logInViewModel.checkRequirements()
-			viewModel.setViewState(viewState: .logIn)
+			viewModel.setViewState(false)
+			touchIDButton.isHidden = false
 			signUpButton.setTitleColor(.lightGray, for: .normal)
 			continueButton.setTitle("Continue", for: .normal)
 		}
@@ -176,7 +199,34 @@ class WelcomeViewController: UIViewController {
 		})
 	}
 	
+	@IBAction func touchIDButtonHit(_ sender: UIButton) {
+		self.resignFirstResponder()
+		self.authenticateUser()
+	}
+	
 	// MARK: Private
+	fileprivate func authenticateUser() {
+		let context = LAContext()
+		var error: NSError?
+		context.localizedFallbackTitle = ""
+		
+		if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+			let reason = NSLocalizedString("Sign in with TouchID", comment: "")
+			
+			context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, authenticationError in
+				if success {
+					DispatchQueue.main.async {
+						// use keychain credentials to proceed to the dashboard
+						print("Touch ID works dude")
+					}
+				}
+			}
+		} else {
+			let ac = UIAlertController(title: NSLocalizedString("Touch ID not available", comment: ""), message: NSLocalizedString("Your device is not configured for Touch ID.", comment: ""), preferredStyle: .alert)
+			ac.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default))
+			present(ac, animated: true)
+		}
+	}
 	
 	// MARK: Public
 	

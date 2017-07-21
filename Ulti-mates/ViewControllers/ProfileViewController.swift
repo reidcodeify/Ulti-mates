@@ -15,7 +15,6 @@ class ProfileViewController: UIViewController {
 
 	@IBOutlet fileprivate weak var profileImage: UIImageView!
 	@IBOutlet fileprivate weak var nameLabel: UILabel!
-	@IBOutlet fileprivate weak var collectionView: UICollectionView!
 
 	fileprivate var viewModel: ProfileViewModel!
 	
@@ -24,6 +23,9 @@ class ProfileViewController: UIViewController {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
+	/// Custom initializer that takes a viewModel
+	///
+	/// - Parameter viewModel: An instance of ProfileViewModel
 	init (viewModel: ProfileViewModel) {
 		self.viewModel = viewModel
 		super.init(nibName: identifier, bundle: nil)
@@ -33,7 +35,6 @@ class ProfileViewController: UIViewController {
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-		collectionView.register(UINib(nibName: "ProfileCollectionViewCell", bundle: nil) , forCellWithReuseIdentifier: "Profile Cell")
 
         // Do any additional setup after loading the view.
 		self.hideKeyboardWhenScreenTapped()
@@ -57,6 +58,8 @@ class ProfileViewController: UIViewController {
 	// MARK: Control Handlers
 	
 	// MARK: Private
+	
+	/// Displays a UIAlertViewController with account-related options
 	@objc fileprivate func moreButtonHit(_ sender: UIButton) {
 		let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
 		alert.addAction(UIAlertAction(title: "Edit", style: .default) { action in
@@ -76,8 +79,9 @@ class ProfileViewController: UIViewController {
 		present(alert, animated: true, completion: nil)
 	}
 	
+	/// Removes all currently instantiated viewControllers from the UIWindow, and sets the rootViewController as WelcomeViewController
 	fileprivate func tearDown() {
-		let viewModel = WelcomeViewModel(realm: self.viewModel.realm, viewState: .logIn)
+		let viewModel = WelcomeViewModel(realm: self.viewModel.realm, isSignUpState: false)
 		let rootVC = UIViewController()
 		rootVC.setInitialViewController(WelcomeViewController(viewModel: viewModel))
 		self.view.window?.rootViewController = rootVC
@@ -86,17 +90,4 @@ class ProfileViewController: UIViewController {
 	
 	// MARK: Public
 
-}
-
-// MARK: Extension
-extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return 4 //viewModel.activeAccount.favoritedEvents.count
-	}
-	
-	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Profile Cell", for: indexPath)
-		cell.backgroundView?.backgroundColor = .blue
-		return cell
-	}
 }

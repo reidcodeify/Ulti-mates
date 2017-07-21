@@ -14,10 +14,12 @@
             <connections>
                 <outlet property="continueButton" destination="Y14-YO-dVG" id="DVh-sB-kRy"/>
                 <outlet property="logInButton" destination="MLx-k8-T4o" id="4qW-kG-veE"/>
+                <outlet property="logoStack" destination="wjX-lg-vPd" id="1fE-BZ-Y1m"/>
                 <outlet property="scrollView" destination="wx0-AA-Jem" id="3P2-ZL-zAg"/>
                 <outlet property="selectionLine" destination="PU0-5j-nf8" id="JVa-Ux-4TF"/>
                 <outlet property="selectionLineCenter" destination="9WQ-mM-q4t" id="Pcm-El-2ub"/>
                 <outlet property="signUpButton" destination="3is-jF-lg3" id="6El-8B-L82"/>
+                <outlet property="touchIDButton" destination="bct-8x-jRW" id="aP2-Og-0jq"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -26,21 +28,29 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo Large" translatesAutoresizingMaskIntoConstraints="NO" id="9ZN-Xy-V7u" userLabel="Logo">
-                    <rect key="frame" x="169.66666666666666" y="50" width="75" height="75"/>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="wjX-lg-vPd">
+                    <rect key="frame" x="100" y="25" width="215.66666666666669" height="50"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo Large" translatesAutoresizingMaskIntoConstraints="NO" id="9ZN-Xy-V7u" userLabel="Logo">
+                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="geS-TP-8hq"/>
+                                <constraint firstAttribute="width" constant="50" id="qOz-c0-RdY"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Ulti-mates" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N3U-0r-Ir2">
+                            <rect key="frame" x="55" y="0.0" width="160.66666666666669" height="50"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                            <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
                     <constraints>
-                        <constraint firstAttribute="height" constant="75" id="geS-TP-8hq"/>
-                        <constraint firstAttribute="width" constant="75" id="qOz-c0-RdY"/>
+                        <constraint firstAttribute="height" constant="50" id="0kA-33-pDC"/>
                     </constraints>
-                </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ulti-mates" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N3U-0r-Ir2">
-                    <rect key="frame" x="127" y="135" width="161" height="38.333333333333343"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
-                    <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                </stackView>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wx0-AA-Jem">
-                    <rect key="frame" x="0.0" y="213.33333333333331" width="414" height="311.66666666666669"/>
+                    <rect key="frame" x="0.0" y="100" width="414" height="220.66666666666669"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="jrt-d2-mmg"/>
                     </connections>
@@ -89,46 +99,67 @@
                         <constraint firstAttribute="height" constant="2" id="uQG-E0-heu"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y14-YO-dVG">
-                    <rect key="frame" x="50" y="575" width="314" height="50"/>
+                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CuC-JI-4gy">
+                    <rect key="frame" x="50" y="320.66666666666669" width="314" height="50"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y14-YO-dVG">
+                            <rect key="frame" x="0.0" y="0.0" width="264" height="50"/>
+                            <color key="backgroundColor" red="0.85747565250000002" green="0.85630656380000003" blue="0.87672763239999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="f7y-zz-WCg"/>
+                            </constraints>
+                            <state key="normal" title="Continue"/>
+                            <connections>
+                                <action selector="continueButtonHit:" destination="-1" eventType="touchUpInside" id="2gS-96-UOK"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bct-8x-jRW">
+                            <rect key="frame" x="264" y="0.0" width="50" height="50"/>
+                            <color key="backgroundColor" red="0.86025458180000003" green="0.27906406490000002" blue="0.2811532081" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="50" id="LZj-Wm-DPR"/>
+                            </constraints>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <state key="normal" image="Touch ID Icon">
+                                <color key="titleColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="touchIDButtonHit:" destination="-1" eventType="touchUpInside" id="GY8-ZJ-dOm"/>
+                            </connections>
+                        </button>
+                    </subviews>
                     <color key="backgroundColor" red="0.86025458180000003" green="0.27906406490000002" blue="0.2811532081" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="50" id="f7y-zz-WCg"/>
+                        <constraint firstAttribute="height" constant="50" id="293-a4-g0y"/>
                     </constraints>
-                    <state key="normal" title="Continue"/>
-                    <connections>
-                        <action selector="continueButtonHit:" destination="-1" eventType="touchUpInside" id="2gS-96-UOK"/>
-                    </connections>
-                </button>
+                </stackView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="wx0-AA-Jem" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="0Tv-Fl-4eb"/>
-                <constraint firstItem="wx0-AA-Jem" firstAttribute="top" secondItem="N3U-0r-Ir2" secondAttribute="bottom" constant="40" id="3NP-KU-FgD"/>
-                <constraint firstItem="N3U-0r-Ir2" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="3uO-Lq-U3f"/>
+                <constraint firstAttribute="trailing" secondItem="CuC-JI-4gy" secondAttribute="trailing" constant="50" id="5XP-YZ-b1R"/>
+                <constraint firstItem="wx0-AA-Jem" firstAttribute="top" secondItem="wjX-lg-vPd" secondAttribute="bottom" constant="25" id="5uQ-xy-1Lr"/>
                 <constraint firstItem="PU0-5j-nf8" firstAttribute="centerX" secondItem="3is-jF-lg3" secondAttribute="centerX" id="9WQ-mM-q4t"/>
+                <constraint firstItem="wjX-lg-vPd" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="25" placeholder="YES" id="B0h-g6-qbi"/>
+                <constraint firstItem="wx0-AA-Jem" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.3" id="E9r-yV-i8c"/>
                 <constraint firstItem="lQX-Os-VEv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="EMd-n1-Gkz"/>
-                <constraint firstItem="9ZN-Xy-V7u" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="FCS-XR-V1g"/>
                 <constraint firstAttribute="bottom" secondItem="lQX-Os-VEv" secondAttribute="bottom" id="HGl-jn-pF2"/>
                 <constraint firstAttribute="trailing" secondItem="lQX-Os-VEv" secondAttribute="trailing" id="LBw-SB-rwE"/>
                 <constraint firstItem="PU0-5j-nf8" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.5" id="NTq-P6-LDD"/>
+                <constraint firstItem="CuC-JI-4gy" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="50" id="Od2-Sz-H8J"/>
                 <constraint firstItem="MLx-k8-T4o" firstAttribute="top" secondItem="kRO-hF-Dbh" secondAttribute="bottom" id="QKk-ju-NXx"/>
-                <constraint firstItem="kRO-hF-Dbh" firstAttribute="top" secondItem="Y14-YO-dVG" secondAttribute="bottom" constant="50" id="S7q-uB-R7v"/>
                 <constraint firstAttribute="bottom" secondItem="MLx-k8-T4o" secondAttribute="bottom" id="Sby-v6-wfE"/>
+                <constraint firstItem="wjX-lg-vPd" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="TOv-Eg-mA8"/>
                 <constraint firstItem="3is-jF-lg3" firstAttribute="top" secondItem="kRO-hF-Dbh" secondAttribute="bottom" id="VGs-cB-drb"/>
                 <constraint firstItem="3is-jF-lg3" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="XRy-Vk-AfP"/>
                 <constraint firstAttribute="bottom" secondItem="kRO-hF-Dbh" secondAttribute="bottom" constant="60" id="Xe9-AP-ZgW"/>
-                <constraint firstItem="9ZN-Xy-V7u" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="50" id="Xyx-Nz-ETq"/>
                 <constraint firstAttribute="trailing" secondItem="wx0-AA-Jem" secondAttribute="trailing" id="YBp-dG-F90"/>
-                <constraint firstAttribute="trailing" secondItem="Y14-YO-dVG" secondAttribute="trailing" constant="50" id="Yfs-Ai-mFL"/>
                 <constraint firstAttribute="trailing" secondItem="kRO-hF-Dbh" secondAttribute="trailing" id="enr-rf-OwU"/>
-                <constraint firstItem="Y14-YO-dVG" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="50" id="fSo-9E-bf5"/>
-                <constraint firstItem="N3U-0r-Ir2" firstAttribute="top" secondItem="9ZN-Xy-V7u" secondAttribute="bottom" constant="10" id="hBw-a4-QDU"/>
                 <constraint firstAttribute="bottom" secondItem="PU0-5j-nf8" secondAttribute="bottom" id="n9F-wF-VHH"/>
                 <constraint firstItem="MLx-k8-T4o" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.5" id="p3N-ba-L09"/>
+                <constraint firstItem="CuC-JI-4gy" firstAttribute="top" secondItem="wx0-AA-Jem" secondAttribute="bottom" id="pEl-JH-JfQ"/>
                 <constraint firstItem="kRO-hF-Dbh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="sfP-Q3-BDy"/>
                 <constraint firstAttribute="trailing" secondItem="MLx-k8-T4o" secondAttribute="trailing" id="tbo-LV-y9v"/>
-                <constraint firstItem="Y14-YO-dVG" firstAttribute="top" secondItem="wx0-AA-Jem" secondAttribute="bottom" constant="50" id="vbi-Th-FiD"/>
                 <constraint firstAttribute="bottom" secondItem="3is-jF-lg3" secondAttribute="bottom" id="xuM-nn-Tve"/>
                 <constraint firstItem="3is-jF-lg3" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.5" id="zyR-ro-IkK"/>
             </constraints>
@@ -136,5 +167,6 @@
     </objects>
     <resources>
         <image name="Logo Large" width="33" height="33"/>
+        <image name="Touch ID Icon" width="53" height="52"/>
     </resources>
 </document>

@@ -10,12 +10,6 @@ import Foundation
 import UIKit
 import RealmSwift
 
-// MARK: Enum
-enum FeedState {
-	case list
-	case map
-}
-
 // MARK: Class
 class FeedViewModel {
 	// MARK: Properties
@@ -23,7 +17,7 @@ class FeedViewModel {
 	var activeAccount: ActiveAccount
 	var events: UpdatableProperty<[FeedTableViewCellViewModel]> = UpdatableProperty(value: [])
 	var resultsToken: NotificationToken?
-	var feedState = UpdatableProperty<FeedState>(value: .list)
+	var isFeedEnabled = UpdatableProperty<Bool>(value: false)
 	
 	fileprivate var fetchedEvents: Results<Event>? = nil {
 		didSet {
@@ -40,15 +34,18 @@ class FeedViewModel {
 	}
 	
 	// MARK: Life Cycle
+	
+	/// Initializer that takes a realm and an activeAccount
+	///
+	/// - Parameter realm: An instance of Realm
+	/// - Parameter activeAccount: An instance of ActiveAccount
 	init (realm: Realm, activeAccount: ActiveAccount) {
 		self.realm = realm
 		self.activeAccount = activeAccount
 		fetchEvents()
 	}
 	
-	deinit {
-		resultsToken?.stop()
-	}
+	deinit { resultsToken?.stop() }
 	
 	// MARK: Private
 	fileprivate func fetchEvents() {
@@ -67,8 +64,12 @@ class FeedViewModel {
 	}
 	
 	// MARK: Public
-	func updateFeedState(to feedState: FeedState) {
-		self.feedState.update(feedState)
+	
+	/// Takes a Bool and updates the respective local value with it
+	///
+	/// - Parameter isFeed: An instance of Bool 
+	func updateFeedState(_ isFeed: Bool) {
+		self.isFeedEnabled.update(isFeed)
 	}
 	
 	func deleteEvent(atIndexPath indexPath: IndexPath) {
@@ -85,6 +86,9 @@ class FeedViewModel {
 		}
 	}
 	
+	/// Returns a SelectedEventViewModel for transition to SelectedEventViewController
+	///
+	/// - Parameter _ index = The index that the event lives in the realm objects of type Event
 	func createSelectedViewModel(_ index: Int) -> SelectedEventViewModel {
 		return SelectedEventViewModel(event: events.value[index].event, activeAccount: activeAccount)
 	}
