@@ -18,6 +18,7 @@ class CreateEventViewController: UIViewController {
 	@IBOutlet fileprivate weak var eventNameTextField: UITextField!
 	@IBOutlet fileprivate weak var dateTextField: UITextField!
 	@IBOutlet fileprivate weak var locationTextField: UITextField!
+	@IBOutlet fileprivate weak var descriptionTextView: UITextView!
 	
 	var viewModel: CreateEventViewModel! = nil
 	
@@ -61,6 +62,9 @@ class CreateEventViewController: UIViewController {
 
 		locationTextField.indentUnderlineAndTint(placeholder: "Location")
 		
+		// Set up UITextView
+		descriptionTextView.placeholder = "Enter a description"
+		
 		// Updatable Properties
 		viewModel.canFinish.bind { [weak self] canFinish in
 			self?.navigationItem.rightBarButtonItem?.isEnabled = canFinish
@@ -95,7 +99,7 @@ class CreateEventViewController: UIViewController {
 	
 	/// Creates an event with the completed local variables, and attemps to write to the realm.
 	@objc fileprivate func doneButtonHit(sender: UIButton) {
-		let newEvent = Event(eventName: viewModel.eventName, date: viewModel.date!, location: viewModel.location!)
+		let newEvent = Event(eventName: viewModel.eventName, date: viewModel.date!, location: viewModel.location!, eventDescription: viewModel.eventDescription)
 		
 		do {
 			try viewModel.realm.write {
@@ -112,17 +116,16 @@ class CreateEventViewController: UIViewController {
 	
 }
 
-extension CreateEventViewController: GMSPlacePickerViewControllerDelegate, UITextFieldDelegate {
+extension CreateEventViewController: GMSPlacePickerViewControllerDelegate, UITextFieldDelegate, UITextViewDelegate {
 	func placePicker(_ viewController: GMSPlacePickerViewController, didPick place: GMSPlace) {
 		viewController.dismiss(animated: true, completion: nil)
-		viewModel.location = place // do a set location here
+		viewModel.location = place
 		viewModel.checkRequirements()
 		locationTextField.text = viewModel.location?.name
 	}
 	
 	func placePickerDidCancel(_ viewController: GMSPlacePickerViewController) {
 		viewController.dismiss(animated: true, completion: nil)
-		print("No place selected")
 	}
 
 	func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
@@ -131,6 +134,22 @@ extension CreateEventViewController: GMSPlacePickerViewControllerDelegate, UITex
 			let placePicker = GMSPlacePickerViewController(config: config)
 			placePicker.delegate = self
 			present(placePicker, animated: true, completion: nil)
+		}
+		
+		return false
+	}
+	
+	/// When the UITextView did change, show or hide the label based on if the UITextView is empty or not
+	///
+	/// - Parameter textView: The UITextView that got updated
+	func textViewDidChange(_ textView: UITextView) {
+		textView.assertPlaceHolderLabel()
+	}
+	
+	func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+		if (textView.text.characters.count + text.characters.count < 100) {
+			viewModel.updateEventDescription(eventDescription: textView.text)
+			return true
 		}
 		
 		return false

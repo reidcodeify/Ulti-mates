@@ -17,6 +17,7 @@ class CreateEventViewModel {
 	var eventName: String = ""
 	var date: NSDate?
 	var location: GMSPlace?
+	var eventDescription: String = ""
 	var canFinish = UpdatableProperty(value: false)
 	
 	// MARK: Life Cycle
@@ -53,5 +54,12 @@ class CreateEventViewModel {
 	/// - Parameter date: An instance of NSDate that represents the event's start time and date
 	func updateDate(date: NSDate) {
 		self.date = date
+	}
+	
+	/// Takes an eventDescription and updates the respective local value with it
+	///
+	/// - Parameter eventDescription: An instance of String that describes the event's details
+	func updateEventDescription(eventDescription: String) {
+		self.eventDescription = eventDescription
 	}
 }

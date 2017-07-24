@@ -16,6 +16,7 @@ class Event: Object {
 	dynamic var eventName: String = ""
 	dynamic var date: NSDate = NSDate()
 	dynamic var location: RealmPlace? = nil
+	dynamic var eventDescription: String = ""
 	var players = List<ActiveAccount>()
 	
 	// MARK: Life Cycle
@@ -25,11 +26,12 @@ class Event: Object {
 	/// - Parameter eventName: An instance of String that holds the event's displayed name
 	/// - Parameter date: An instance of NSDate that holds the event's start time and date
 	/// - Parameter location: An instance of GMSPlace that holds the event's location information provided by the Google Places APi
-	convenience init (eventName: String, date: NSDate, location: GMSPlace) {
+	convenience init (eventName: String, date: NSDate, location: GMSPlace, eventDescription: String) {
 		self.init()
 		self.eventName = eventName
 		self.date = date
 		self.location = RealmPlace(withPlace: location)
+		self.eventDescription = eventDescription
 	}
 	
 	// MARK: Private

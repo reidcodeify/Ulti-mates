@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import RealmSwift
+import GooglePlaces
 
 // MARK: Class
 class FeedViewModel {
@@ -17,7 +18,7 @@ class FeedViewModel {
 	var activeAccount: ActiveAccount
 	var events: UpdatableProperty<[FeedTableViewCellViewModel]> = UpdatableProperty(value: [])
 	var resultsToken: NotificationToken?
-	var isFeedEnabled = UpdatableProperty<Bool>(value: false)
+	var isFeedEnabled = UpdatableProperty<Bool>(value: true)
 	
 	fileprivate var fetchedEvents: Results<Event>? = nil {
 		didSet {
@@ -92,5 +93,7 @@ class FeedViewModel {
 	func createSelectedViewModel(_ index: Int) -> SelectedEventViewModel {
 		return SelectedEventViewModel(event: events.value[index].event, activeAccount: activeAccount)
 	}
+	
+	
 	
 }

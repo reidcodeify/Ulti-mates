@@ -70,7 +70,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="attendanceButton" destination="H7C-BG-yzK" id="ToE-nZ-eoR"/>
-                <outlet property="backgroundImage" destination="Rxp-FF-H9G" id="MSx-5m-KN0"/>
+                <outlet property="backgroundImageView" destination="Rxp-FF-H9G" id="Bxh-ch-tDW"/>
                 <outlet property="dateLabel" destination="r42-Zu-uf8" id="4tA-wi-ZmV"/>
                 <outlet property="eventNameLabel" destination="Jbz-mF-b0V" id="2bD-Il-MzJ"/>
                 <outlet property="imageView" destination="Rxp-FF-H9G" id="Wsk-Nq-eTH"/>

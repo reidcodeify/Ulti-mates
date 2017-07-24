@@ -40,6 +40,10 @@ class FeedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		
+		// Set up location services
+		locationManager.requestWhenInUseAuthorization()
+		locationManager.delegate = self
+		
 		// Set up navigationItem
 		let segmentedControl = UISegmentedControl(items: ["List", "Map"])
 		segmentedControl.selectedSegmentIndex = 0
@@ -64,28 +68,24 @@ class FeedViewController: UIViewController {
 		mapView.topAnchor.constraint(equalTo: self.topLayoutGuide.bottomAnchor, constant: 0).isActive = true
 		mapView.bottomAnchor.constraint(equalTo: self.bottomLayoutGuide.topAnchor, constant: 0).isActive = true
 		mapView.delegate = self
-		mapView.camera = GMSCameraPosition.camera(withLatitude: (locationManager.location?.coordinate.latitude)!, longitude: (locationManager.location?.coordinate.longitude)!, zoom: 12)
+		//mapView.camera = GMSCameraPosition.camera(withLatitude: (locationManager.location?.coordinate.latitude)!, longitude: (locationManager.location?.coordinate.longitude)!, zoom: 12)
 		mapView.isMyLocationEnabled = true
 		mapView.settings.myLocationButton = true
 		mapView.settings.compassButton = true
-		
-		// Set up location services
-		locationManager.requestWhenInUseAuthorization()
-		locationManager.delegate = self
 		
 		// Updatable Properties
 		viewModel.events.bind { [weak self] _ in
 			self?.tableView.reloadData()
 		}
 		
-		viewModel.isFeedEnabled.bind { [weak self] feedState in
+		viewModel.isFeedEnabled.bind { [weak self] isFeed in
 			// animate to the uiview corresponding to the feedState
-			if (feedState == true) {
+			if (isFeed == true) {
 				UIView.animate(withDuration: 0.3, animations: { 
 					self?.mapView.alpha = 0
 					self?.tableView.alpha = 1
 				})
-			} else if (feedState == false) {
+			} else if (isFeed == false) {
 				self?.layoutMapMarkers()
 				UIView.animate(withDuration: 0.3, animations: { 
 					self?.tableView.alpha = 0
@@ -99,13 +99,12 @@ class FeedViewController: UIViewController {
 		super.viewWillAppear(animated)
 		
 		// Set up mapView
-		mapView.isMyLocationEnabled = true
-		mapView.delegate = self
-		
-		
 		locationManager.startUpdatingLocation()
-		
 		layoutMapMarkers()
+		
+		if let location = locationManager.location {
+			mapView.camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude, longitude: location.coordinate.longitude, zoom: 12)
+		}
 	}
 	
     override func didReceiveMemoryWarning() {
@@ -122,6 +121,7 @@ class FeedViewController: UIViewController {
 			self.viewModel.updateFeedState(true)
 		case 1:
 			self.viewModel.updateFeedState(false)
+			layoutMapMarkers()
 		default:
 			DLog("Segmented control index out of range")
 		}

@@ -8,12 +8,14 @@
 
 import Foundation
 import RealmSwift
+import GooglePlaces
 
 // MARK: Class
 class FeedTableViewCellViewModel {
 	// MARK: Properties
 	var activeAccount: ActiveAccount
 	var event: Event
+	var backgroundImage: UIImage?
 	
 	// MARK: Life Cycle
 	
@@ -24,9 +26,34 @@ class FeedTableViewCellViewModel {
 	init (activeAccount: ActiveAccount, event: Event) {
 		self.activeAccount = activeAccount
 		self.event = event
+		loadFirstPhotoForPlace(placeID: (event.location?.placeID)!)
 	}
 	
 	// MARK: Private
+	
+	fileprivate func loadFirstPhotoForPlace(placeID: String) {
+		GMSPlacesClient.shared().lookUpPhotos(forPlaceID: placeID) { (photos, error) -> Void in
+			if let error = error {
+				// TODO: handle the error.
+				print("Error: \(error.localizedDescription)")
+			} else {
+				if let firstPhoto = photos?.results.first {
+					self.loadImageForMetadata(photoMetadata: firstPhoto)
+				}
+			}
+		}
+	}
+	
+	fileprivate func loadImageForMetadata(photoMetadata: GMSPlacePhotoMetadata) {
+		GMSPlacesClient.shared().loadPlacePhoto(photoMetadata, callback: { (photo, error) -> Void in
+			if let error = error {
+				// TODO: handle the error.
+				print("Error: \(error.localizedDescription)")
+			} else {
+				self.backgroundImage = photo
+			}
+		})
+	}
 	
 	// MARK: Public
 	
@@ -45,5 +72,12 @@ class FeedTableViewCellViewModel {
 				event.players.remove(objectAtIndex: event.players.index(of: activeAccount)!)
 			}
 		}
+	}
+	
+	/// Sets the backgroundImage of the call with the passed image
+	///
+	/// - Parameter image: An instance of UIImage
+	func updateBackgroundImage(image: UIImage) {
+		self.backgroundImage = image
 	}
 }

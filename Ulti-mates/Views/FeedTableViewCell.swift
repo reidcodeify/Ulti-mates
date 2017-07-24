@@ -16,7 +16,7 @@ class FeedTableViewCell: UITableViewCell {
 	@IBOutlet fileprivate weak var dateLabel: UILabel!
 	@IBOutlet fileprivate weak var playerAttendanceLabel: UILabel!
 	@IBOutlet weak var attendanceButton: UIButton!
-	@IBOutlet weak var backgroundImage: UIImageView!
+	@IBOutlet weak var backgroundImageView: UIImageView!
 	
 	var viewModel: FeedTableViewCellViewModel? {
 		didSet {
@@ -30,6 +30,7 @@ class FeedTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+		backgroundImageView.image = viewModel?.backgroundImage
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -60,31 +61,6 @@ class FeedTableViewCell: UITableViewCell {
 		dateLabel.text = DateFormatter.localizedString(from: viewModel.event.date as Date, dateStyle: .short, timeStyle: .short)
 		eventNameLabel.text = viewModel.event.eventName
 		playerAttendanceLabel.text = "\(viewModel.event.players.count) player(s)"
-		//loadFirstPhotoForPlace(placeID: (viewModel.event.location?.placeID)!)
-	}
-	
-	fileprivate func loadFirstPhotoForPlace(placeID: String) {
-		GMSPlacesClient.shared().lookUpPhotos(forPlaceID: placeID) { (photos, error) -> Void in
-			if let error = error {
-				// TODO: handle the error.
-				print("Error: \(error.localizedDescription)")
-			} else {
-				if let firstPhoto = photos?.results.first {
-					self.loadImageForMetadata(photoMetadata: firstPhoto)
-				}
-			}
-		}
-	}
-	
-	fileprivate func loadImageForMetadata(photoMetadata: GMSPlacePhotoMetadata) {
-		GMSPlacesClient.shared().loadPlacePhoto(photoMetadata, callback: { (photo, error) -> Void in
-			if let error = error {
-				// TODO: handle the error.
-				print("Error: \(error.localizedDescription)")
-			} else {
-				self.backgroundImage.image = photo
-			}
-		})
 	}
 	
 	// MARK: Public
