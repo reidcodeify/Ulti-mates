@@ -11,6 +11,8 @@ import Realm
 import RealmSwift
 import GooglePlaces
 import GoogleMaps
+import FacebookLogin
+import FBSDKLoginKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -26,7 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		GMSServices.provideAPIKey("AIzaSyCzr5XJT5hXmJa_UGcfRRwUa1V6GD2Z3aU")
 		
 		let rootVC = UIViewController()
-		let viewModel: WelcomeViewModel = WelcomeViewModel(realm: realm, isSignUpState: true)
+		//let viewModel: WelcomeViewModel = WelcomeViewModel(realm: realm, isSignUpState: true)
+		let viewModel: WelcomeViewModel2 = WelcomeViewModel2(realm: realm)
 		
 //		if UserDefaults.standard.isFirstLaunch() {
 //			viewModel = WelcomeViewModel(realm: realm, viewState: .signUp)
@@ -34,12 +37,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //			viewModel = WelcomeViewModel(realm: realm, viewState: .logIn)
 //		}
 
-		rootVC.setInitialViewController(WelcomeViewController(viewModel: viewModel))
+		rootVC.setInitialViewController(UINavigationController(rootViewController: WelcomeViewController2(viewModel: viewModel)))
 		
 		window?.rootViewController = rootVC
 		window?.makeKeyAndVisible()
 		
 		return true
+	}
+	
+	func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+		return FBSDKApplicationDelegate.sharedInstance().application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
 	}
 
 	func applicationWillResignActive(_ application: UIApplication) {
@@ -58,12 +65,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	func applicationDidBecomeActive(_ application: UIApplication) {
 		// Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+
 	}
 
 	func applicationWillTerminate(_ application: UIApplication) {
 		// Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 	}
-
 
 }
 

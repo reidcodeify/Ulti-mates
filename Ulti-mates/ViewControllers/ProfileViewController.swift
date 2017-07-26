@@ -81,9 +81,9 @@ class ProfileViewController: UIViewController {
 	
 	/// Removes all currently instantiated viewControllers from the UIWindow, and sets the rootViewController as WelcomeViewController
 	fileprivate func tearDown() {
-		let viewModel = WelcomeViewModel(realm: self.viewModel.realm, isSignUpState: false)
+		let viewModel = WelcomeViewModel2(realm: self.viewModel.realm)
 		let rootVC = UIViewController()
-		rootVC.setInitialViewController(WelcomeViewController(viewModel: viewModel))
+		rootVC.setInitialViewController(UINavigationController(rootViewController: WelcomeViewController2(viewModel: viewModel)))
 		self.view.window?.rootViewController = rootVC
 		self.view.window?.makeKeyAndVisible()
 	}

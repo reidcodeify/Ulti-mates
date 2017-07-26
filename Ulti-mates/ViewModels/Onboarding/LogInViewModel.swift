@@ -75,4 +75,9 @@ class LogInViewModel {
 			canContinue.update(false)
 		}
 	}
+	
+	/// Checks whether or not email meets its requirements
+	func assertEmailRequirements() -> Bool {
+		return (email.contains("@") && email.contains("."))
+	}
 }

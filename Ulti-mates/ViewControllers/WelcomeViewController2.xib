@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WelcomeViewController2" customModule="Ulti_mates" customModuleProvider="target">
+            <connections>
+                <outlet property="createAccountButton" destination="oEt-ww-ln5" id="PBa-Po-74m"/>
+                <outlet property="facebookButton" destination="Qdq-sq-G3B" id="Ns1-rc-Ht2"/>
+                <outlet property="logoImageView" destination="i5C-hU-GZK" id="fuS-ds-Flr"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8qK-PT-FZr" customClass="GradientView" customModule="Ulti_mates" customModuleProvider="target">
+                    <rect key="frame" x="-0.5" y="-0.5" width="375" height="667"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="startLocation">
+                            <real key="value" value="0.5"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="endLocation">
+                            <real key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                            <color key="value" red="0.77481442928010613" green="0.25422034340135163" blue="0.25807399282058596" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                            <color key="value" red="0.85747565250000002" green="0.85630656380000003" blue="0.87672763239999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Frisbee Closed" translatesAutoresizingMaskIntoConstraints="NO" id="i5C-hU-GZK">
+                    <rect key="frame" x="20" y="108.5" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="1xX-wD-t94"/>
+                        <constraint firstAttribute="width" constant="50" id="HxJ-Zq-o0u"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Ulti-mates." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3At-dH-1W0">
+                    <rect key="frame" x="20" y="203.5" width="271.5" height="31.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qdq-sq-G3B">
+                    <rect key="frame" x="20" y="280" width="335" height="50"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="uF7-Ae-jID"/>
+                    </constraints>
+                    <state key="normal" title="Continue with Facebook">
+                        <color key="titleColor" red="0.86025458180000003" green="0.27906406490000002" blue="0.2811532081" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oEt-ww-ln5">
+                    <rect key="frame" x="20" y="350" width="335" height="50"/>
+                    <state key="normal" title="Create Account">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="createAccountButtonHit:" destination="-1" eventType="touchUpInside" id="KDD-EF-N6Q"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.86025458180000003" green="0.27906406490000002" blue="0.2811532081" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="8qK-PT-FZr" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" id="7Kh-No-h7j"/>
+                <constraint firstItem="8qK-PT-FZr" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="AlF-gA-Mng"/>
+                <constraint firstAttribute="trailing" secondItem="Qdq-sq-G3B" secondAttribute="trailing" constant="20" id="Ftz-3E-ZXw"/>
+                <constraint firstItem="oEt-ww-ln5" firstAttribute="top" secondItem="Qdq-sq-G3B" secondAttribute="bottom" constant="20" id="OV5-gj-mnk"/>
+                <constraint firstItem="Qdq-sq-G3B" firstAttribute="top" secondItem="3At-dH-1W0" secondAttribute="bottom" constant="45" id="SJw-Ov-hTd"/>
+                <constraint firstItem="i5C-hU-GZK" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" multiplier="0.4" id="Tvt-iA-pQH"/>
+                <constraint firstItem="i5C-hU-GZK" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="VFA-JV-aVe"/>
+                <constraint firstAttribute="trailing" secondItem="oEt-ww-ln5" secondAttribute="trailing" constant="20" id="Y4g-gx-dDI"/>
+                <constraint firstItem="3At-dH-1W0" firstAttribute="top" secondItem="i5C-hU-GZK" secondAttribute="bottom" constant="45" id="arC-UO-wk9"/>
+                <constraint firstItem="8qK-PT-FZr" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="fh1-vc-cKi"/>
+                <constraint firstItem="oEt-ww-ln5" firstAttribute="height" secondItem="Qdq-sq-G3B" secondAttribute="height" id="gxC-P1-KYT"/>
+                <constraint firstItem="3At-dH-1W0" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="kEV-2A-GhL"/>
+                <constraint firstItem="Qdq-sq-G3B" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="p2r-2w-eP1"/>
+                <constraint firstItem="8qK-PT-FZr" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="vtp-uv-jLg"/>
+                <constraint firstItem="oEt-ww-ln5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="zMB-7K-Xtk"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="Frisbee Closed" width="25" height="25"/>
+    </resources>
+</document>

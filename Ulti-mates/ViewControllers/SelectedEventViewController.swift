@@ -20,8 +20,9 @@ class SelectedEventViewController: UIViewController {
 	@IBOutlet fileprivate weak var playersButton: UIButton!
 	@IBOutlet fileprivate weak var selectionLineCenter: NSLayoutConstraint!
 	@IBOutlet fileprivate weak var aboutView: UIView!
-	@IBOutlet fileprivate weak var directionsButton: UIButton!
 	@IBOutlet fileprivate weak var aboutTextView: UITextView!
+	@IBOutlet fileprivate weak var timeAndDateLabel: UILabel!
+	@IBOutlet fileprivate weak var directionsButton: UIButton!
 	@IBOutlet fileprivate weak var playersTableView: UITableView!
 	
 	fileprivate var constraintToRevealMap = NSLayoutConstraint()
@@ -50,6 +51,7 @@ class SelectedEventViewController: UIViewController {
         super.viewDidLoad()
 		
 		// Set up UINavigationItem
+		self.title = viewModel.event.eventName
 
         // Set up mapView
 		mapView.topAnchor.constraint(equalTo: self.topLayoutGuide.bottomAnchor, constant: 0).isActive = true
@@ -72,10 +74,9 @@ class SelectedEventViewController: UIViewController {
 		
 		// Set up aboutView
 		aboutView.alpha = 1
-		directionsButton.roundAndShadow()
-		
-		// Set up aboutTextView
+		timeAndDateLabel.text = DateFormatter.localizedString(from: viewModel.event.date as Date, dateStyle: .full, timeStyle: .short)
 		aboutTextView.text = viewModel.event.eventDescription
+		directionsButton.roundAndShadow()
 		
 		// Set up playersTableView
 		playersTableView.register(UINib(nibName: "PlayersTableViewCell", bundle: nil), forCellReuseIdentifier: "PlayersCell")

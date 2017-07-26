@@ -24,7 +24,7 @@ class ActiveAccount: Object, Profilable {
 	dynamic var uniqueIdentifier: Int = Int(arc4random())
 	dynamic var name: String = ""
 	dynamic var email: String = ""
-	dynamic var password: String = ""
+	dynamic var password: String? = ""
 	dynamic var homeLocation: RealmPlace? = nil
 	var favoriteEvents = List<Event>()
 	var friendsList = List<ViewableAccount>()
@@ -36,7 +36,7 @@ class ActiveAccount: Object, Profilable {
 	/// - Parameter name: An instance of String that holds the user's name
 	/// - Parameter email: An instance of String that holds the user's email
 	/// - Parameter password: An instance of String that holds the user's password
-	convenience init (name: String, email: String, password: String) {
+	convenience init (name: String, email: String, password: String?) {
 		self.init()
 		self.name = name
 		self.email = email

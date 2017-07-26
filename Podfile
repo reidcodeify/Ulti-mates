@@ -10,6 +10,7 @@ target 'Ulti-mates' do
   pod 'GooglePlaces'
   pod 'GooglePlacePicker'
   pod 'GoogleMaps'
+  pod 'FacebookLogin'
 
   target 'Ulti-matesTests' do
     inherit! :search_paths
