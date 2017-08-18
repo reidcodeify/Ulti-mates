@@ -28,9 +28,9 @@
 		1F46CF001F02FB03000A73DA /* SelectedEventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F46CEFE1F02FB03000A73DA /* SelectedEventViewModel.swift */; };
 		1F46CF031F02FB2A000A73DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F46CF011F02FB2A000A73DA /* LaunchScreen.storyboard */; };
 		1F46CF051F02FBB9000A73DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F46CF041F02FBB9000A73DA /* Assets.xcassets */; };
-		1F5F27F61F2690D900216085 /* WelcomeViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5F27F41F2690D900216085 /* WelcomeViewController2.swift */; };
-		1F5F27F71F2690D900216085 /* WelcomeViewController2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F5F27F51F2690D900216085 /* WelcomeViewController2.xib */; };
-		1F5F27F91F26914000216085 /* WelcomeViewModel2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5F27F81F26914000216085 /* WelcomeViewModel2.swift */; };
+		1F5F27F61F2690D900216085 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5F27F41F2690D900216085 /* WelcomeViewController.swift */; };
+		1F5F27F71F2690D900216085 /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F5F27F51F2690D900216085 /* WelcomeViewController.xib */; };
+		1F5F27F91F26914000216085 /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5F27F81F26914000216085 /* WelcomeViewModel.swift */; };
 		1F5F27FB1F269CC500216085 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5F27FA1F269CC500216085 /* GradientView.swift */; };
 		1F5F27FE1F26CBEE00216085 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5F27FC1F26CBEE00216085 /* LogInViewController.swift */; };
 		1F5F27FF1F26CBEE00216085 /* LogInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F5F27FD1F26CBEE00216085 /* LogInViewController.xib */; };
@@ -107,9 +107,9 @@
 		1F46CEFE1F02FB03000A73DA /* SelectedEventViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedEventViewModel.swift; sourceTree = "<group>"; };
 		1F46CF021F02FB2A000A73DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Ulti-mates/Base.lproj/LaunchScreen.storyboard"; sourceTree = SOURCE_ROOT; };
 		1F46CF041F02FBB9000A73DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "Ulti-mates/Assets.xcassets"; sourceTree = SOURCE_ROOT; };
-		1F5F27F41F2690D900216085 /* WelcomeViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WelcomeViewController2.swift; path = ../WelcomeViewController2.swift; sourceTree = "<group>"; };
-		1F5F27F51F2690D900216085 /* WelcomeViewController2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WelcomeViewController2.xib; path = ../WelcomeViewController2.xib; sourceTree = "<group>"; };
-		1F5F27F81F26914000216085 /* WelcomeViewModel2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel2.swift; sourceTree = "<group>"; };
+		1F5F27F41F2690D900216085 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WelcomeViewController.swift; path = ../WelcomeViewController.swift; sourceTree = "<group>"; };
+		1F5F27F51F2690D900216085 /* WelcomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WelcomeViewController.xib; path = ../WelcomeViewController.xib; sourceTree = "<group>"; };
+		1F5F27F81F26914000216085 /* WelcomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
 		1F5F27FA1F269CC500216085 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GradientView.swift; path = "Ulti-mates/ViewModels/Onboarding/GradientView.swift"; sourceTree = SOURCE_ROOT; };
 		1F5F27FC1F26CBEE00216085 /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		1F5F27FD1F26CBEE00216085 /* LogInViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LogInViewController.xib; sourceTree = "<group>"; };
@@ -317,8 +317,8 @@
 		1FF37E381F02F81B00F16383 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				1F5F27F41F2690D900216085 /* WelcomeViewController2.swift */,
-				1F5F27F51F2690D900216085 /* WelcomeViewController2.xib */,
+				1F5F27F41F2690D900216085 /* WelcomeViewController.swift */,
+				1F5F27F51F2690D900216085 /* WelcomeViewController.xib */,
 				1F5F27FC1F26CBEE00216085 /* LogInViewController.swift */,
 				1F5F27FD1F26CBEE00216085 /* LogInViewController.xib */,
 				1F1955C21F29398C0036605A /* CreateAccountViewController.swift */,
@@ -347,7 +347,7 @@
 			isa = PBXGroup;
 			children = (
 				1FF37E451F02F81B00F16383 /* LogInViewModel.swift */,
-				1F5F27F81F26914000216085 /* WelcomeViewModel2.swift */,
+				1F5F27F81F26914000216085 /* WelcomeViewModel.swift */,
 				1F1955C01F29134A0036605A /* CreateAccountViewModel.swift */,
 			);
 			path = Onboarding;
@@ -501,7 +501,7 @@
 				1FF37E5B1F02F81B00F16383 /* MessagesViewController.xib in Resources */,
 				1FF37E6B1F02F81B00F16383 /* FeedTableViewCell.xib in Resources */,
 				1F1955C51F29398C0036605A /* CreateAccountViewController.xib in Resources */,
-				1F5F27F71F2690D900216085 /* WelcomeViewController2.xib in Resources */,
+				1F5F27F71F2690D900216085 /* WelcomeViewController.xib in Resources */,
 				1FF37E5F1F02F81B00F16383 /* ProfileViewController.xib in Resources */,
 				1FF37E591F02F81B00F16383 /* FeedViewController.xib in Resources */,
 				1FF37E611F02F81B00F16383 /* SelectedEventViewController.xib in Resources */,
@@ -686,7 +686,7 @@
 				1FF37E581F02F81B00F16383 /* FeedViewController.swift in Sources */,
 				1FF37E621F02F81B00F16383 /* CreateEventViewModel.swift in Sources */,
 				1FF37E631F02F81B00F16383 /* DashboardViewModel.swift in Sources */,
-				1F5F27F91F26914000216085 /* WelcomeViewModel2.swift in Sources */,
+				1F5F27F91F26914000216085 /* WelcomeViewModel.swift in Sources */,
 				1FF37E561F02F81B00F16383 /* DashboardTabBarViewController.swift in Sources */,
 				1FF37E511F02F81B00F16383 /* Account.swift in Sources */,
 				1FCF8AD61F148D9000AEE2DA /* Colors.swift in Sources */,
@@ -697,7 +697,7 @@
 				1FF37E531F02F81B00F16383 /* Message.swift in Sources */,
 				1FF37E641F02F81B00F16383 /* FeedViewModel.swift in Sources */,
 				1FF37E521F02F81B00F16383 /* Event.swift in Sources */,
-				1F5F27F61F2690D900216085 /* WelcomeViewController2.swift in Sources */,
+				1F5F27F61F2690D900216085 /* WelcomeViewController.swift in Sources */,
 				1F1955C11F29134A0036605A /* CreateAccountViewModel.swift in Sources */,
 				1FF37E6A1F02F81B00F16383 /* FeedTableViewCell.swift in Sources */,
 				1F46CEFC1F02FA67000A73DA /* Utils.swift in Sources */,

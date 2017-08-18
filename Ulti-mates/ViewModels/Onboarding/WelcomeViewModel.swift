@@ -10,7 +10,7 @@ import Foundation
 import RealmSwift
 
 // MARK: Class
-class WelcomeViewModel2 {
+class WelcomeViewModel {
 	// MARK: Properties
 	var realm: Realm
 	

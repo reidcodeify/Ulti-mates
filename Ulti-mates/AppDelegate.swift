@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		
 		let rootVC = UIViewController()
 		//let viewModel: WelcomeViewModel = WelcomeViewModel(realm: realm, isSignUpState: true)
-		let viewModel: WelcomeViewModel2 = WelcomeViewModel2(realm: realm)
+		let viewModel: WelcomeViewModel = WelcomeViewModel(realm: realm)
 		
 //		if UserDefaults.standard.isFirstLaunch() {
 //			viewModel = WelcomeViewModel(realm: realm, viewState: .signUp)
@@ -37,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //			viewModel = WelcomeViewModel(realm: realm, viewState: .logIn)
 //		}
 
-		rootVC.setInitialViewController(UINavigationController(rootViewController: WelcomeViewController2(viewModel: viewModel)))
+		rootVC.setInitialViewController(UINavigationController(rootViewController: WelcomeViewController(viewModel: viewModel)))
 		
 		window?.rootViewController = rootVC
 		window?.makeKeyAndVisible()

@@ -13,6 +13,10 @@ class DashboardTabBarViewController: UITabBarController {
 	// MARK: Properties
 	fileprivate var identifier: String = "DashboardTabBarViewController"
 	
+	override var preferredStatusBarStyle: UIStatusBarStyle {
+		return .default
+	}
+	
 	fileprivate var viewModel: DashboardViewModel
 	
 	// MARK: Life Cycle
@@ -32,6 +36,9 @@ class DashboardTabBarViewController: UITabBarController {
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
+		
+		// Set up UIApplication
+		UIApplication.shared.statusBarStyle = .default
 		
 		// Set up tab bar controller
 		self.tabBar.tintColor = ultimatesRed

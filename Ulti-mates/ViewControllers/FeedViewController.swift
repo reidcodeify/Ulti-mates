@@ -68,10 +68,12 @@ class FeedViewController: UIViewController {
 		mapView.topAnchor.constraint(equalTo: self.topLayoutGuide.bottomAnchor, constant: 0).isActive = true
 		mapView.bottomAnchor.constraint(equalTo: self.bottomLayoutGuide.topAnchor, constant: 0).isActive = true
 		mapView.delegate = self
-		//mapView.camera = GMSCameraPosition.camera(withLatitude: (locationManager.location?.coordinate.latitude)!, longitude: (locationManager.location?.coordinate.longitude)!, zoom: 12)
 		mapView.isMyLocationEnabled = true
 		mapView.settings.myLocationButton = true
 		mapView.settings.compassButton = true
+		if let location = locationManager.location {
+			mapView.camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude, longitude: location.coordinate.longitude, zoom: 12)
+		}
 		
 		// Updatable Properties
 		viewModel.events.bind { [weak self] _ in
@@ -102,9 +104,7 @@ class FeedViewController: UIViewController {
 		locationManager.startUpdatingLocation()
 		layoutMapMarkers()
 		
-		if let location = locationManager.location {
-			mapView.camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude, longitude: location.coordinate.longitude, zoom: 12)
-		}
+		
 	}
 	
     override func didReceiveMemoryWarning() {
@@ -122,6 +122,8 @@ class FeedViewController: UIViewController {
 		case 1:
 			self.viewModel.updateFeedState(false)
 			layoutMapMarkers()
+			
+			
 		default:
 			DLog("Segmented control index out of range")
 		}

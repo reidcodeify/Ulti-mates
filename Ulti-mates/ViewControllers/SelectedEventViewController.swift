@@ -92,20 +92,6 @@ class SelectedEventViewController: UIViewController {
 	
 	// MARK: Control Handlers
 	
-	/// Provides the next steps (?) for a user to proceed with getting to the event's location
-	@IBAction func directionsButtonHit(_ sender: UIButton) {
-		
-	}
-	
-	// MARK: Private
-	fileprivate func setValuelessState() {
-		aboutButton.setTitleColor(.lightGray, for: .normal)
-		playersButton.setTitleColor(.lightGray, for: .normal)
-		chatButton.setTitleColor(.lightGray, for: .normal)
-		aboutView.alpha = 0
-		playersTableView.alpha = 0
-	}
-	
 	/// Adjusts the user interface to match the corresponding selection made
 	///
 	/// - Parameter sender: The UIButton that was tapped by the user
@@ -138,6 +124,20 @@ class SelectedEventViewController: UIViewController {
 			self.aboutView.alpha = (sender === self.aboutButton) ? 1 : 0
 			self.playersTableView.alpha = (sender === self.playersButton) ? 1 : 0
 		})
+	}
+	
+	/// Provides the next steps (?) for a user to proceed with getting to the event's location
+	@IBAction func directionsButtonHit(_ sender: UIButton) {
+		
+	}
+	
+	// MARK: Private
+	fileprivate func setValuelessState() {
+		aboutButton.setTitleColor(.lightGray, for: .normal)
+		playersButton.setTitleColor(.lightGray, for: .normal)
+		chatButton.setTitleColor(.lightGray, for: .normal)
+		aboutView.alpha = 0
+		playersTableView.alpha = 0
 	}
 	
 	@objc fileprivate func attendanceButtonHit(_ sender: UIBarButtonItem) {

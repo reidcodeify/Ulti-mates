@@ -112,4 +112,12 @@ class CreateAccountViewModel {
 		// Email is new
 		return false
 	}
+	
+	/// Trims all local properties to ensure that there aren't any extra whitespace or line breaks
+	func trimProperties() {
+		self.firstName = self.firstName.trimmingCharacters(in: .whitespacesAndNewlines)
+		self.lastName = self.lastName.trimmingCharacters(in: .whitespacesAndNewlines)
+		self.email = self.email.trimmingCharacters(in: .whitespacesAndNewlines)
+		self.password = self.password.trimmingCharacters(in: .whitespacesAndNewlines)
+	}
 }

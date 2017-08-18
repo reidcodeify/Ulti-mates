@@ -11,9 +11,9 @@ import FacebookLogin
 import FBSDKLoginKit
 
 // MARK: Class
-class WelcomeViewController2: UIViewController {
+class WelcomeViewController: UIViewController {
 	// MARK: Properties
-	fileprivate let identifier: String = "WelcomeViewController2"
+	fileprivate let identifier: String = "WelcomeViewController"
 	
 	@IBOutlet fileprivate weak var logoImageView: UIImageView!
 	@IBOutlet fileprivate weak var facebookButton: UIButton!
@@ -23,7 +23,7 @@ class WelcomeViewController2: UIViewController {
 		return .lightContent
 	}
 	
-	fileprivate var viewModel: WelcomeViewModel2
+	fileprivate var viewModel: WelcomeViewModel
 	
 	// MARK: Life Cycle
 	required init?(coder aDecoder: NSCoder) {
@@ -33,7 +33,7 @@ class WelcomeViewController2: UIViewController {
 	/// Custom initializer that takes a viewModel
 	///
 	/// - Parameter viewModel: An instance of WelcomeViewModel
-	init(viewModel: WelcomeViewModel2) {
+	init(viewModel: WelcomeViewModel) {
 		self.viewModel = viewModel
 		super.init(nibName: identifier, bundle: nil)
 	}
