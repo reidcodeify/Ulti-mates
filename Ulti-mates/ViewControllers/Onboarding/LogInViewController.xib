@@ -62,7 +62,7 @@
                             </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" red="0.7748144293" green="0.25422034339999999" blue="0.25807399279999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="0.76359039529999995" green="0.048725062450000002" blue="0.048532206080000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="IPH-nL-AUP" secondAttribute="trailing" constant="20" id="Ddc-2a-pET"/>
                         <constraint firstItem="IPH-nL-AUP" firstAttribute="centerY" secondItem="4J2-yL-DTP" secondAttribute="centerY" id="LgR-Ps-Aon"/>
@@ -72,7 +72,7 @@
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="color" keyPath="startColor">
-                            <color key="value" red="0.7748144293" green="0.25422034339999999" blue="0.25807399279999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="value" red="0.76359039529999995" green="0.048725062450000002" blue="0.048532206080000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="color" keyPath="endColor">
                             <color key="value" red="0.85747565250000002" green="0.85630656380000003" blue="0.87672763239999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

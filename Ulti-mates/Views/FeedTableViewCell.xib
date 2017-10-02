@@ -46,9 +46,9 @@
                             <constraint firstAttribute="height" constant="50" id="1f2-Rb-E3d"/>
                             <constraint firstAttribute="width" constant="50" id="J2B-SR-eje"/>
                         </constraints>
-                        <state key="normal" image="Frisbee Open"/>
+                        <state key="normal" image="Favorite Open"/>
                         <connections>
-                            <action selector="attendenceButtonHit:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="yaC-4p-NaK"/>
+                            <action selector="favoriteButtonHit:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="WeR-rX-FWE"/>
                         </connections>
                     </button>
                 </subviews>
@@ -69,10 +69,10 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="attendanceButton" destination="H7C-BG-yzK" id="ToE-nZ-eoR"/>
                 <outlet property="backgroundImageView" destination="Rxp-FF-H9G" id="Bxh-ch-tDW"/>
                 <outlet property="dateLabel" destination="r42-Zu-uf8" id="4tA-wi-ZmV"/>
                 <outlet property="eventNameLabel" destination="Jbz-mF-b0V" id="2bD-Il-MzJ"/>
+                <outlet property="favoriteButton" destination="H7C-BG-yzK" id="xxY-8L-eCI"/>
                 <outlet property="imageView" destination="Rxp-FF-H9G" id="Wsk-Nq-eTH"/>
                 <outlet property="playerAttendanceLabel" destination="Hl0-tD-UGV" id="i1q-fF-7gc"/>
             </connections>
@@ -80,6 +80,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="Frisbee Open" width="25" height="25"/>
+        <image name="Favorite Open" width="25" height="25"/>
     </resources>
 </document>

@@ -17,7 +17,8 @@ class Event: Object {
 	dynamic var date: NSDate = NSDate()
 	dynamic var location: RealmPlace? = nil
 	dynamic var eventDescription: String = ""
-	var players = List<ActiveAccount>()
+	var activePlayers = List<ActiveAccount>()
+	var maybePlayers = List<ActiveAccount>()
 	
 	// MARK: Life Cycle
 	

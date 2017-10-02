@@ -15,7 +15,7 @@ class FeedTableViewCell: UITableViewCell {
 	@IBOutlet fileprivate weak var eventNameLabel: UILabel!
 	@IBOutlet fileprivate weak var dateLabel: UILabel!
 	@IBOutlet fileprivate weak var playerAttendanceLabel: UILabel!
-	@IBOutlet weak var attendanceButton: UIButton!
+	@IBOutlet weak var favoriteButton: UIButton!
 	@IBOutlet weak var backgroundImageView: UIImageView!
 	
 	var viewModel: FeedTableViewCellViewModel? {
@@ -43,14 +43,14 @@ class FeedTableViewCell: UITableViewCell {
 	
 	/// If the button's state is activated, the viewModel will know to add the activeAccount
 	/// If the button's state is not activated, the viewModel will know not to add the activeAccount
-	@IBAction func attendenceButtonHit(_ sender: UIButton) {
+	@IBAction func favoriteButtonHit(_ sender: UIButton) {
 		// for both: set active color, set attending property on viewModel
-		if (attendanceButton.imageView?.image == #imageLiteral(resourceName: "Frisbee Open")) {
-			viewModel?.updatePlayerCount(shouldAdd: true)
-			attendanceButton.setImage(#imageLiteral(resourceName: "Frisbee Closed"), for: .normal)
+		if (favoriteButton.imageView?.image == #imageLiteral(resourceName: "Favorite Open")) {
+			viewModel?.updateFavorites(shouldAdd: true, event: (viewModel?.event)!)
+			favoriteButton.setImage(#imageLiteral(resourceName: "Favorite Closed"), for: .normal)
 		} else {
-			viewModel?.updatePlayerCount(shouldAdd: false)
-			attendanceButton.setImage(#imageLiteral(resourceName: "Frisbee Open"), for: .normal)
+			viewModel?.updateFavorites(shouldAdd: false, event: (viewModel?.event)!)
+			favoriteButton.setImage(#imageLiteral(resourceName: "Favorite Open"), for: .normal)
 		}
 	}
 	
@@ -60,7 +60,7 @@ class FeedTableViewCell: UITableViewCell {
 	fileprivate func attach(viewModel: FeedTableViewCellViewModel) {
 		dateLabel.text = DateFormatter.localizedString(from: viewModel.event.date as Date, dateStyle: .short, timeStyle: .short)
 		eventNameLabel.text = viewModel.event.eventName
-		playerAttendanceLabel.text = "\(viewModel.event.players.count) player(s)"
+		playerAttendanceLabel.text = "\(viewModel.event.activePlayers.count) player(s)"
 	}
 	
 	// MARK: Public

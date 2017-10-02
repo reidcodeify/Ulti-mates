@@ -33,7 +33,7 @@
                             <real key="value" value="1"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="color" keyPath="startColor">
-                            <color key="value" red="0.86025458180000003" green="0.27906406490000002" blue="0.2811532081" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="value" red="0.76359039529206352" green="0.04872506245300768" blue="0.048532206076321728" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="color" keyPath="endColor">
                             <color key="value" red="0.85747565250000002" green="0.85630656380000003" blue="0.87672763239999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -60,7 +60,7 @@
                         <constraint firstAttribute="height" constant="50" id="uF7-Ae-jID"/>
                     </constraints>
                     <state key="normal" title="Continue with Facebook">
-                        <color key="titleColor" red="0.86025458180000003" green="0.27906406490000002" blue="0.2811532081" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleColor" red="0.76359039529999995" green="0.048725062450000002" blue="0.048532206080000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oEt-ww-ln5">
@@ -73,7 +73,7 @@
                     </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" red="0.86025458180000003" green="0.27906406490000002" blue="0.2811532081" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.76359039529999995" green="0.048725062450000002" blue="0.048532206080000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="8qK-PT-FZr" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" id="7Kh-No-h7j"/>
                 <constraint firstItem="8qK-PT-FZr" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="AlF-gA-Mng"/>
