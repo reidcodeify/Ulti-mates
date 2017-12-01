@@ -20,27 +20,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	var window: UIWindow?
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-		// Override point for customization after application launch
-		self.window = UIWindow(frame: UIScreen.main.bounds)
-		
 		let realm = try! Realm()
 		GMSPlacesClient.provideAPIKey("AIzaSyCzr5XJT5hXmJa_UGcfRRwUa1V6GD2Z3aU")
 		GMSServices.provideAPIKey("AIzaSyCzr5XJT5hXmJa_UGcfRRwUa1V6GD2Z3aU")
 		
-		let rootVC = UIViewController()
-		//let viewModel: WelcomeViewModel = WelcomeViewModel(realm: realm, isSignUpState: true)
-		let viewModel: WelcomeViewModel = WelcomeViewModel(realm: realm)
+		self.window = UIWindow(frame: UIScreen.main.bounds)
+		window?.makeKeyAndVisible()
 		
-//		if UserDefaults.standard.isFirstLaunch() {
-//			viewModel = WelcomeViewModel(realm: realm, viewState: .signUp)
-//		} else {
-//			viewModel = WelcomeViewModel(realm: realm, viewState: .logIn)
-//		}
-
-		rootVC.setInitialViewController(UINavigationController(rootViewController: WelcomeViewController(viewModel: viewModel)))
+		let viewModel: WelcomeViewModel = WelcomeViewModel(realm: realm)
+		let rootVC = UINavigationController(rootViewController: WelcomeViewController(viewModel: viewModel))
 		
 		window?.rootViewController = rootVC
-		window?.makeKeyAndVisible()
 		
 		return true
 	}

@@ -7,39 +7,18 @@
 //
 
 import Foundation
-import RealmSwift
 
 // MARK: Class
 class WelcomeViewModel {
 	// MARK: Properties
-	var realm: Realm
 	
 	// MARK: Life Cycle
-	init (realm: Realm) {
-		self.realm = realm
+	init () {
+		
 	}
 	
 	// MARK: Private
 	
 	// MARK: Public
-	func accountDoesNotExist(emailToCheck email: String, nameToCheck name: String) -> Bool {
-		for tempAccount in realm.objects(ActiveAccount.self) {
-			if (tempAccount.name == name && tempAccount.email == email) {
-				print("Account exists")
-				return false
-			}
-		}
-		return true
-	}
 	
-	func fetchExistingAccount(withEmail email: String, withName name: String) -> ActiveAccount? {
-		for tempAccount in realm.objects(ActiveAccount.self) {
-			if (tempAccount.name == name && tempAccount.email == email) {
-				print("Account exists")
-				return tempAccount
-			}
-		}
-		DLog("Error: Could not find account")
-		return nil
-	}
 }
