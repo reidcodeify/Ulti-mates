@@ -272,8 +272,8 @@ extension Double {
 }
 
 extension UIColor {
-	convenience init(r: Int, g: Int, b: Int, alpha: CGFloat) {
-		self.init(red: CGFloat(r)/255, green: CGFloat(g)/255, blue: CGFloat(b)/255, alpha: alpha)
+	convenience init(r: Int, g: Int, b: Int) {
+		self.init(red: CGFloat(r)/255, green: CGFloat(g)/255, blue: CGFloat(b)/255, alpha: 1)
 	}
 	
 	func lighten(_ saturationMultiplier: CGFloat = 0.5) -> UIColor {
