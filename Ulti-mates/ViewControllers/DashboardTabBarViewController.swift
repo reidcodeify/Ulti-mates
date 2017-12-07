@@ -54,9 +54,19 @@ class DashboardTabBarViewController: UITabBarController {
     }
 	
 	// MARK: Control Handlers
-//	override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-//		title = item.title
-//	}
+	override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+		switch item {
+		case (tabBar.items?[0])!:
+			UIApplication.shared.statusBarStyle = .default
+		case (tabBar.items?[1])!:
+			UIApplication.shared.statusBarStyle = .default
+		case (tabBar.items?[2])!:
+			UIApplication.shared.statusBarStyle = .lightContent
+		default:
+			DLog("Error. Could not access UITabBarItem")
+			break
+		}
+	}
 	
 	// MARK: Private
 	

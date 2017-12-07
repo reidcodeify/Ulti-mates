@@ -57,24 +57,20 @@ class FeedTableViewCellViewModel {
 	
 	// MARK: Public
 	
-	/// Takes a Bool, that determines how the event's players property should be manipulated
-	/// If true, the realm is written to and the event's players property is appended with activeAccount
-	/// If false, the realm is written to, and the event's players property inversely removes the activeAccount
-	///
-	/// - Parameter shouldAdd: Signals to this function how the event should be manipulated
-	func updatePlayerCount(shouldAdd: Bool) {
-		if (shouldAdd == true && !event.players.contains(activeAccount)) {
+	/// Updates the favorite list for the currently active account
+	func updateFavorites(shouldAdd: Bool, event: Event) {
+		if (shouldAdd && !activeAccount.favoriteEvents.contains(event)) {
 			try! event.realm?.write {
-				event.players.append(activeAccount)
+				activeAccount.favoriteEvents.append(event)
 			}
-		} else if (shouldAdd == false && event.players.contains(activeAccount)) {
+		} else if (!shouldAdd && activeAccount.favoriteEvents.contains(event)) {
 			try! event.realm?.write {
-				event.players.remove(objectAtIndex: event.players.index(of: activeAccount)!)
+				activeAccount.favoriteEvents.remove(objectAtIndex: activeAccount.favoriteEvents.index(of: event)!)
 			}
 		}
 	}
 	
-	/// Sets the backgroundImage of the call with the passed image
+	/// Sets the backgroundImage of the cell with the passed image
 	///
 	/// - Parameter image: An instance of UIImage
 	func updateBackgroundImage(image: UIImage) {

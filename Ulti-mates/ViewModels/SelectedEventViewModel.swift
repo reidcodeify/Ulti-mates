@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 // MARK: Class
 class SelectedEventViewModel {
@@ -27,7 +28,36 @@ class SelectedEventViewModel {
 	
 	// MARK: Private
 	
-	
 	// MARK: Public
 	
+	/// Adds the player to the local event's activePlayerList and removes them from the maybePlayerList if they were previously there
+	func playerIsAttending() {
+		if (event.maybePlayers.contains(activeAccount)) {
+			try! event.realm?.write {
+				event.maybePlayers.remove(at: event.maybePlayers.index(of: activeAccount)!)
+			}
+		}
+		
+		try! event.realm?.write {
+			event.activePlayers.append(activeAccount)
+		}
+	}
+	
+	/// Adds the player to the local event's maybePlayerList and removes them from the activePlayerList if they were previously there
+	func playerIsPossiblyAttending() {
+		if (event.activePlayers.contains(activeAccount)) {
+			try! event.realm?.write {
+				event.activePlayers.remove(at: event.activePlayers.index(of: activeAccount)!)
+			}
+		}
+		
+		try! event.realm?.write {
+			event.maybePlayers.append(activeAccount)
+		}
+	}
+	
+	/// Returns a value for determining which segment should be selected
+//	func determineSegment() -> Int {
+//		
+//	}
 }

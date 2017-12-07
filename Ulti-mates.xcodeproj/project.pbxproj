@@ -21,6 +21,9 @@
 		1F1955C11F29134A0036605A /* CreateAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1955C01F29134A0036605A /* CreateAccountViewModel.swift */; };
 		1F1955C41F29398C0036605A /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1955C21F29398C0036605A /* CreateAccountViewController.swift */; };
 		1F1955C51F29398C0036605A /* CreateAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F1955C31F29398C0036605A /* CreateAccountViewController.xib */; };
+		1F1FD7C51F47B4AD001037C9 /* PlayerCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1FD7C31F47B4AD001037C9 /* PlayerCardViewController.swift */; };
+		1F1FD7C61F47B4AD001037C9 /* PlayerCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F1FD7C41F47B4AD001037C9 /* PlayerCardViewController.xib */; };
+		1F1FD7C81F47B73F001037C9 /* PlayerCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1FD7C71F47B73F001037C9 /* PlayerCardViewModel.swift */; };
 		1F46CEFA1F02FA67000A73DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F46CEF71F02FA67000A73DA /* AppDelegate.swift */; };
 		1F46CEFB1F02FA67000A73DA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F46CEF81F02FA67000A73DA /* Extensions.swift */; };
 		1F46CEFC1F02FA67000A73DA /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F46CEF91F02FA67000A73DA /* Utils.swift */; };
@@ -100,6 +103,9 @@
 		1F1955C01F29134A0036605A /* CreateAccountViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewModel.swift; sourceTree = "<group>"; };
 		1F1955C21F29398C0036605A /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateAccountViewController.swift; path = ../../../../../../.Trash/CreateAccountViewController.swift; sourceTree = "<group>"; };
 		1F1955C31F29398C0036605A /* CreateAccountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CreateAccountViewController.xib; path = ../../../../../../.Trash/CreateAccountViewController.xib; sourceTree = "<group>"; };
+		1F1FD7C31F47B4AD001037C9 /* PlayerCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerCardViewController.swift; sourceTree = "<group>"; };
+		1F1FD7C41F47B4AD001037C9 /* PlayerCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerCardViewController.xib; sourceTree = "<group>"; };
+		1F1FD7C71F47B73F001037C9 /* PlayerCardViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerCardViewModel.swift; sourceTree = "<group>"; };
 		1F46CEF71F02FA67000A73DA /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "Ulti-mates/AppDelegate.swift"; sourceTree = SOURCE_ROOT; };
 		1F46CEF81F02FA67000A73DA /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = "Ulti-mates/Extensions.swift"; sourceTree = SOURCE_ROOT; };
 		1F46CEF91F02FA67000A73DA /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Utils.swift; path = "Ulti-mates/Utils.swift"; sourceTree = SOURCE_ROOT; };
@@ -309,6 +315,8 @@
 				1FF37E3C1F02F81B00F16383 /* ProfileViewController.xib */,
 				1FF37E3D1F02F81B00F16383 /* SelectedEventViewController.swift */,
 				1FF37E3E1F02F81B00F16383 /* SelectedEventViewController.xib */,
+				1F1FD7C31F47B4AD001037C9 /* PlayerCardViewController.swift */,
+				1F1FD7C41F47B4AD001037C9 /* PlayerCardViewController.xib */,
 			);
 			name = ViewControllers;
 			path = "Ulti-mates/ViewControllers";
@@ -338,6 +346,7 @@
 				1FF37E421F02F81B00F16383 /* FeedViewModel.swift */,
 				1FF37E431F02F81B00F16383 /* MessagesViewModel.swift */,
 				1FF37E481F02F81B00F16383 /* ProfileViewModel.swift */,
+				1F1FD7C71F47B73F001037C9 /* PlayerCardViewModel.swift */,
 			);
 			name = ViewModels;
 			path = "Ulti-mates/ViewModels";
@@ -502,6 +511,7 @@
 				1FF37E6B1F02F81B00F16383 /* FeedTableViewCell.xib in Resources */,
 				1F1955C51F29398C0036605A /* CreateAccountViewController.xib in Resources */,
 				1F5F27F71F2690D900216085 /* WelcomeViewController.xib in Resources */,
+				1F1FD7C61F47B4AD001037C9 /* PlayerCardViewController.xib in Resources */,
 				1FF37E5F1F02F81B00F16383 /* ProfileViewController.xib in Resources */,
 				1FF37E591F02F81B00F16383 /* FeedViewController.xib in Resources */,
 				1FF37E611F02F81B00F16383 /* SelectedEventViewController.xib in Resources */,
@@ -679,10 +689,12 @@
 				1FF37E601F02F81B00F16383 /* SelectedEventViewController.swift in Sources */,
 				1FF37E5A1F02F81B00F16383 /* MessagesViewController.swift in Sources */,
 				1FF37E651F02F81B00F16383 /* MessagesViewModel.swift in Sources */,
+				1F1FD7C81F47B73F001037C9 /* PlayerCardViewModel.swift in Sources */,
 				1FF37E661F02F81B00F16383 /* LogInViewModel.swift in Sources */,
 				1FB0B8C11F1ABCA9007555BB /* PlayersTableViewCell.swift in Sources */,
 				1FF37E691F02F81B00F16383 /* ProfileViewModel.swift in Sources */,
 				1F1727C51F1533D100D85DD7 /* RealmLocation.swift in Sources */,
+				1F1FD7C51F47B4AD001037C9 /* PlayerCardViewController.swift in Sources */,
 				1FF37E581F02F81B00F16383 /* FeedViewController.swift in Sources */,
 				1FF37E621F02F81B00F16383 /* CreateEventViewModel.swift in Sources */,
 				1FF37E631F02F81B00F16383 /* DashboardViewModel.swift in Sources */,

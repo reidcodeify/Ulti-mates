@@ -19,7 +19,7 @@ class FeedViewController: UIViewController {
 	@IBOutlet fileprivate weak var tableView: UITableView!
 	@IBOutlet fileprivate weak var mapView: GMSMapView!
 	let locationManager = CLLocationManager()
-	
+
 	fileprivate var viewModel: FeedViewModel
 	
 	// MARK: Life Cycle
@@ -56,13 +56,13 @@ class FeedViewController: UIViewController {
 		
 		let sortButton = UIBarButtonItem(title: "Sort", style: .plain, target: self, action: #selector(sortButtonHit(_:)))
 		navigationItem.leftBarButtonItem = sortButton
-		
+				
 		// Set up tableView
 		tableView.register(UINib(nibName: "FeedTableViewCell", bundle: nil), forCellReuseIdentifier: "FeedCell")
 		tableView.tableFooterView = UIView(frame: .zero)
 		tableView.topAnchor.constraint(equalTo: self.topLayoutGuide.bottomAnchor, constant: 0).isActive = true
 		tableView.bottomAnchor.constraint(equalTo: self.bottomLayoutGuide.topAnchor, constant: 0).isActive = true
-		tableView.rowHeight = self.tableView.bounds.height/3
+		tableView.rowHeight = self.tableView.bounds.height/4
 		
 		// Set up mapView
 		mapView.topAnchor.constraint(equalTo: self.topLayoutGuide.bottomAnchor, constant: 0).isActive = true
@@ -103,8 +103,6 @@ class FeedViewController: UIViewController {
 		// Set up mapView
 		locationManager.startUpdatingLocation()
 		layoutMapMarkers()
-		
-		
 	}
 	
     override func didReceiveMemoryWarning() {
@@ -173,7 +171,7 @@ class FeedViewController: UIViewController {
 extension FeedViewController: UITableViewDelegate, UITableViewDataSource, GMSMapViewDelegate, CLLocationManagerDelegate {
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell: FeedTableViewCell = tableView.dequeueReusableCell(withIdentifier: "FeedCell") as! FeedTableViewCell
-		cell.attendanceButton.addTarget(self, action: #selector(reloadTableViewCell(_:)), for: .touchUpInside)
+		cell.favoriteButton.addTarget(self, action: #selector(reloadTableViewCell(_:)), for: .touchUpInside)
 		return cell
 	}
 	
@@ -194,8 +192,8 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource, GMSMap
 		typeCastedCell.viewModel = cellViewModel
 		
 		// check to see if this activeAccount is already in the players for each event, if so, then enable the attending button
-		if (typeCastedCell.viewModel?.event.players.contains(self.viewModel.activeAccount))! {
-			typeCastedCell.attendanceButton.setImage(#imageLiteral(resourceName: "Frisbee Closed"), for: .normal)
+		if (typeCastedCell.viewModel?.activeAccount.favoriteEvents.contains(self.viewModel.events.value[indexPath.row].event))! {
+			typeCastedCell.favoriteButton.setImage(#imageLiteral(resourceName: "Favorite Closed"), for: .normal)
 		}
 	}
 	

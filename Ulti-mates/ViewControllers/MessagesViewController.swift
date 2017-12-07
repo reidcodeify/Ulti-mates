@@ -12,7 +12,7 @@ import UIKit
 class MessagesViewController: UIViewController {
 	// MARK: Properties
 	let identifier: String = "MessagesViewController"
-	
+
 	var viewModel: MessagesViewModel
 	
 	// MARK: Life Cycle
